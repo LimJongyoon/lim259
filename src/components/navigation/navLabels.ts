@@ -1,0 +1,28 @@
+import type { MobileTab } from "../../types/MobileTab";
+
+export const navLabels: Record<
+  "kr" | "en" | "jp",
+  Record<MobileTab, string>
+> = {
+  kr: {
+    home: "홈",
+    publications: "논문",
+    projects: "프로젝트",
+    cv: "이력",
+    others: "기타",
+  },
+  en: {
+    home: "Home",
+    publications: "Publications",
+    projects: "Projects",
+    cv: "CV",
+    others: "Others",
+  },
+  jp: {
+    home: "ホーム",
+    publications: "論文",
+    projects: "プロジェクト",
+    cv: "履歴",
+    others: "その他",
+  },
+};
