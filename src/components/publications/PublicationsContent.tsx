@@ -135,8 +135,8 @@ export default function PublicationsContent() {
                 <div
                   className="
                     grid items-start gap-3
-                    grid-cols-[96px_1fr_48px]
-                    md:grid-cols-[140px_1fr_72px]
+                    grid-cols-[100px_1fr_42px]
+                    md:grid-cols-[180px_1fr_72px]
                   "
                 >
                   {/* Thumbnail */}
@@ -170,10 +170,18 @@ export default function PublicationsContent() {
                     </h3>
 
                     <div className="text-xs text-neutral-500 line-clamp-1">
-                      {p.authors.map((a) => a.name).join(", ")}
+                      {p.authors.map((a, i) => (
+                        <span
+                          key={a.name}
+                          className={a.role === "first" ? "font-semibold text-neutral-700" : ""}
+                        >
+                          {a.name}
+                          {i < p.authors.length - 1 && ", "}
+                        </span>
+                      ))}
                     </div>
 
-                    <div className="text-xs text-neutral-400 line-clamp-1">
+                    <div className="text-xs text-neutral-400 italic line-clamp-1">
                       {venue}
                     </div>
                   </button>
