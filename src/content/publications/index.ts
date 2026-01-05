@@ -16,13 +16,20 @@ const parsedPublications: Publication[] = [];
 
 for (const raw of Object.values(modules)) {
   try {
-    const parsed = fm<Publication>(raw as string);
+    const parsed = fm<Omit<Publication, "body"> & {
+      body?: {
+        en?: string;
+        kr?: string;
+        jp?: string;
+      };
+    }>(raw as string);
 
     parsedPublications.push({
       ...parsed.attributes,
-      body: parsed.body,
+      body: parsed.attributes.body,
     });
   } catch (e) {
+    console.error("Failed to parse publication:", e);
   }
 }
 

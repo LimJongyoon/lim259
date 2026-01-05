@@ -30,7 +30,7 @@ export default function MobileLayout() {
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
-      <main className="pt-11 pb-14 px-4">{renderPage()}</main>
+      <main className="pt-3 pb-14 px-4">{renderPage()}</main>
       <BottomNav activeTab={tab} onChange={setTab} />
     </div>
   );

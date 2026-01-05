@@ -18,5 +18,9 @@ export type Publication = {
   media?: { video?: string };
   links?: { pdf?: string; doi?: string; video?: string };
   tags?: string[];
-  body?: string;
+  body?: {
+    en?: string;
+    kr?: string;
+    jp?: string;
+  };
 };

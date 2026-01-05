@@ -5,6 +5,8 @@ import type { Publication } from "../../types/Publication";
 
 export default function PublicationsContent() {
   const { lang } = useLanguage();
+  const contentLang: "en" | "kr" | "jp" =
+    lang === "en" || lang === "kr" || lang === "jp" ? lang : "en";
 
   /* ================= open state ================= */
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
@@ -99,7 +101,7 @@ export default function PublicationsContent() {
       )}
 
       {/* ===================== LIST ===================== */}
-      <div className="space-y-6">
+      <div className="space-y-4">
         {publications.map((p: Publication, index) => {
           const isOpen = openIds.has(p.id);
 
@@ -115,9 +117,8 @@ export default function PublicationsContent() {
 
           return (
             <div key={p.id}>
-              {/* ================= Year Divider ================= */}
               {showYearDivider && (
-                <div className="flex items-center gap-3 my-3 md:my-4">
+                <div className="flex items-center gap-3 my-2 md:my-4">
                   <span className="text-sm font-medium text-neutral-600">
                     {p.year}
                   </span>
@@ -126,9 +127,8 @@ export default function PublicationsContent() {
               )}
 
               {/* ================= Card ================= */}
-              <article
-                className={`
-                  pb-4
+              <article className={`
+                  pb-3
                   ${isFirstOfYear ? "" : "border-b border-neutral-200"}
                 `}
               >
@@ -176,18 +176,13 @@ export default function PublicationsContent() {
                     <div className="text-xs text-neutral-400 line-clamp-1">
                       {venue}
                     </div>
-
-                    {/* ===== Mobile meta restored ===== */}
-                    <div className="md:hidden flex gap-2 text-[10px] text-neutral-400 pt-0.5">
-                      <span className="uppercase">{p.type}</span>
-                      <span>{p.scope}</span>
-                    </div>
                   </button>
 
                   {/* Right */}
-                  <div className="flex flex-col items-end gap-1 text-[11px] text-neutral-400">
-                    <span className="hidden md:block uppercase">{p.type}</span>
-                    <span className="hidden md:block">{p.scope}</span>
+                  <div className="flex flex-col items-center justify-center gap-1 text-[9px] text-neutral-400">
+
+                    <span className="uppercase text-center">{p.type}</span>
+                    <span className="text-center">{p.scope}</span>
 
                     {p.links?.pdf && (
                       <a
@@ -224,7 +219,26 @@ export default function PublicationsContent() {
 
                     {p.body && (
                       <div className="whitespace-pre-line leading-relaxed">
-                        {p.body}
+                        {p.body[contentLang] ?? p.body.en}
+                      </div>
+                    )}
+                    {p.tags && p.tags.length > 0 && (
+                      <div className="pt-2 flex flex-wrap gap-1.5">
+                        {p.tags.map((tag) => (
+                          <span
+                            key={tag}
+                            className="
+          text-[10px]
+          px-2 py-0.5
+          rounded-full
+          bg-neutral-100
+          text-neutral-500
+          leading-tight
+        "
+                          >
+                            #{tag}
+                          </span>
+                        ))}
                       </div>
                     )}
                   </div>
