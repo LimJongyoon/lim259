@@ -35,26 +35,24 @@ body {
 /* ================= PRINT ================= */
 
 @media print {
-  body * {
-    visibility: hidden;
+  body {
+    overflow: visible !important;
   }
 
-  .cv-paper,
-  .cv-paper * {
-    visibility: visible;
+  nav,
+  aside,
+  header,
+  footer,
+  #main-content,
+  .print\:hidden {
+    display: none !important;
   }
 
   .cv-paper {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-  }
-
-  @page {
-    size: A4;
-    margin: 20mm;
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 auto !important;
   }
 }
-
 
