@@ -17,8 +17,8 @@ export const cvContent = {
       gpa: "3.89 / 4.30",
       coursework: {
         en: "Human-Computer Interaction, Artificial Intelligence, Haptics, AR/VR",
-        kr: "인간-컴퓨터 상호작용, 인공지능, 햅틱스, AR/VR",
-        jp: "HCI, 人工知能, ハプティクス, AR/VR",
+        kr: "HCI, 인공지능, Haptics, AR/VR",
+        jp: "HCI, 人工知能, Haptics, AR/VR",
       },
       year: "2019–2021",
     },

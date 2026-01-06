@@ -3,7 +3,11 @@ import CVContent from "../../components/cv/CVContent";
 import type { Lang } from "../../content/cv";
 
 export default function CV() {
-  const [lang] = useState<Lang>("en");
+  const [lang, setLang] = useState<Lang>("en");
 
-  return <CVContent lang={lang} />;
-}
+  return (
+    <CVContent
+      lang={lang}
+      onChangeLang={setLang}
+    />
+  );}

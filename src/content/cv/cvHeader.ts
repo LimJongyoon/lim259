@@ -5,9 +5,9 @@ export const cvHeader = {
     jp: "イム・ジョンユン",
   },
   contact: {
-    phone: "+82-10-XXXX-XXXX",
-    email: "your@email.com",
-    website: "https://your-site.vercel.app",
+    phone: "+82-10-2954-0906",
+    email: "limjy.kor@email.com",
+    website: "https://",
   },
   location: {
     en: "Seoul, South Korea",

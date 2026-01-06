@@ -32,21 +32,29 @@ body {
   animation: scroll-strong 1.4s infinite;
 }
 
+/* ================= PRINT ================= */
+
 @media print {
   body * {
     visibility: hidden;
   }
 
-  #cv,
-  #cv * {
+  .cv-paper,
+  .cv-paper * {
     visibility: visible;
   }
 
-  #cv {
+  .cv-paper {
     position: absolute;
     left: 0;
     top: 0;
     width: 100%;
   }
+
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
 }
+
 

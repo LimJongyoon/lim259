@@ -62,7 +62,7 @@ export default function PublicationsContent() {
 
       {/* ===================== PC TOGGLE ===================== */}
       {hasEntered && (
-        <div className="hidden md:block fixed bottom-32 right-6 z-30">
+        <div className="hidden md:block fixed bottom-48 right-6 z-30">
           <div className="mb-1 text-[11px] text-neutral-500">
             {sectionLabel.publications[lang] ?? sectionLabel.publications.en}
           </div>
