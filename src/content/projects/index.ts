@@ -6,13 +6,6 @@ const modules = import.meta.glob("./*.md", {
   eager: true,
 });
 
-const typePriority: Record<Project["type"], number> = {
-  "Startup Attempt": 0,
-  "Industry Collaboration": 1,
-  "Self-initiated Project": 2,
-  "Research Prototype": 3,
-};
-
 const parsedProjects: Project[] = [];
 
 for (const raw of Object.values(modules)) {
