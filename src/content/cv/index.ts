@@ -1,7 +1,5 @@
-// src/content/cv.ts
+// src/content/cv/cv.ts
 export type Lang = "en" | "kr" | "jp";
-
-/* ---------- EDUCATION / EXPERIENCE / ETC ---------- */
 
 export const cvContent = {
   education: [

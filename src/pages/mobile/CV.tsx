@@ -1,8 +1,9 @@
+import { useState } from "react";
+import CVContent from "../../components/cv/CVContent";
+import type { Lang } from "../../content/cv";
+
 export default function CV() {
-  return (
-    <div className="py-6">
-      <h1 className="text-xl font-semibold">CV</h1>
-      <div className="mt-4 h-[120vh] bg-gray-100 rounded-lg" />
-    </div>
-  );
+  const [lang] = useState<Lang>("en");
+
+  return <CVContent lang={lang} />;
 }

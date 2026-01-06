@@ -33,23 +33,20 @@ body {
 }
 
 @media print {
-  body {
-    background: white !important;
-    color: black !important;
+  body * {
+    visibility: hidden;
   }
 
-  .cv-paper {
-    box-shadow: none !important;
-    border: none !important;
-    max-width: none !important;
-    padding: 0 !important;
+  #cv,
+  #cv * {
+    visibility: visible;
   }
 
-  button {
-    display: none !important;
-  }
-
-  section {
-    page-break-inside: avoid;
+  #cv {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
+
