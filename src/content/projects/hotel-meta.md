@@ -10,7 +10,7 @@ scope:
   en: MCST, ARKO
   kr: 문화체육관광부, 한국문화예술위원회
 
-thumbnail: "src/assets/projects/hotelmeta.png"
+thumbnail: "/projects/hotelmeta.png"
 
 title:
   en: "Hotel Meta"

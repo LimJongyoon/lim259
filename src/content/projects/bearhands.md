@@ -10,7 +10,7 @@ scope:
   en: Korea Creative Content Agency
   kr: 한국콘텐츠진흥원
 
-thumbnail: "src/assets/projects/bearhands.png"
+thumbnail: "/projects/bearhands.png"
 
 title:
   en: "BearHands"

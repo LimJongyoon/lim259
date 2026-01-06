@@ -10,7 +10,7 @@ scope:
   en: Electronics and Telecommunications Research Institute (ETRI)
   kr: 한국전자통신연구원(ETRI)
 
-thumbnail: "src/assets/projects/Idealavor.png"
+thumbnail: "/projects/Idealavor.png"
 
 title:
   en: "Idealavor: Multi-Modality Eating Texture Haptic Device"

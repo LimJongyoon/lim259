@@ -10,7 +10,7 @@ scope:
   en: XREAL Competition
   kr: XREAL 공모전
 
-thumbnail: "src/assets/projects/space2.png"
+thumbnail: "/projects/space2.png"
 
 title:
   en: "Starbound Odyssey"

@@ -10,7 +10,7 @@ scope:
   en: National Museum of Korea, d'strict
   kr: 국립중앙박물관, 디스트릭트
 
-thumbnail: "src/assets/projects/BLE2.png"
+thumbnail: "/projects/BLE2.png"
 
 title:
   en: "BLE-based Indoor Positioning and AR Wayfinding System"

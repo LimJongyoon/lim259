@@ -1,6 +1,7 @@
 ---
 id: everpen-2
 year: 2023
+order: 1
 
 type:
   en: Product Development
@@ -10,7 +11,7 @@ scope:
   en: Startup (ALAM)
   kr: 스타트업 창업 (ALAM)
 
-thumbnail: "src/assets/projects/everpen2.png"
+thumbnail: "/projects/everpen2.png"
 
 title:
   en: "EverPen 2.0"

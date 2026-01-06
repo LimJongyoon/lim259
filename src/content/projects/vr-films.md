@@ -10,7 +10,7 @@ scope:
   en: KT Super VR Contest
   kr: KT 슈퍼 VR 공모전
 
-thumbnail: "src/assets/projects/vrfilm.png"
+thumbnail: "/projects/vrfilm.png"
 
 title:
   en: "The Glasses: Interactive VR Film"

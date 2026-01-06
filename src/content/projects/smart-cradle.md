@@ -10,7 +10,7 @@ scope:
   en: Startup (Panopticon)
   kr: 스타트업 창업 (판옵티콘)
 
-thumbnail: "src/assets/projects/cradle.png"
+thumbnail: "/projects/cradle.png"
 
 title:
   en: "Smart Cradle"

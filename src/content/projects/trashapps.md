@@ -10,7 +10,7 @@ scope:
   en: Personal Project
   kr: 개인 프로젝트
 
-thumbnail: "src/assets/projects/trashapps.png"
+thumbnail: "/projects/trashapps.png"
 
 title:
   en: "Trashapps: Simple Interactive Apps"

@@ -5,7 +5,7 @@ order: 2
 type:
 scope: Extended Abstract
 
-thumbnail: "/src/assets/publications/birdVR.png"
+thumbnail: "/publications/birdVR.png"
 
 title:
   en: "BirdVR: UX Design Enhancing the Connection Between VR Controller Form and Interaction"

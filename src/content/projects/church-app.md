@@ -10,7 +10,7 @@ scope:
   en: Freelance
   kr: 개인 외주 작업
 
-thumbnail: "src/assets/projects/churchapp.png"
+thumbnail: "/projects/churchapp.png"
 
 title:
   en: "Our Beloved Church – Youth Ministry Bible Study App"

@@ -10,7 +10,7 @@ scope:
   en: Startup (ALAM)
   kr: 스타트업 창업 (ALAM)
 
-thumbnail: "src/assets/projects/everpen1.png"
+thumbnail: "/projects/everpen1.png"
 
 title:
   en: "EverPen 1.0"

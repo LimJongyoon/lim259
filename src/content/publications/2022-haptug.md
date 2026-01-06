@@ -5,7 +5,7 @@ order: 1
 type: 
 scope: Full paper
 
-thumbnail: "/src/assets/publications/haptug.png"
+thumbnail: "/publications/haptug.png"
 
 title:
   en: "HapTug: Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"

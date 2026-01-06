@@ -1,6 +1,7 @@
 ---
 id: stern
 year: 2023
+order: 2
 
 type:
   en: Exhibition
@@ -10,7 +11,7 @@ scope:
   en: DoubleMe, The Cave Seoul
   kr: 더블미, 더케이브 서울
 
-thumbnail: "src/assets/projects/Stern.png"
+thumbnail: "/projects/Stern.png"
 
 title:
   en: "Stern: Immersive Urban AR Experience"

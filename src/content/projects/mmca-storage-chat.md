@@ -1,6 +1,7 @@
 ---
 id: mmca-storage-chat
 year: 2025
+order: 1
 
 type:
   en: App Development
@@ -10,7 +11,7 @@ scope:
   en: National Museum of Modern and Contemporary Art, Korea
   kr: 국립현대미술관
 
-thumbnail: "src/assets/projects/MMCA.png"
+thumbnail: "/projects/MMCA.png"
 
 title:
   en: "MMCA Storage Chat Mobile: AI Docent Application"

@@ -4,7 +4,7 @@ year: 2024
 type:
 scope: Full paper
 
-thumbnail: "/src/assets/publications/blind.png"
+thumbnail: "/publications/blind.png"
 
 title:
   en: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"

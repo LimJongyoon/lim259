@@ -10,7 +10,7 @@ scope:
   en: MOTIE, KIAT
   kr: 산업통상자원부 · 한국산업기술진흥원 · 공학교육혁신협의회
 
-thumbnail: "src/assets/projects/tableit.png"
+thumbnail: "/projects/tableit.png"
 
 title:
   en: "Table-It: Motion and Color Recognition AR Table"
