@@ -5,6 +5,14 @@ import { cvContent } from "../../content/cv/";
 import CVPrintButton from "./CVPrintButton";
 import type { Lang } from "../../content/cv/";
 
+{/*
+const cvNotice = {
+  en: "This CV is available in multiple languages. You can download language-specific versions.",
+  kr: "이 CV는 여러 언어로 제공됩니다. 언어별 버전을 다운로드할 수 있습니다.",
+  jp: "このCVは複数の言語で提供されています。言語別のバージョンをダウンロードできます。",
+};
+*/}
+
 export default function CVContent({
   lang,
   onChangeLang,
@@ -14,51 +22,68 @@ export default function CVContent({
 }) {
   return (
     <>
-      <CVPrintButton />
-      <div className="space-y-6">
-        <section className="px-4 pt-8 mx-auto print:hidden">
-          <h2 className="text-lg font-semibold mb-2">Curriculum Vitae</h2>
-          <p className="text-xs text-neutral-500">
-            This CV is available in multiple languages. You can download
-            language-specific versions.
-          </p>
-          <div className="flex gap-4 pt-2 text-sm text-neutral-500 mb-1">
-            {(["en", "kr", "jp"] as Lang[]).map((l) => (
-              <button
-                key={l}
-                onClick={() => onChangeLang(l)}
-                className={l === lang ? "underline font-medium" : ""}
-              >
-                {l.toUpperCase()}
-              </button>
-            ))}
+<CVPrintButton />
 
-            <button
-              className="underline"
-              onClick={() => {
-                document.title = `CV_LimJongyoon_${lang.toUpperCase()}`;
-                window.print();
-              }}
-            >
-              PDF
-            </button>
-          </div>
-        </section>
+<div className="space-y-6">
+  <section className="px-4 pt-8 mx-auto print:hidden">
+    <h2 className="text-lg font-semibold mb-2">Curriculum Vitae</h2>
+
+    <div className="flex items-center gap-4 pt-2 mb-1">
+      {/* ===== View selector ===== */}
+      <div className="flex rounded-md border border-neutral-300 overflow-hidden text-xs">
+        {(["en", "kr", "jp"] as Lang[]).map((l) => (
+          <button
+            key={l}
+            onClick={() => onChangeLang(l)}
+            className={`
+              px-1.5 py-1.5
+              transition
+              ${l === lang
+                ? "bg-neutral-900 text-white"
+                : "bg-white text-neutral-600 hover:bg-neutral-100"}
+            `}
+          >
+            {l.toUpperCase()} View
+          </button>
+        ))}
+      </div>
+
+      {/* ===== PDF download ===== */}
+      <button
+        className="
+          px-3 py-1.5
+          text-xs
+          rounded-md
+          border border-blue-700
+          text-blue-700
+          hover:bg-blue-700 hover:text-white
+          transition
+        "
+        onClick={() => {
+          document.title = `CV_LimJongyoon_${lang.toUpperCase()}`;
+          window.print();
+        }}
+      >
+        PDF Download
+      </button>
+    </div>
+  </section>
 
 
         <div className="flex justify-center">
           <div
             className="
-    cv-paper
-    w-full
-    px-4 py-8
-    text-sm leading-relaxed
-    bg-white border border-neutral-200 rounded-lg
-    md:max-w-[900px]
-    md:rounded-none
-    md:shadow-xl md:border-neutral-200
-    md:px-16 md:py-24
-  "
+                      cv-paper
+                      w-full
+                      px-4 py-6
+                      text-xs leading-relaxed
+                      bg-white border border-neutral-200 rounded-lg
+                      md:max-w-[900px]
+                      md:text-sm
+                      md:rounded-none
+                      md:shadow-xl md:border-neutral-200
+                      md:px-16 md:py-24
+                      "
           >
             {/* HEADER */}
             <section className="mb-12">
