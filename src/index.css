@@ -31,3 +31,25 @@ body {
 .animate-scroll-strong {
   animation: scroll-strong 1.4s infinite;
 }
+
+@media print {
+  body {
+    background: white !important;
+    color: black !important;
+  }
+
+  .cv-paper {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: none !important;
+    padding: 0 !important;
+  }
+
+  button {
+    display: none !important;
+  }
+
+  section {
+    page-break-inside: avoid;
+  }
+}

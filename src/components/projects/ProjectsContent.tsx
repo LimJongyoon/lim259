@@ -40,7 +40,7 @@ export default function ProjectsContent() {
   return (
     <section
       ref={sectionRef}
-      className="relative px-4 pt-8 pb-24 max-w-[900px] mx-auto"
+      className="relative px-4 pt-8 pb-24 mx-auto"
     >
       <h2 className="text-lg font-semibold mb-6">Projects</h2>
 
