@@ -7,8 +7,8 @@ type:
   kr: 소프트웨어 개발
 
 scope:
-  en: National Museum of Korea
-  kr: 국립중앙박물관
+  en: National Museum of Korea, d'strict
+  kr: 국립중앙박물관, 디스트릭트
 
 thumbnail: "src/assets/projects/BLE2.png"
 
@@ -20,9 +20,14 @@ affiliation:
   - en: "Indoor AR wayfinding system visualizing visitor movement using BLE beacons"
     kr: "BLE 및 비콘을 활용하여 관람객의 이동 경로를 시각화하는 실내 AR 웨이파인딩 시스템"
 
+media:
+  video: "https://www.youtube.com/embed/EeVNgkGrr6k?si=P4xgQjaymQvyCp57"
+
 tags:
   - BLE
-  - Augmented Reality
+  - AR
+  - Unity
+  - C#
   - Image Recognition
 
 body:

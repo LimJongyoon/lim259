@@ -7,8 +7,8 @@ type:
   kr: 전시
 
 scope:
-  en: 
-  kr: 
+  en: MCST, ARKO
+  kr: 문화체육관광부, 한국문화예술위원회
 
 thumbnail: "src/assets/projects/hotelmeta.png"
 
@@ -19,6 +19,9 @@ title:
 affiliation:
   - en: "Development of mechanical systems synchronized with human movement and VR content"
     kr: "사람의 움직임과 VR 콘텐츠에 동기화되는 기계 장치 시스템 개발"
+
+media:
+  video: "https://www.youtube.com/embed/j7qhWjRjR50?si=3TQ-DvN_BwZ11xEZ" 
 
 tags:
   - C/C++

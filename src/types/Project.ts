@@ -30,6 +30,7 @@ export type Project = {
 
   media?: {
     video?: string;
+    image?: string;
   };
 
   tags: SkillKey[];

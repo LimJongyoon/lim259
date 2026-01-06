@@ -236,19 +236,37 @@ export default function PublicationsContent() {
                           <span
                             key={tag}
                             className="
-          text-[10px]
-          px-2 py-0.5
-          rounded-full
-          bg-neutral-100
-          text-neutral-500
-          leading-tight
-        "
+                              text-[10px]
+                              px-2 py-0.5
+                              rounded-full
+                              bg-neutral-100
+                              text-neutral-500
+                              leading-tight
+                            "
                           >
                             #{tag}
                           </span>
                         ))}
                       </div>
                     )}
+
+                    {/* ===== Collapse button ===== */}
+                    <button
+                      onClick={() => toggleOne(p.id)}
+                      className="
+    mt-6 w-full
+    flex flex-col items-center
+    text-xs text-neutral-400
+    hover:text-neutral-700
+    transition
+  "
+                    >
+                      <span className="text-base leading-none">↑</span>
+                      <span className="mt-1">
+                        {lang === "kr" ? "접기" : "Collapse"}
+                      </span>
+                      <div className="mt-4 w-full h-px bg-neutral-200" />
+                    </button>
                   </div>
                 )}
               </article>

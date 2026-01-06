@@ -7,8 +7,8 @@ type:
   kr: 제품 개발
 
 scope:
-  en: Startup Project
-  kr: 스타트업 창업
+  en: Startup (ALAM)
+  kr: 스타트업 창업 (ALAM)
 
 thumbnail: "src/assets/projects/everpen1.png"
 
@@ -21,6 +21,9 @@ affiliation:
     kr: "VR 컨트롤러에 부착하여 사용하는 펜형 공간 추적 입력 디바이스"
   - en: "Exhibited at Korea Electronics Show 2023"
     kr: "Korea Electronics Show 2023 전시"
+
+media:
+  video: "https://www.youtube.com/embed/TAGLARW4-vk?si=xM7ynV1IuExiipMm" 
 
 tags:
   - Circuit Design
