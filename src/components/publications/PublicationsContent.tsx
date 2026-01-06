@@ -127,10 +127,12 @@ export default function PublicationsContent() {
               )}
 
               {/* ================= Card ================= */}
-              <article className={`
-                  pb-3
-                  ${isFirstOfYear ? "" : "border-b border-neutral-200"}
-                `}
+              <article
+                id={`publication-${p.id}`}
+                className={`
+    pb-3
+    ${isFirstOfYear ? "" : "border-b border-neutral-200"}
+  `}
               >
                 <div
                   className="
@@ -173,7 +175,7 @@ export default function PublicationsContent() {
                       {p.authors.map((a, i) => (
                         <span
                           key={a.name}
-                          className={a.role === "first" ? "font-semibold text-neutral-700" : ""}
+                          className={a.role === "first" ? "font-semibold text-blue-800" : ""}
                         >
                           {a.name}
                           {i < p.authors.length - 1 && ", "}
@@ -254,12 +256,12 @@ export default function PublicationsContent() {
                     <button
                       onClick={() => toggleOne(p.id)}
                       className="
-    mt-6 w-full
-    flex flex-col items-center
-    text-xs text-neutral-400
-    hover:text-neutral-700
-    transition
-  "
+                                  mt-6 w-full
+                                  flex flex-col items-center
+                                  text-xs text-neutral-400
+                                  hover:text-neutral-700
+                                  transition
+                                "
                     >
                       <span className="text-base leading-none">↑</span>
                       <span className="mt-1">

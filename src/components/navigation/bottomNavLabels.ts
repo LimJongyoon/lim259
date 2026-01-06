@@ -5,14 +5,14 @@ export const bottomNavLabels: Record<
   Record<MobileTab, string>
 > = {
   kr: {
-    home: "홈",
+    home: "소개",
     publications: "논문",
     projects: "프로젝트",
     cv: "이력",
     others: "기타",
   },
   en: {
-    home: "Home",
+    home: "About",
     publications: "Publications",
     projects: "Projects",
     cv: "CV",

@@ -13,7 +13,7 @@ export default function DesktopLayout({ children }: Props) {
       <HomeHero />
 
       <div className="flex">
-        <aside className="w-56 border-r border-gray-200">
+        <aside className="w-25 border-r ">
           <SideNav />
         </aside>
 

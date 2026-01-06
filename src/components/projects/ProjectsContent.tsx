@@ -97,7 +97,7 @@ export default function ProjectsContent() {
                 </div>
               )}
 
-              <article className="pb-4">
+              <article id={`project-${p.id}`} className="pb-4">
                 <div className="grid items-start gap-4 grid-cols-[120px_1fr] md:grid-cols-[180px_1fr_80px]">
                   <div className="aspect-[4/3] bg-neutral-100 rounded-md overflow-hidden">
                     {p.thumbnail && (
