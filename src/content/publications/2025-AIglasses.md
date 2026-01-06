@@ -8,7 +8,7 @@ thumbnail: "/publications/glasses.png"
 
 title:
   en: "Towards Mixed Reality AI Docents: Egocentric Smart Glasses with Vision and LLM Interaction"
-  kr: "혼합현실 AI 도슨트를 향하여: 시각 인식과 LLM 상호작용을 활용한 에고센트릭 스마트 글래스"
+  kr: "Towards Mixed Reality AI Docents: Egocentric Smart Glasses with Vision and LLM Interaction"
 
 authors:
   - name: Jongyoon Lim

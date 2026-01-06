@@ -8,7 +8,7 @@ thumbnail: "/publications/blind.png"
 
 title:
   en: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"
-  kr: "Guide Dog AR: 시각장애인을 위한 안내견 모티프 기반 촉각·청각 보조 디바이스 디자인"
+  kr: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"
 
 authors:
   - name: Soo Min Shin

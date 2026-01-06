@@ -54,7 +54,7 @@ export default function CVContent({
     px-4 py-8
     text-sm leading-relaxed
     bg-white border border-neutral-200 rounded-lg
-    md:max-w-[794px]
+    md:max-w-[900px]
     md:rounded-none
     md:shadow-xl md:border-neutral-200
     md:px-16 md:py-24
@@ -75,21 +75,50 @@ export default function CVContent({
 
             {/* EDUCATION */}
             <Section title={t(lang, "Education")}>
-              {cvContent.education.map((e, i) => (
-                <Entry key={i} title={e.title[lang]} right={e.year}>
-                  <p>
+              {cvContent.education.map((e) => (
+                <Entry
+                  title={
+                    <>
+                      {e.title[lang]}
+                      <span className="text-neutral-600 font-normal italic text-[14px]">
+                        , {e.city[lang]}
+                      </span>
+                    </>
+                  }
+                  right={e.year}
+                >
+                  <span className="text-neutral-600 text-[14px]">
                     {e.degree[lang]}, GPA: {e.gpa}
-                  </p>
-                  <p className="italic">{e.coursework[lang]}</p>
+                  </span>
                 </Entry>
+
               ))}
             </Section>
 
             {/* PROFESSIONAL */}
             <Section title={t(lang, "Professional Experience")}>
               {cvContent.professional.map((p, i) => (
-                <Entry key={i} title={p.role[lang]} right={p.year}>
-                  {p.org[lang]}
+                <Entry
+                  key={i}
+                  title={<>{p.role[lang]}</>}
+                  right={p.year}
+                >
+                  <span className="text-neutral-600 text-[14px]">
+                    {p.org[lang]}
+                  </span>
+                  {", "}
+                  <span className="text-neutral-600 text-[13px] italic">
+                    {p.city[lang].join("/")}
+                  </span>
+
+                  {/* details (optional) */}
+                  {p.details?.[lang] && (
+                    <ul className="mt-1 ml-4 list-disc text-[12px] text-neutral-600 leading-relaxed">
+                      {p.details[lang].map((d, idx) => (
+                        <li key={idx}>{d}</li>
+                      ))}
+                    </ul>
+                  )}
                 </Entry>
               ))}
             </Section>
@@ -102,8 +131,8 @@ export default function CVContent({
                   title={p.title[lang] ?? p.title.en}
                   right={String(p.year)}
                 >
-                  <p>{p.authors?.map((a) => a.name).join(", ")}</p>
-                  <p className="italic">{p.venue[lang] ?? p.venue.en}</p>
+                  <p className="mt- 0.5text-neutral-600 text-[14px]">{p.authors?.map((a) => a.name).join(", ")}</p>
+                  <p className="mt-0.5 italic text-neutral-600 text-[14px]">{p.venue[lang] ?? p.venue.en}</p>
                 </Entry>
               ))}
             </Section>
@@ -115,17 +144,20 @@ export default function CVContent({
                   key={p.id}
                   title={
                     <span>
-                      <strong>{p.title[lang] ?? p.title.en}</strong>{" "}
-                      <span className="font-normal">
-                        ({p.type?.[lang] ?? ""})
+                      <strong>{p.title[lang] ?? p.title.en}</strong>
+                      <span className="text-neutral-600 text-[14px] font-normal italic">
+                        , {p.type?.[lang] ?? ""}
                       </span>
                     </span>
                   }
                   right={String(p.year)}
                 >
                   {p.affiliation?.map((a, i) => (
-                    <p key={i}>{a[lang] ?? a.en}</p>
+                    <p key={i} className="mt-0.5 text-neutral-600 text-[13px] pl-2">
+                      {" "} •  {a[lang] ?? a.en}
+                    </p>
                   ))}
+
                 </Entry>
               ))}
             </Section>
@@ -133,17 +165,39 @@ export default function CVContent({
             {/* ACTIVITIES */}
             <Section title={t(lang, "Additional Experience & Activities")}>
               {cvContent.activities.map((a, i) => (
-                <Entry key={i} title={a.title[lang]} right={a.year}>
-                  {a.place[lang]}
-                </Entry>
+                <Entry
+                  key={i}
+                  title={
+                    <>
+                      {a.title[lang]}
+                      {", "}
+                      <span className="text-neutral-600 text-[14px] font-normal italic">
+                        {a.place[lang]}
+                      </span>
+                    </>
+                  }
+                  right={a.year}
+                />
               ))}
             </Section>
+
 
             {/* AWARDS */}
             <Section title={t(lang, "Awards")}>
               {cvContent.awards.map((a, i) => (
-                <Entry key={i} title={a.title[lang]} right={a.year}>
-                  {a.project}
+                <Entry key={i} title={
+                  <>
+                    {a.title[lang]}
+                    {", "}
+                    <span className="text-neutral-600 text-[14px] font-normal italic">
+                      {a.project}
+                    </span>
+                  </>
+                }
+                  right={a.year}>
+                  <span className="text-neutral-600 text-[14px] font-normal">
+                    {a.explain[lang]}
+                  </span>
                 </Entry>
               ))}
             </Section>
@@ -195,9 +249,14 @@ export default function CVContent({
     return (
       <div className="flex justify-between gap-6">
         <div>
-          <div className="font-medium">{title}</div>
-          {children && <div className="text-neutral-700">{children}</div>}
-        </div>
+          <div className="font-semibold">
+            {title}
+          </div>
+          {children && (
+            <div className="text-neutral-600 text-sm leading-snug">
+              {children}
+            </div>
+          )}        </div>
         {right && <div className="text-neutral-500 whitespace-nowrap">{right}</div>}
       </div>
     );

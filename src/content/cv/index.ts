@@ -5,10 +5,16 @@ export const cvContent = {
   education: [
     {
       title: {
-        en: "Sogang University, Seoul",
-        kr: "서강대학교, 서울",
-        jp: "西江大学校, ソウル",
+        en: "Sogang University",
+        kr: "서강대학교",
+        jp: "西江大学校",
       },
+      city: {
+        en: "Seoul",
+        kr: "서울",
+        jp: "ソウル",
+      },
+
       degree: {
         en: "M.S., Art & Technology",
         kr: "석사, 아트 & 테크놀로지",
@@ -24,10 +30,16 @@ export const cvContent = {
     },
     {
       title: {
-        en: "Soongsil University, Seoul",
-        kr: "숭실대학교, 서울",
-        jp: "崇実大学校, ソウル",
+        en: "Soongsil University",
+        kr: "숭실대학교",
+        jp: "崇実大学校",
       },
+      city: {
+        en: "Seoul",
+        kr: "서울",
+        jp: "ソウル",
+      },
+
       degree: {
         en: "B.S., Electronic Engineering (ABEEK)",
         kr: "학사, 전자공학 (ABEEK)",
@@ -46,20 +58,163 @@ export const cvContent = {
   professional: [
     {
       role: {
+        en: "PM / Research Engineer / Software Architect",
+        kr: "PM / 연구 엔지니어 / 소프트웨어 아키텍트",
+        jp: "PM / 研究エンジニア / ソフトウェアアーキテクト",
+      },
+      org: {
+        en: "Department of Art & Technology, Sogang University",
+        kr: "서강대학교 아트앤테크놀로지학과",
+        jp: "西江大学校 アート＆テクノロジー学科",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2021–2025",
+      details: {
+        en: [
+          "Led immersive content research projects in collaboration with national museums and research institutes",
+          "Project Manager for multisensory interaction and accessibility technology projects with ETRI",
+          "Developed user scenarios and form factors for visual-to-auditory translation technologies for blind poeple",
+          "Project Manager for kiosk UI/UX improvement projects for public-facing services",
+        ],
+        kr: [
+          "국립현대미술관 수장고 실감형 콘텐츠 연구 프로젝트 수행",
+          "ETRI 협력 다중감각 인터랙션 및 접근성 기술 프로젝트 PM",
+          "시각장애인을 위한 시각-청각 변환 기술 사용자 시나리오 및 형상 개발",
+          "공공 서비스용 키오스크 UI/UX 개선 프로젝트 PM",
+        ],
+        jp: [
+          "国立美術館および研究機関と連携した没入型コンテンツ研究プロジェクトを担当",
+          "ETRIと協力した多感覚インタラクションおよびアクセシビリティ技術プロジェクトのプロジェクトマネジメントを担当",
+          "視覚障害者向け視覚―聴覚変換技術におけるユーザーシナリオおよびフォームファクター設計",
+          "公共サービス向けキオスクUI/UX改善プロジェクトのプロジェクトマネジメントを担当",
+        ],
+      },
+    },
+    {
+      role: {
+        en: "Co-founder",
+        kr: "창업",
+        jp: "創業",
+      },
+      org: {
+        en: "ALAM",
+        kr: "ALAM",
+        jp: "ALAM",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2022–2024",
+    },
+    {
+      role: {
+        en: "Independent Entrepreneur",
+        kr: "창업",
+        jp: "起業",
+      },
+      org: {
+        en: "Panopticon Korea",
+        kr: "파놉티콘 코리아",
+        jp: "パノプティコン・コリア",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2019–2021",
+    },
+    {
+      role: {
         en: "Semiconductor Optical Engineer",
         kr: "반도체 광학 엔지니어",
         jp: "半導体光学エンジニア",
       },
       org: {
-        en: "Canon, Suwon / Utsunomiya / Munich",
-        kr: "캐논, 수원 / 우츠노미야 / 뮌헨",
-        jp: "キヤノン, 水原 / 宇都宮 / ミュンヘン",
+        en: "Canon",
+        kr: "캐논",
+        jp: "キヤノン",
+      },
+      city: {
+        en: ["Suwon", "Utsunomiya", "Munich"],
+        kr: ["수원", "우츠노미야", "뮌헨"],
+        jp: ["水原", "宇都宮", "ミュンヘン"],
       },
       year: "2017–2019",
+    },
+    {
+      role: {
+        en: "Research Intern",
+        kr: "연구 인턴",
+        jp: "研究インターン",
+      },
+      org: {
+        en: "Soongsil University Multimedia Signal Processing Lab",
+        kr: "숭실대학교 전기공학부 멀티미디어 신호처리 연구실",
+        jp: "崇実大学校のマルチメディア信号処理研究室",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2017",
+    },
+    {
+      role: {
+        en: "High School Physics & Earth Science Instructor",
+        kr: "고등학교 물리·지구과학 강사",
+        jp: "高校 物理・地学 講師",
+      },
+
+      org: {
+        en: "Independent",
+        kr: "개인",
+        jp: "個人",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2014–2015",
     },
   ],
 
   activities: [
+    {
+      title: {
+        en: "Participated in the CES 2025 exhibition booth",
+        kr: "CES 2025 전시 부스 참가",
+        jp: "CES 2025 展示ブース参加",
+      },
+      place: {
+        en: "Las Vegas, USA",
+        kr: "미국 라스베이거스",
+        jp: "米国 ラスベガス",
+      },
+      year: "2025",
+    },
+    {
+      title: {
+        en: "Project Mentor (Industry Collaboration)",
+        kr: "산학협력 프로젝트 기업 멘토링",
+        jp: "キャップストーンデザイン・産学連携プロジェクト メンター",
+      },
+      place: {
+        en: "Department of Computer Science, Sogang University, Seoul, South Korea",
+        kr: "서강대학교 컴퓨터공학과, 서울",
+        jp: "西江大学校 コンピュータ工学科 ソウル",
+      },
+      year: "2024",
+    },
+
     {
       title: {
         en: "Participated in the CES 2024 exhibition booth",
@@ -73,17 +228,213 @@ export const cvContent = {
       },
       year: "2024",
     },
+    {
+      title: {
+        en: "Participated in the CHTF 2023 exhibition booth",
+        kr: "CHTF 2023 전시 부스 참가",
+        jp: "CHTF 2023 展示ブース参加",
+      },
+      place: {
+        en: "Shenzhen, China",
+        kr: "중국 선전",
+        jp: "中国 深圳",
+      },
+      year: "2023",
+    },
+    {
+      title: {
+        en: "Student Worker",
+        kr: "근로학생",
+        jp: "学生ワーカー",
+      },
+      place: {
+        en: "Sogang University, Seoul, South Korea",
+        kr: "서강대학교, 서울",
+        jp: "西江大学校 ソウル",
+      },
+      year: "2022–2024",
+    },
+    {
+      title: {
+        en: "Participation in the Korea Electronics Show 2022 Exhibition",
+        kr: "Korea Electronics Show 2022 전시 참가",
+        jp: "Korea Electronics Show 2022 展示参加",
+      },
+      place: {
+        en: "Seoul, South Korea",
+        kr: "대한민국 서울",
+        jp: "韓国 ソウル",
+      },
+      year: "2022",
+    },
+    {
+      title: {
+        en: "Korea Electronics Association VR/AR Professional Project Team",
+        kr: "한국전자정보통신산업진흥회 VR/AR 전문 프로젝트 팀 참여",
+        jp: "韓国電子情報通信産業振興会 VR/AR 専門プロジェクトチーム",
+      },
+      place: {
+        en: "South Korea",
+        kr: "대한민국",
+        jp: "韓国",
+      },
+      year: "2020–2021",
+    },
+    {
+      title: {
+        en: "Graduate Student Council Treasurer & General Affairs Manager",
+        kr: "서강대학교 대학원 학생회 회계·총무",
+        jp: "西江大学校 大学院 学生会 会計・総務",
+      },
+      place: {
+        en: "Sogang University, Seoul, South Korea",
+        kr: "서강대학교, 서울",
+        jp: "西江大学校 ソウル",
+      },
+      year: "2019–2021",
+    },
+    {
+      title: {
+        en: "IoT Smart Convergence Expert Training Program",
+        kr: "IoT 스마트 융합 전문가 양성과정",
+        jp: "IoT スマート融合 専門家養成課程",
+      },
+      place: {
+        en: "Seoul, South Korea",
+        kr: "대한민국 서울",
+        jp: "韓国 ソウル",
+      },
+      year: "2016",
+    },
   ],
+
 
   awards: [
     {
       title: {
-        en: "Selected for the New Content Support Program by KOCCA",
+        en: "Selected for the New Content Support Program KOCCA",
         kr: "한국콘텐츠진흥원 신기술 콘텐츠 지원사업 선정",
         jp: "韓国コンテンツ振興院 新技術コンテンツ支援事業 選定",
       },
-      project: "BareHand",
+      project: "KOCCA",
+      explain: {
+        en: "Content creation and distribution utilizing Oculus Quest 3 passthrough",
+        kr: "오큘러스 퀘스트 3 패스스루를 활용한 콘텐츠 BareHand 제작 및 배포",
+        jp: "Oculus Quest 3のパススルー機能を活用したコンテンツ制作および配信",
+      },
       year: "2024",
+    },
+    {
+      title: {
+        en: "Selected for the Arts Startup Program by the Arts Management Center",
+        kr: "예술경영지원센터 예술창업 지원사업 선정",
+        jp: "芸術経営支援センター 芸術スタートアップ支援事業 選定",
+      },
+      project: "ALAM",
+      explain: {
+        en: "Startup support for the interactive pen-based system EverPen",
+        kr: "인터랙티브 펜 기반 시스템 EverPen 창업 지원",
+        jp: "インタラクティブペン基盤システム EverPen の創業支援",
+      },
+      year: "2023",
+    },
+    {
+      title: {
+        en: "Selected for the K-Startup Startup Package Program",
+        kr: "K-Startup 창업패키지 선정",
+        jp: "K-Startup スタートアップパッケージ 選定",
+      },
+      project: "ALAM",
+      explain: {
+        en: "Government-backed startup package support for EverPen",
+        kr: "EverPen을 위한 정부 창업 패키지 지원",
+        jp: "EverPen 向け政府スタートアップパッケージ支援",
+      },
+      year: "2023",
+    },
+    {
+      title: {
+        en: "Cradle for Baby Monitoring Design Patent",
+        kr: "아기 모니터링 요람 디자인 특허",
+        jp: "乳児モニタリング用ゆりかご デザイン特許",
+      },
+      project: "Panopticon",
+      explain: {
+        en: "Design patent for an intelligent baby monitoring cradle",
+        kr: "지능형 아기 모니터링 요람 디자인 특허",
+        jp: "知能型乳児モニタリングゆりかごのデザイン特許",
+      },
+      year: "2021",
+    },
+    {
+      title: {
+        en: "Top 7 in KT SuperVR Contest",
+        kr: "KT SuperVR 공모전 Top 7",
+        jp: "KT SuperVR コンテスト Top 7",
+      },
+      project: "personal",
+      explain: {
+        en: "Recognized among the top 7 projects in a nationwide VR contest",
+        kr: "전국 단위 VR 공모전에서 상위 7개 프로젝트 선정",
+        jp: "全国規模VRコンテストにて上位7プロジェクトに選定",
+      },
+      year: "2020",
+    },
+    {
+      title: {
+        en: "Selected for the AI Voucher Government Support Program",
+        kr: "AI 바우처 정부지원사업 선정",
+        jp: "AI バウチャー政府支援事業 選定",
+      },
+      project: "Panopticon",
+      explain: {
+        en: "AI-based baby monitoring solution supported through the AI Voucher Program",
+        kr: "AI 바우처 사업을 통한 아기 모니터링 솔루션 지원",
+        jp: "AIバウチャー事業による乳児モニタリングソリューション支援",
+      },
+      year: "2020",
+    },
+    {
+      title: {
+        en: "Photolithography Equipment Installation License Acquisition",
+        kr: "광학 장비 설치 라이선스 취득",
+        jp: "光学装置 設置ライセンス 取得",
+      },
+      project: "Canon",
+      explain: {
+        en: "First Korean engineer to obtain a global photolithography equipment installation license",
+        kr: "세계 최초로 광학 노광 장비 설치 라이선스를 취득한 한국인 엔지니어",
+        jp: "世界で初めて光学露光装置の設置ライセンスを取得した韓国人技術者",
+      },
+      year: "2018",
+    },
+    {
+      title: {
+        en: "Korea Minister of Engineering and Education Award",
+        kr: "대한민국 교육부 장관상",
+        jp: "大韓民国 教育部長官賞",
+      },
+      project: "E²Festa",
+      explain: {
+        en: "Image-recognition-based AR projection table presented ",
+        kr: "이미지 인식 기반 AR 프로젝션 테이블 ",
+        jp: "画像認識ベースのARプロジェクションテーブル",
+      },
+      year: "2017",
+    },
+    {
+      title: {
+        en: "White Horse Academic Excellence Scholarship",
+        kr: "백마 성적우수 장학금",
+        jp: "ホワイトホース 成績優秀 奨学金",
+      },
+      project: "Soongsil University",
+      explain: {
+        en: "Academic excellence scholarship awarded every semester",
+        kr: "전 학기 성적우수로 수여된 장학금",
+        jp: "全学期にわたり成績優秀として授与された奨学金",
+      },
+      year: "2014–2018",
     },
   ],
 
@@ -147,9 +498,9 @@ export const cvContent = {
       jp: "英語（OPIc IH）",
     },
     {
-      en: "Basic Japanese (speaking & listening)",
-      kr: "일본어 (기초 회화)",
-      jp: "日本語（基礎会話）",
+      en: "Basic Japanese (JPT N4)",
+      kr: "일본어 (JPT N4)",
+      jp: "日本語（JPT N4）",
     },
   ],
 };
