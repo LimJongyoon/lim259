@@ -3,13 +3,17 @@ import { useEffect, useRef, useState } from "react";
 export function useExpandController(ids: string[]) {
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [inView, setInView] = useState(false);
+  const [hasEntered, setHasEntered] = useState(false);
 
   useEffect(() => {
     if (!sectionRef.current) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHasEntered(true);
+        }
+      },
       { threshold: 0.2 }
     );
 
@@ -43,6 +47,6 @@ export function useExpandController(ids: string[]) {
     openAll,
     closeAll,
     sectionRef,
-    inView,
+    hasEntered, 
   };
 }

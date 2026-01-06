@@ -1,49 +1,36 @@
-import { useEffect, useRef, useState } from "react";
 import { projects } from "../../content/projects";
 import { useLanguage } from "../../context/LanguageContext";
 import { skills } from "../../content/common/skills";
 import type { Project } from "../../types/Project";
+import { useExpandController } from "../common/ExpandController";
 
 export default function ProjectsContent() {
   const { lang } = useLanguage();
   const contentLang: "en" | "kr" | "jp" =
     lang === "en" || lang === "kr" || lang === "jp" ? lang : "en";
 
-  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
+  const sectionLabel = {
+    projects: {
+      en: "Projects",
+      kr: "프로젝트",
+      jp: "プロジェクト",
+    },
+    publications: {
+      en: "Publications",
+      kr: "논문",
+      jp: "論文",
+    },
+  };
+  const {
+    openIds,
+    toggleOne,
+    openAll,
+    closeAll,
+    sectionRef,
+    hasEntered,
+  } = useExpandController(projects.map(p => p.id));
+
   const isAllOpen = openIds.size === projects.length;
-
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  const toggleOne = (id: string) => {
-    setOpenIds((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
-  };
-
-  const openAll = () => setOpenIds(new Set(projects.map((p) => p.id)));
-
-  const closeAll = () => {
-    setOpenIds(new Set());
-    if (sectionRef.current) {
-      window.scrollTo({
-        top: sectionRef.current.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
-  };
 
   const label = {
     open: lang === "kr" ? "전체 펼치기" : "Expand all",
@@ -68,8 +55,11 @@ export default function ProjectsContent() {
       </div>
 
       {/* PC toggle */}
-      {inView && (
+      {hasEntered && (
         <div className="hidden md:block fixed bottom-6 right-6 z-30">
+          <div className="mb-1 text-[11px] text-neutral-500">
+            {sectionLabel.projects[lang] ?? sectionLabel.projects.en}
+          </div>
           <button
             onClick={isAllOpen ? closeAll : openAll}
             className="px-4 py-2 rounded-md bg-white/80 border text-sm shadow-md"

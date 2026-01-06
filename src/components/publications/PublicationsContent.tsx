@@ -1,59 +1,39 @@
-import { useEffect, useRef, useState } from "react";
 import { publications } from "../../content/publications";
 import { useLanguage } from "../../context/LanguageContext";
 import type { Publication } from "../../types/Publication";
+import { useExpandController } from "../common/ExpandController";
 
 export default function PublicationsContent() {
   const { lang } = useLanguage();
   const contentLang: "en" | "kr" | "jp" =
     lang === "en" || lang === "kr" || lang === "jp" ? lang : "en";
 
-  /* ================= open state ================= */
-  const [openIds, setOpenIds] = useState<Set<string>>(new Set());
-  const isAllOpen = openIds.size === publications.length;
-
-  const sectionRef = useRef<HTMLElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setInView(entry.isIntersecting),
-      { threshold: 0.2 }
-    );
-
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
-
-  /* ================= handlers ================= */
-  const toggleOne = (id: string) => {
-    setOpenIds((prev) => {
-      const next = new Set(prev);
-      next.has(id) ? next.delete(id) : next.add(id);
-      return next;
-    });
+  const sectionLabel = {
+    projects: {
+      en: "Projects",
+      kr: "프로젝트",
+      jp: "プロジェクト",
+    },
+    publications: {
+      en: "Publications",
+      kr: "논문",
+      jp: "論文",
+    },
   };
-
-  const openAll = () => {
-    setOpenIds(new Set(publications.map((p) => p.id)));
-  };
-
-  const closeAll = () => {
-    setOpenIds(new Set());
-    if (sectionRef.current) {
-      window.scrollTo({
-        top: sectionRef.current.offsetTop - 80,
-        behavior: "smooth",
-      });
-    }
-  };
-
   const label = {
     open: lang === "kr" ? "전체 펼치기" : "Expand all",
     close: lang === "kr" ? "전체 접기" : "Collapse all",
   };
+  const {
+    openIds,
+    toggleOne,
+    openAll,
+    closeAll,
+    sectionRef,
+    hasEntered,
+  } = useExpandController(publications.map(p => p.id));
+
+  const isAllOpen = openIds.size === publications.length;
 
   return (
     <section
@@ -81,8 +61,11 @@ export default function PublicationsContent() {
       </div>
 
       {/* ===================== PC TOGGLE ===================== */}
-      {inView && (
-        <div className="hidden md:block fixed bottom-6 right-6 z-30">
+      {hasEntered && (
+        <div className="hidden md:block fixed bottom-32 right-6 z-30">
+          <div className="mb-1 text-[11px] text-neutral-500">
+            {sectionLabel.publications[lang] ?? sectionLabel.publications.en}
+          </div>
           <button
             onClick={isAllOpen ? closeAll : openAll}
             className="
