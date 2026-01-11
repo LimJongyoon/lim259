@@ -88,6 +88,7 @@ export default function CVContent({
             <Section title={t(lang, "Education")}>
               {cvContent.education.map((e) => (
                 <Entry
+                key={`${e.title.en}-${e.year}`}
                   title={
                     <>
                       {e.title[lang]}

@@ -56,7 +56,7 @@ export function CVPdf({ lang }: { lang: Lang }) {
         <View style={styles.header}>
           <Text style={[
             ...withFont(styles.name, lang),
-            { marginBottom: 6 }
+            { marginBottom: 15 }
             ]}
             >
             {cvHeader.name[lang]}
