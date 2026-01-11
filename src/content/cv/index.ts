@@ -166,25 +166,6 @@ export const cvContent = {
       },
       year: "2017",
     },
-    {
-      role: {
-        en: "High School Physics & Earth Science Instructor",
-        kr: "고등학교 물리·지구과학 강사",
-        jp: "高校 物理・地学 講師",
-      },
-
-      org: {
-        en: "Independent",
-        kr: "개인",
-        jp: "個人",
-      },
-      city: {
-        en: ["Seoul"],
-        kr: ["서울"],
-        jp: ["ソウル"],
-      },
-      year: "2014–2015",
-    },
   ],
 
   activities: [
@@ -306,6 +287,20 @@ export const cvContent = {
       },
       year: "2016",
     },
+    {
+      title: {
+        en: "Worked as a High School Physics & Earth Science Instructor",
+        kr: "고등학교 물리·지구과학 강사 활동",
+        jp: "高校にて物理・地学の指導を担当",
+      },
+      place: {
+        en: "Seoul, South Korea",
+        kr: "대한민국 서울",
+        jp: "韓国 ソウル",
+      },
+      year: "2014–2015",
+    }
+
   ],
 
 
