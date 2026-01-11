@@ -3,8 +3,8 @@ id: church-app
 year: 2025
 
 type:
-  en: Software Development
-  kr: 소프트웨어 개발
+  en: Web App
+  kr: 웹앱
 
 scope:
   en: Freelance
@@ -23,6 +23,7 @@ affiliation:
 tags:
   - Web App
   - JavaScript
+  - UX Design
 
 body:
   en: |

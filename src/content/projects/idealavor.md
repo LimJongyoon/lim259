@@ -3,8 +3,8 @@ id: idealavor
 year: 2022
 
 type:
-  en: Research Project
-  kr: 연구 프로젝트
+  en: Research
+  kr: 연구
 
 scope:
   en: Electronics and Telecommunications Research Institute (ETRI)

@@ -3,8 +3,8 @@ id: bearhands
 year: 2024
 
 type:
-  en: Game Programming
-  kr: 게임 개발
+  en: Unity XR 
+  kr: 유니티 XR 
 
 scope:
   en: Korea Creative Content Agency

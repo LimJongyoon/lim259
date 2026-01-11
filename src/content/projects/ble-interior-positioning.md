@@ -3,8 +3,8 @@ id: ble-interior-positioning
 year: 2021
 
 type:
-  en: Software Development
-  kr: 소프트웨어 개발
+  en: Unity XR
+  kr: 유니티 XR
 
 scope:
   en: National Museum of Korea, d'strict

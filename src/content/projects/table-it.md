@@ -3,8 +3,8 @@ id: table-it
 year: 2017
 
 type:
-  en: System Development
-  kr: 시스템 개발
+  en: Python-based AR System
+  kr: 파이썬 기반 증강현실 시스템
 
 scope:
   en: MOTIE, KIAT

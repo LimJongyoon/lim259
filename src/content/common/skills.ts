@@ -61,6 +61,7 @@ export const skills = {
 
   /* ================= Research / Professional ================= */
   "UX Research":           { color: "#9333EA", category: "research" },
+  "UX Design":           { color: "#f700ff", category: "research" },
   "Interaction Design":   { color: "#7C3AED", category: "research" },
   "Project Management":   { color: "#475569", category: "research" },
   "Industry Collaboration": { color: "#64748B", category: "research" },

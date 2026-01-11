@@ -3,8 +3,8 @@ id: starbound-odyssey
 year: 2023
 
 type:
-  en: Game Development
-  kr: 게임 개발
+  en: Unity XR 
+  kr: 유니티 XR 
 
 scope:
   en: XREAL Competition

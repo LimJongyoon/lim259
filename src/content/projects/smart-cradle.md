@@ -3,8 +3,8 @@ id: smart-cradle
 year: 2021
 
 type:
-  en: Product Development
-  kr: 제품 개발
+  en: Tangible Interface
+  kr: 물리적 인터페이스
 
 scope:
   en: Startup (Panopticon)

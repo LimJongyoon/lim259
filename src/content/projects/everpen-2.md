@@ -4,8 +4,8 @@ year: 2023
 order: 1
 
 type:
-  en: Product Development
-  kr: 제품 개발
+  en: Tangible Interface
+  kr: 물리적 인터페이스
 
 scope:
   en: Startup (ALAM)

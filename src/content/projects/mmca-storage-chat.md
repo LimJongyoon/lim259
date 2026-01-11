@@ -4,8 +4,8 @@ year: 2025
 order: 1
 
 type:
-  en: App Development
-  kr: 모바일 앱 개발
+  en: iOS XR
+  kr: iOS XR
 
 scope:
   en: National Museum of Modern and Contemporary Art, Korea

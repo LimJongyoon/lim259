@@ -3,8 +3,8 @@ id: trashapps
 year: 2025
 
 type:
-  en: Web Development
-  kr: 웹 개발
+  en: Web App
+  kr: 웹앱
 
 scope:
   en: Personal Project

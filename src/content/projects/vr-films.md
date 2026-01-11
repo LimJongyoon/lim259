@@ -3,8 +3,8 @@ id: vr-films
 year: 2020
 
 type:
-  en: Game Development
-  kr: 게임 개발
+  en: Unity XR 
+  kr: 유니티 XR 
 
 scope:
   en: KT Super VR Contest
