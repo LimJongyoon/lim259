@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",
+    "@react-pdf/renderer": "^4.3.2",
     "@tailwindcss/typography": "^0.5.19",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.3",

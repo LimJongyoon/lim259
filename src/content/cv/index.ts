@@ -312,6 +312,20 @@ export const cvContent = {
   awards: [
     {
       title: {
+        en: "Awarded the Ministerial Prize of the Ministry of Trade, Industry and Energy",
+        kr: "산업통상자원부 장관상 수상",
+        jp: "産業通商資源部 長官賞 受賞",
+      },
+      project: "ALAM",
+      explain: {
+        en: "Received the Ministerial Prize from the Ministry of Trade, Industry and Energy for outstanding performance in the 2024 Industry-Academia Project Challenge",
+        kr: "2024 산학 프로젝트 챌린지에서 우수한 성과를 인정받아 산업통상자원부 장관상 수상",
+        jp: "2024 産学プロジェクトチャレンジにおける優秀な成果が認められ、産業通商資源部長官賞を受賞",
+      },
+      year: "2024",
+    },
+    {
+      title: {
         en: "Selected for the New Content Support Program KOCCA",
         kr: "한국콘텐츠진흥원 신기술 콘텐츠 지원사업 선정",
         jp: "韓国コンテンツ振興院 新技術コンテンツ支援事業 選定",

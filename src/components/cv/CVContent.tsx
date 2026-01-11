@@ -4,6 +4,8 @@ import { cvHeader } from "../../content/cv/cvHeader";
 import { cvContent } from "../../content/cv/";
 import CVPrintButton from "./CVPrintButton";
 import type { Lang } from "../../content/cv/";
+import CVPdfButton from "./CVPdfButton";
+
 
 {/*
 const cvNotice = {
@@ -22,52 +24,36 @@ export default function CVContent({
 }) {
   return (
     <>
-<CVPrintButton />
+      <CVPrintButton lang={lang} />
 
-<div className="space-y-6">
-  <section className="px-4 pt-8 mx-auto print:hidden">
-    <h2 className="text-lg font-semibold mb-2">Curriculum Vitae</h2>
+      <div className="space-y-6">
+        <section className="px-4 pt-8 mx-auto print:hidden">
+          <h2 className="text-lg font-semibold mb-2">Curriculum Vitae</h2>
 
-    <div className="flex items-center gap-4 pt-2 mb-1">
-      {/* ===== View selector ===== */}
-      <div className="flex rounded-md border border-neutral-300 overflow-hidden text-xs">
-        {(["en", "kr", "jp"] as Lang[]).map((l) => (
-          <button
-            key={l}
-            onClick={() => onChangeLang(l)}
-            className={`
+          <div className="flex items-center gap-4 pt-2 mb-1">
+            {/* ===== View selector ===== */}
+            <div className="flex rounded-md border border-neutral-300 overflow-hidden text-xs">
+              {(["en", "kr", "jp"] as Lang[]).map((l) => (
+                <button
+                  key={l}
+                  onClick={() => onChangeLang(l)}
+                  className={`
               px-1.5 py-1.5
               transition
               ${l === lang
-                ? "bg-neutral-900 text-white"
-                : "bg-white text-neutral-600 hover:bg-neutral-100"}
+                      ? "bg-neutral-900 text-white"
+                      : "bg-white text-neutral-600 hover:bg-neutral-100"}
             `}
-          >
-            {l.toUpperCase()} View
-          </button>
-        ))}
-      </div>
+                >
+                  {l.toUpperCase()} View
+                </button>
+              ))}
+            </div>
 
-      {/* ===== PDF download ===== */}
-      <button
-        className="
-          px-3 py-1.5
-          text-xs
-          rounded-md
-          border border-blue-700
-          text-blue-700
-          hover:bg-blue-700 hover:text-white
-          transition
-        "
-        onClick={() => {
-          document.title = `CV_LimJongyoon_${lang.toUpperCase()}`;
-          window.print();
-        }}
-      >
-        PDF Download
-      </button>
-    </div>
-  </section>
+            {/* ===== PDF download ===== */}
+            <CVPdfButton lang={lang} />
+          </div>
+        </section>
 
 
         <div className="flex justify-center">
@@ -311,7 +297,7 @@ export default function CVContent({
         kr: "기타 경험 및 활동",
         jp: "その他の活動",
       },
-      Awards: { en: "Awards & Honors", kr: "수상", jp: "受賞" },
+      Awards: { en: "Awards & Honors", kr: "수상 및 선정", jp: "受賞・表彰" },
       Skills: { en: "Skills", kr: "기술", jp: "スキル" },
       "Language Skills": { en: "Language Skills", kr: "언어 능력", jp: "語学力" },
     };
