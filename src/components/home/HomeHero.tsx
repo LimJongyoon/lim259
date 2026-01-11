@@ -47,7 +47,7 @@ export default function HomeHero() {
       }}
     >
       {/* 중앙 정렬 컨테이너 */}
-      <div className="relative z-10 mx-auto max-w-6xl px-10 grid grid-cols-2 items-center gap-12">
+      <div className="relative z-10 mx-auto max-w-5xl px-10 grid grid-cols-2 items-center gap-2">
 
         <div className="flex justify-center">
           <img
