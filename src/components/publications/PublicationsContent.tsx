@@ -113,9 +113,9 @@ export default function PublicationsContent() {
               <article
                 id={`publication-${p.id}`}
                 className={`
-    pb-3
-    ${isFirstOfYear ? "" : "border-b border-neutral-200"}
-  `}
+                  pb-3
+                  ${isFirstOfYear ? "" : "border-b border-neutral-200"}
+                `}
               >
                 <div
                   className="
@@ -124,56 +124,77 @@ export default function PublicationsContent() {
                     md:grid-cols-[180px_1fr_72px]
                   "
                 >
-                  {/* Thumbnail */}
-                  <div className="aspect-[4/3] bg-neutral-100 rounded-md overflow-hidden">
-                    {p.thumbnail && (
-                      <img
-                        src={p.thumbnail}
-                        alt={title}
-                        className="w-full h-full object-contain"
-                      />
-                    )}
-                  </div>
-
-                  {/* Middle */}
+                  {/* ===== LEFT + MIDDLE : CLICK AREA ===== */}
                   <button
                     onClick={() => toggleOne(p.id)}
                     className="
-                      text-left min-w-0 space-y-0.5
+                      relative
+                      col-span-2
+                      grid grid-cols-[100px_1fr]
+                      md:grid-cols-[180px_1fr]
+                      gap-3
+                      text-left min-w-0
                       rounded-md
-                      transition-colors
-                      hover:bg-neutral-50
+                      overflow-hidden
+                      group
                     "
                   >
-                    <h3
-                      className={`
+                    {/* ===== Hover Overlay (최상단 레이어) ===== */}
+                    <div
+                      className="
+                        pointer-events-none
+                        absolute inset-0
+                        bg-green-300/15
+                        opacity-0
+                        group-hover:opacity-100
+                        transition-opacity
+                        z-10
+                      "
+                    />
+
+                    {/* ===== Thumbnail ===== */}
+                    <div className="relative z-0 aspect-[4/3] bg-neutral-100 rounded-md overflow-hidden">
+                      {p.thumbnail && (
+                        <img
+                          src={p.thumbnail}
+                          alt={title}
+                          className="w-full h-full object-contain"
+                        />
+                      )}
+                    </div>
+
+                    {/* ===== Middle ===== */}
+                    <div className="relative z-0 min-w-0 space-y-0.5">
+                      <h3
+                        className={`
                         text-sm font-semibold leading-snug break-words
                         ${isOpen ? "line-clamp-none" : "line-clamp-3"}
                       `}
-                    >
-                      {title}
-                    </h3>
+                      >
+                        {title}
+                      </h3>
 
-                    <div className="text-xs text-neutral-500 line-clamp-1">
-                      {p.authors.map((a, i) => (
-                        <span
-                          key={a.name}
-                          className={a.role === "first" ? "font-semibold text-blue-800" : ""}
-                        >
-                          {a.name}
-                          {i < p.authors.length - 1 && ", "}
-                        </span>
-                      ))}
-                    </div>
+                      <div className="text-xs text-neutral-500 line-clamp-1">
+                        {p.authors.map((a, i) => (
+                          <span
+                            key={a.name}
+                            className={a.role === "first" ? "font-semibold text-blue-800" : ""}
+                          >
+                            {a.name}
+                            {i < p.authors.length - 1 && ", "}
+                          </span>
+                        ))}
+                      </div>
 
-                    <div className="text-xs text-neutral-400 italic line-clamp-1">
-                      {venue}
+                      <div className="text-xs text-neutral-400 italic line-clamp-1">
+                        {venue}
+                      </div>
                     </div>
                   </button>
 
-                  {/* Right */}
-                  <div className="flex flex-col items-center justify-center gap-1 text-[9px] text-neutral-400">
 
+                  {/* ===== RIGHT : PDF (분리 클릭) ===== */}
+                  <div className="flex flex-col items-center justify-center gap-1 text-[9px] text-neutral-400">
                     <span className="uppercase text-center">{p.type}</span>
                     <span className="text-center">{p.scope}</span>
 
@@ -196,6 +217,7 @@ export default function PublicationsContent() {
                     )}
                   </div>
                 </div>
+
 
                 {/* Expanded */}
                 {isOpen && (

@@ -85,10 +85,10 @@ export default function CVContent({
             </section>
 
             {/* EDUCATION */}
-            <Section title={t(lang, "Education")}>
+            <Section id="cv-education" title={t(lang, "Education")}>
               {cvContent.education.map((e) => (
                 <Entry
-                key={`${e.title.en}-${e.year}`}
+                  key={`${e.title.en}-${e.year}`}
                   title={
                     <>
                       {e.title[lang]}
@@ -108,7 +108,7 @@ export default function CVContent({
             </Section>
 
             {/* PROFESSIONAL */}
-            <Section title={t(lang, "Professional Experience")}>
+            <Section id="cv-professional" title={t(lang, "Professional Experience")}>
               {cvContent.professional.map((p, i) => (
                 <Entry
                   key={i}
@@ -136,7 +136,7 @@ export default function CVContent({
             </Section>
 
             {/* PUBLICATIONS */}
-            <Section title={t(lang, "Publications")}>
+            <Section id="cv-publications" title={t(lang, "Publications")}>
               {publications.map((p) => (
                 <Entry
                   key={p.id}
@@ -150,7 +150,7 @@ export default function CVContent({
             </Section>
 
             {/* PROJECTS */}
-            <Section title={t(lang, "Projects")}>
+            <Section id="cv-projects" title={t(lang, "Projects")}>
               {projects.map((p) => (
                 <Entry
                   key={p.id}
@@ -175,7 +175,7 @@ export default function CVContent({
             </Section>
 
             {/* ACTIVITIES */}
-            <Section title={t(lang, "Additional Experience & Activities")}>
+            <Section id="cv-activities" title={t(lang, "Additional Experience & Activities")}>
               {cvContent.activities.map((a, i) => (
                 <Entry
                   key={i}
@@ -195,7 +195,7 @@ export default function CVContent({
 
 
             {/* AWARDS */}
-            <Section title={t(lang, "Awards")}>
+            <Section id="cv-awards" title={t(lang, "Awards")}>
               {cvContent.awards.map((a, i) => (
                 <Entry key={i} title={
                   <>
@@ -215,14 +215,14 @@ export default function CVContent({
             </Section>
 
             {/* SKILLS */}
-            <Section title={t(lang, "Skills")}>
+            <Section id="cv-skills" title={t(lang, "Skills")}>
               {cvContent.skills.map((s, i) => (
                 <SkillGrid key={i} title={s.title[lang]} items={s.items} />
               ))}
             </Section>
 
             {/* LANGUAGES */}
-            <Section title={t(lang, "Language Skills")}>
+            <Section id="cv-languages" title={t(lang, "Language Skills")}>
               <ul className="list-disc pl-5">
                 {cvContent.languages.map((l, i) => (
                   <li key={i}>{l[lang]}</li>
@@ -237,9 +237,17 @@ export default function CVContent({
 
   /* ---------- helpers ---------- */
 
-  function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  function Section({
+    id,
+    title,
+    children,
+  }: {
+    id: string;
+    title: string;
+    children: React.ReactNode;
+  }) {
     return (
-      <section className="mb-10">
+      <section id={id} className="mb-10 scroll-mt-20">
         <h2 className="text-sm font-semibold uppercase tracking-wide mb-2">
           {title}
         </h2>
@@ -248,6 +256,7 @@ export default function CVContent({
       </section>
     );
   }
+
 
   function Entry({
     title,

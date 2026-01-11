@@ -111,6 +111,20 @@ export const cvContent = {
         jp: ["ソウル"],
       },
       year: "2022–2024",
+      details: {
+        en: [
+          "Prototyped EVER Pen hardware, including Version 1 and Version 2 iterations",
+          "Developed a spatial computing office application designed for XR devices",
+        ],
+        kr: [
+          "애버펜(EVER Pen) 버전 1 및 버전 2 하드웨어 프로토타이핑",
+          "XR 디바이스 전용 공간 컴퓨팅 기반 오피스 프로그램 제작",
+        ],
+        jp: [
+          "EVER Pen バージョン1およびバージョン2のハードウェア・プロトタイピング",
+          "XRデバイス向け空間コンピューティング型オフィスプログラムの制作",
+        ],
+      },
     },
     {
       role: {
@@ -129,6 +143,20 @@ export const cvContent = {
         jp: ["ソウル"],
       },
       year: "2019–2021",
+      details: {
+        en: [
+          "Prototyped a smart cradle for neonatal healthcare applications",
+          "Planned and designed a smart patch concept for neonatal healthcare monitoring",
+        ],
+        kr: [
+          "신생아 헬스케어 디바이스 스마트 크래들 프로토타이핑",
+          "신생아 헬스케어 디바이스 스마트 패치 기획",
+        ],
+        jp: [
+          "新生児ヘルスケア向けスマートクレードルのプロトタイピング",
+          "新生児ヘルスケア向けスマートパッチの企画・設計",
+        ],
+      },
     },
     {
       role: {
@@ -147,6 +175,20 @@ export const cvContent = {
         jp: ["水原", "宇都宮", "ミュンヘン"],
       },
       year: "2017–2019",
+      details: {
+        en: [
+          "Supported semiconductor photolithography equipment with a focus on optical system calibration and lens-related process tuning",
+          "Performed device-level troubleshooting and process optimization, including parameter adjustment and script-based diagnostic support",
+        ],
+        kr: [
+          "반도체 포토 공정 장비의 광학 시스템 및 렌즈 정렬·보정 중심 디바이스 엔지니어링 지원",
+          "공정 파라미터 조정 및 스크립트 기반 진단을 포함한 장비 트러블슈팅 및 프로세스 최적화 수행",
+        ],
+        jp: [
+          "半導体フォトプロセス装置における光学系・レンズ調整を中心としたデバイスエンジニアリング支援",
+          "パラメータ調整やスクリプトベースの診断を含む装置トラブルシューティングおよびプロセス最適化を担当",
+        ],
+      },
     },
     {
       role: {
@@ -164,7 +206,21 @@ export const cvContent = {
         kr: ["서울"],
         jp: ["ソウル"],
       },
-      year: "2017",
+      year: "2016-2017",
+      details: {
+        en: [
+          "Conducted OpenCV-based image stitching experiments and analyzed classical computer vision algorithms using Python",
+          "Implemented image recognition pipelines and supported computer vision research activities",
+        ],
+        kr: [
+          "파이썬 및 OpenCV 기반 이미지 스티칭 실험 수행 및 전통적 컴퓨터 비전 알고리즘 분석",
+          "이미지 인식 파이프라인 구현을 통한 컴퓨터 비전 연구 보조 수행",
+        ],
+        jp: [
+          "PythonおよびOpenCVを用いた画像スティッチング実験の実施および古典的コンピュータビジョンアルゴリズムの分析",
+          "画像認識パイプラインの実装を通じたコンピュータビジョン研究支援",
+        ],
+      },
     },
   ],
 

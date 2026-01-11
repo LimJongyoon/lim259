@@ -15,12 +15,8 @@ export default function ProjectsContent() {
       kr: "프로젝트",
       jp: "プロジェクト",
     },
-    publications: {
-      en: "Publications",
-      kr: "논문",
-      jp: "論文",
-    },
   };
+
   const {
     openIds,
     toggleOne,
@@ -28,7 +24,7 @@ export default function ProjectsContent() {
     closeAll,
     sectionRef,
     hasEntered,
-  } = useExpandController(projects.map(p => p.id));
+  } = useExpandController(projects.map((p) => p.id));
 
   const isAllOpen = openIds.size === projects.length;
 
@@ -38,10 +34,7 @@ export default function ProjectsContent() {
   };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative px-4 pt-8 pb-24 mx-auto"
-    >
+    <section ref={sectionRef} className="relative px-4 pt-8 pb-24 mx-auto">
       <h2 className="text-lg font-semibold mb-6">Projects</h2>
 
       {/* Mobile toggle */}
@@ -89,59 +82,88 @@ export default function ProjectsContent() {
 
               <article id={`project-${p.id}`} className="pb-4">
                 <div className="grid items-start gap-4 grid-cols-[100px_1fr] md:grid-cols-[180px_1fr_80px]">
-                  <div className="aspect-[4/3] bg-neutral-100 rounded-md overflow-hidden">
-                    {p.thumbnail && (
-                      <img
-                        src={p.thumbnail}
-                        alt={title}
-                        className="w-full h-full object-cover"
-                      />
-                    )}
-                  </div>
-
+                  {/* ===== LEFT + MIDDLE (CLICK + OVERLAY) ===== */}
                   <button
                     onClick={() => toggleOne(p.id)}
-                    className="text-left space-y-0.5 rounded-md hover:bg-neutral-50"
+                    className="
+                      relative
+                      col-span-2
+                      grid grid-cols-[100px_1fr]
+                      md:grid-cols-[180px_1fr]
+                      gap-4
+                      text-left
+                      rounded-md
+                      overflow-hidden
+                      group
+                    "
                   >
-                    <h3 className="text-sm md:text-base font-semibold leading-snug">
-                      {title}
-                    </h3>
+                    {/* Hover overlay */}
+                    <div
+                      className="
+                        pointer-events-none
+                        absolute inset-0
+                        bg-green-300/15
+                        opacity-0
+                        group-hover:opacity-100
+                        transition-opacity
+                        z-10
+                      "
+                    />
 
-                    {p.affiliation && (
-                      <div className="text-xs text-neutral-600 space-y-0.5">
-                        {p.affiliation.map((a, i) => (
-                          <div key={i}>{a[lang] ?? a.en}</div>
-                        ))}
+                    {/* Thumbnail */}
+                    <div className="relative z-0 aspect-[4/3] bg-neutral-100 rounded-md overflow-hidden">
+                      {p.thumbnail && (
+                        <img
+                          src={p.thumbnail}
+                          alt={title}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                    </div>
+
+                    {/* Middle */}
+                    <div className="relative z-0 min-w-0 space-y-0.5">
+                      <h3 className="text-sm md:text-base font-semibold leading-snug">
+                        {title}
+                      </h3>
+
+                      {p.affiliation && (
+                        <div className="text-xs text-neutral-600 space-y-0.5">
+                          {p.affiliation.map((a, i) => (
+                            <div key={i}>{a[lang] ?? a.en}</div>
+                          ))}
+                        </div>
+                      )}
+
+                      <div className="pt-1 flex flex-wrap gap-1.5">
+                        {p.tags.map((tag) => {
+                          const skill = skills[tag];
+                          if (!skill) return null;
+
+                          const light = isLightColor(skill.color);
+
+                          return (
+                            <span
+                              key={tag}
+                              style={{
+                                backgroundColor: light
+                                  ? `color-mix(in srgb, ${skill.color} 30%, black 0%)`
+                                  : skill.color + "20",
+                                color: light
+                                  ? `color-mix(in srgb, ${skill.color} 100%, black 30%)`
+                                  : skill.color,
+                              }}
+                              className="px-2 py-0.5 rounded-full text-[10px]"
+                            >
+                              {tag}
+                            </span>
+                          );
+                        })}
                       </div>
-                    )}
-
-                    <div className="pt-1 flex flex-wrap gap-1.5">
-                      {p.tags.map((tag) => {
-                        const skill = skills[tag];
-                        if (!skill) return null;
-
-                        const light = isLightColor(skill.color);
-
-                        return (
-                          <span
-                            key={tag}
-                            style={{
-                              backgroundColor: light
-                                ? `color-mix(in srgb, ${skill.color} 30%, black 0%)`
-                                : skill.color + "20",
-                              color: light
-                                ? `color-mix(in srgb, ${skill.color} 100%, black 30%)`
-                                : skill.color,
-                            }}
-                            className="px-2 py-0.5 rounded-full text-[10px]"
-                          >
-                            {tag}
-                          </span>
-                        );
-                      })}
                     </div>
                   </button>
 
+                  {/* ===== RIGHT ===== */}
                   <div className="hidden md:flex flex-col items-center gap-1 pt-1 text-[11px] text-neutral-500">
                     <span className="uppercase font-medium">
                       {p.type?.[lang] ?? p.type?.en}
@@ -154,15 +176,13 @@ export default function ProjectsContent() {
                   </div>
                 </div>
 
+                {/* ===== EXPANDED ===== */}
                 {isOpen && p.body && (
                   <div className="mt-3 space-y-4 text-sm text-neutral-700">
-
                     {(p.media?.video || p.media?.image) && (
                       <div className="relative rounded-md overflow-hidden bg-neutral-100 space-y-2">
-
-                        {/* ===== Video ===== */}
-                        {p.media?.video && (
-                          p.media.video.endsWith(".mp4") ? (
+                        {p.media?.video &&
+                          (p.media.video.endsWith(".mp4") ? (
                             <video
                               src={p.media.video}
                               controls
@@ -177,10 +197,8 @@ export default function ProjectsContent() {
                                 allowFullScreen
                               />
                             </div>
-                          )
-                        )}
+                          ))}
 
-                        {/* ===== Image ===== */}
                         {p.media?.image && (
                           <img
                             src={p.media.image}
@@ -189,22 +207,16 @@ export default function ProjectsContent() {
                           />
                         )}
 
-                        {/* ===== Website Button ===== */}
                         {p.links?.website && (
                           <a
                             href={p.links.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="
-          absolute top-2 right-2
-          px-2 py-1
-          text-[10px]
-          bg-black/70 text-white
-          rounded
-          hover:bg-black
-        "
+                            className="absolute top-2 right-2 px-2 py-1 text-[10px] bg-black/70 text-white rounded hover:bg-black"
                           >
-                            {lang === "kr" ? "웹사이트 방문" : "Visit Website"}
+                            {lang === "kr"
+                              ? "웹사이트 방문"
+                              : "Visit Website"}
                           </a>
                         )}
                       </div>
@@ -229,7 +241,6 @@ export default function ProjectsContent() {
                       {p.body[contentLang] ?? p.body.en}
                     </div>
 
-                    {/* Collapse button */}
                     <button
                       onClick={() => toggleOne(p.id)}
                       className="mt-6 w-full flex flex-col items-center text-xs text-neutral-400 hover:text-neutral-700 transition"
@@ -240,7 +251,6 @@ export default function ProjectsContent() {
                       </span>
                       <div className="mt-4 w-full h-px bg-neutral-200" />
                     </button>
-
                   </div>
                 )}
               </article>
