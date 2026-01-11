@@ -21,7 +21,7 @@ affiliation:
     kr: "사람의 움직임과 VR 콘텐츠에 동기화되는 기계 장치 시스템 개발"
 
 media:
-  video: "https://www.youtube.com/embed/j7qhWjRjR50?si=3TQ-DvN_BwZ11xEZ" 
+  video: "https://www.youtube.com/embed/TlIjFA2zFRo?si=t2F_FTC6kQl71bnQ" 
 
 tags:
   - C/C++
