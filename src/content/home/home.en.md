@@ -1,7 +1,7 @@
 # Lim, Jongyoon
 ###### [lɪm dʒɔŋ jun] · he/him/his
 
-## Human-Computer Interaction Researcher
+## Researcher
 
 I recently worked as an **HCI researcher at Sogang University**, where I conducted research on interactive and human-centered software development. I also **co-founded an AR startup** and participated in **CES for 2 consecutive years** with an XR pen, receiving a **Minister’s Award**.
 

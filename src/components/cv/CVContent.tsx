@@ -311,7 +311,7 @@ export default function CVContent({
         kr: "기타 경험 및 활동",
         jp: "その他の活動",
       },
-      Awards: { en: "Awards", kr: "수상", jp: "受賞" },
+      Awards: { en: "Awards & Honors", kr: "수상", jp: "受賞" },
       Skills: { en: "Skills", kr: "기술", jp: "スキル" },
       "Language Skills": { en: "Language Skills", kr: "언어 능력", jp: "語学力" },
     };

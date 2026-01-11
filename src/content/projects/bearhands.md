@@ -20,6 +20,9 @@ affiliation:
   - en: VR game project focusing on hand tracking
     kr: 핸드 트래킹 기반 VR 게임 프로젝트
 
+media:
+  video: "https://www.youtube.com/embed/2CAz_sxxP7M?si=Usrv66lyJz_m3SqU"
+
 tags:
   - VR
   - Unity
