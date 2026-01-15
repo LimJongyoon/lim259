@@ -27,7 +27,7 @@ affiliation:
 
 media:
   video: "https://www.youtube.com/embed/ln1e_Zr97C8?si=r1UTsVQ9H4LrEufT" 
-  image: "/images/everpen2.png"
+  image: "/projects/everpen22.png"
 
 tags:
   - Embedded Systems

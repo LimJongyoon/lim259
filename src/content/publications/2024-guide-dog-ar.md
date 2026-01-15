@@ -22,7 +22,7 @@ venue:
 
 media:
   video: "https://www.youtube.com/embed/qpx9gIWPTao"
-  image: "/images/guide0.png"
+  image: "/publications/guide0.png"
 
 links:
   pdf: "https://doi.org/10.1080/10447318.2024.2383491"

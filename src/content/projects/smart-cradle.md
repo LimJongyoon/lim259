@@ -21,8 +21,8 @@ affiliation:
     kr: AI 기반 신생아 생체 신호 모니터링 및 건강 예측 스마트 크래들 시스템
 
 media:
-  image: "/images/smartcraddle.png"
-
+  image: "/projects/smartcraddle.png"
+  images: 
 tags:
   - Embedded Systems
   - Circuit Design

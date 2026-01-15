@@ -179,7 +179,7 @@ export default function ProjectsContent() {
                 {/* ===== EXPANDED ===== */}
                 {isOpen && p.body && (
                   <div className="mt-3 space-y-4 text-sm text-neutral-700">
-                    {(p.media?.video || p.media?.image) && (
+                    {(p.media?.video || p.media?.image || p.media?.images) && (
                       <div className="relative rounded-md overflow-hidden bg-neutral-100 space-y-2">
                         {p.media?.video &&
                           (p.media.video.endsWith(".mp4") ? (
@@ -205,6 +205,23 @@ export default function ProjectsContent() {
                             alt={title}
                             className="w-full h-auto object-cover rounded-md"
                           />
+                        )}
+
+                        {p.media?.images && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {p.media.images.map((src, i) => (
+                              <div
+                                key={i}
+                                className="w-full h-[220px] md:h-[260px] overflow-hidden rounded-md bg-neutral-100"
+                              >
+                                <img
+                                  src={src}
+                                  alt={`${title} image ${i + 1}`}
+                                  className="w-full h-full object-cover"
+                                />
+                              </div>
+                            ))}
+                          </div>
                         )}
 
                         {p.links?.website && (

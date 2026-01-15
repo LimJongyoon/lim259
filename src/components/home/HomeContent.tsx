@@ -78,7 +78,7 @@ export default function HomeContent({ align = "center" }: Props) {
     prose-h2:tracking-tight
     prose-h2:mt-5
     prose-h2:mb-4
-    prose-h2:text-gray-500
+    prose-h2:text-emerald-900
     
 
     prose-p:text-sm
@@ -87,7 +87,7 @@ export default function HomeContent({ align = "center" }: Props) {
 
     prose-p:my-2
     prose-strong:font-normal
-    prose-strong:text-blue-800
+    prose-strong:text-emerald-800
 
     prose-h6:text-xs
     prose-h6:text-gray-700

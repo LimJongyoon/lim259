@@ -568,7 +568,7 @@ export const cvContent = {
         "Circuit design & analysis",
         "Soldering & repair",
         "Mechanical design",
-        "3D printing",
+        "3D Modeling & Printing",
         "Laser cutting",
       ],
     },

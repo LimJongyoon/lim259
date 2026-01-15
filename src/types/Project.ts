@@ -30,6 +30,7 @@ export type Project = {
 
   media?: {
     video?: string;
+    images?: string[];  
     image?: string;
   };
 

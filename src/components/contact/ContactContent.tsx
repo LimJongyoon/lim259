@@ -27,7 +27,7 @@ export default function ContactContent() {
 
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
-  
+
   const canTrySend =
     name.trim().length > 0 ||
     reply.trim().length > 0 ||
@@ -85,43 +85,43 @@ export default function ContactContent() {
     },
   };
 
-async function send() {
-  const hasName = name.trim().length > 0;
-  const hasReply = reply.trim().length > 0;
-  const hasMessage = message.trim().length > 0;
+  async function send() {
+    const hasName = name.trim().length > 0;
+    const hasReply = reply.trim().length > 0;
+    const hasMessage = message.trim().length > 0;
 
-  setNameError(!hasName);
-  setReplyError(!hasReply);
-  setMessageError(!hasMessage);
+    setNameError(!hasName);
+    setReplyError(!hasReply);
+    setMessageError(!hasMessage);
 
-  if (!hasName || !hasReply || !hasMessage || sending) {
-    return;
-  }
-
-  setSending(true);
-
-  try {
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, reply, message }),
-    });
-
-    if (!res.ok) {
-      if (res.status === 413) throw new Error("Message is too long.");
-  throw new Error(`Send failed (${res.status})`);
+    if (!hasName || !hasReply || !hasMessage || sending) {
+      return;
     }
 
-    setName("");
-    setReply("");
-    setMessage("");
-    setSent(true);
-  } catch {
-    alert("Failed to send");
-  } finally {
-    setSending(false);
+    setSending(true);
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, reply, message }),
+      });
+
+      if (!res.ok) {
+        if (res.status === 413) throw new Error("Message is too long.");
+        throw new Error(`Send failed (${res.status})`);
+      }
+
+      setName("");
+      setReply("");
+      setMessage("");
+      setSent(true);
+    } catch {
+      alert("Failed to send");
+    } finally {
+      setSending(false);
+    }
   }
-}
 
 
   return (
@@ -143,7 +143,7 @@ async function send() {
                 className="flex items-center gap-1 hover:text-black"
               >
                 <img src="/icons/gmail.png" className="w-3.5 h-3.5" />
-                <span className="text-[#1DA1F2] hover:underline">
+                <span className="text-[#009874] hover:underline">
                   limjy.kor@gmail.com
                 </span>
               </a>
@@ -155,7 +155,7 @@ async function send() {
                 className="flex items-center gap-1 hover:text-black"
               >
                 <img src="/icons/Instagram.jpg" className="w-3.5 h-3.5" />
-                <span className="text-[#1DA1F2] hover:underline">
+                <span className="text-[#009874] hover:underline">
                   @limjongyoon3
                 </span>
               </a>
@@ -204,30 +204,29 @@ async function send() {
                     }
                   `}
                 />
-<textarea
-  value={message}
-  maxLength={MAX_MESSAGE_LEN}
-  onChange={(e) => {
-    setMessage(e.target.value);
-    setMessageError(false);
-  }}
-  placeholder={t.message[lang]}
-  className={`
-    w-full text-sm px-3 py-2 border rounded-md resize-none
-    h-[120px] md:h-[200px]
-    placeholder:text-neutral-400
-    ${messageError ? "border-red-500 placeholder:text-red-400" : ""}
-  `}
-/>
-<div
-  className={`text-xs text-right ${
-    message.length >= DISPLAY_MESSAGE_LEN
-      ? "text-red-500"
-      : "text-neutral-400"
-  }`}
->
-  {message.length} / {MAX_MESSAGE_LEN}
-</div>
+                <textarea
+                  value={message}
+                  maxLength={MAX_MESSAGE_LEN}
+                  onChange={(e) => {
+                    setMessage(e.target.value);
+                    setMessageError(false);
+                  }}
+                  placeholder={t.message[lang]}
+                  className={`
+                    w-full text-sm px-3 py-2 border rounded-md resize-none
+                    h-[120px] md:h-[200px]
+                    placeholder:text-neutral-400
+                    ${messageError ? "border-red-500 placeholder:text-red-400" : ""}
+                  `}
+                />
+                <div
+                  className={`text-xs text-right ${message.length >= DISPLAY_MESSAGE_LEN
+                      ? "text-red-500"
+                      : "text-neutral-400"
+                    }`}
+                >
+                  {message.length} / {MAX_MESSAGE_LEN}
+                </div>
 
 
                 <button

@@ -178,7 +178,7 @@ export default function PublicationsContent() {
                         {p.authors.map((a, i) => (
                           <span
                             key={a.name}
-                            className={a.role === "first" ? "font-semibold text-blue-800" : ""}
+                            className={a.role === "first" ? "font-semibold text-emerald-700" : ""}
                           >
                             {a.name}
                             {i < p.authors.length - 1 && ", "}

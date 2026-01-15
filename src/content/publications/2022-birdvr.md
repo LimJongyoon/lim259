@@ -25,6 +25,7 @@ venue:
 
 media:
   video: "https://www.youtube.com/embed/PN5j6Vpz4kw"
+  image: "/publications/birdVR2.png"
 
 links:
   pdf: "https://www.dbpia.co.kr/Journal/articleDetail?nodeId=NODE11043930&lang=en"
