@@ -13,6 +13,7 @@ const books = [
 
 export default function ContactContent() {
   const { lang } = useLanguage();
+  const [sending, setSending] = useState(false);
 
   const t = {
     subtitle: {
@@ -50,6 +51,26 @@ export default function ContactContent() {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
+  async function send() {
+    if (!message.trim() || sending) return;
+
+    setSending(true);
+
+    try {
+      await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, message }),
+      });
+
+      setName("");
+      setMessage("");
+    } catch (e) {
+      alert("Failed to send");
+    } finally {
+      setSending(false);
+    }
+  }
   return (
     <section className="px-4 py-6">
       <div className="mx-auto w-full max-w-none md:max-w-3xl">
@@ -116,12 +137,13 @@ export default function ContactContent() {
               />
 
               <button
-                disabled={!message.trim()}
+                onClick={send}
+                disabled={!message.trim() || sending}
                 className="w-full py-2 rounded-md text-sm font-medium
-                           bg-neutral-900 text-white
-                           disabled:bg-neutral-300"
+             bg-neutral-900 text-white
+             disabled:bg-neutral-300"
               >
-                {t.send[lang]}
+                {sending ? "Sending..." : t.send[lang]}
               </button>
             </div>
           </div>
@@ -165,5 +187,5 @@ export default function ContactContent() {
       </div>
     </section>
   );
-  
+
 }
