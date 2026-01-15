@@ -30,6 +30,13 @@ export default function SideNav() {
   const pubByYear = groupByYear(publications);
   const projByYear = groupByYear(projects);
 
+  const hoverItem =
+    "block w-full text-left px-2 py-1 rounded transition " +
+    "hover:text-emerald-800 hover:font-semibold hover:scale-[1.04]";
+    
+  const goTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const toggle = (id: string) => {
     setOpenCategory((prev) => (prev === id ? null : id));
   };
@@ -40,32 +47,40 @@ export default function SideNav() {
         const isPublications = item.id === "publications";
         const isProjects = item.id === "projects";
         const isCV = item.id === "cv";
+        const isHome = item.id === "home";
 
         return (
           <div key={item.id}>
             {/* ===== Top-level ===== */}
             <button
               onClick={() => {
-                scrollToSection(item.id);
-                if (isPublications || isProjects || isCV) {
-                  toggle(item.id);
-                } else {
+                if (isHome) {
+                  goTop();
                   setOpenCategory(null);
+                } else {
+                  scrollToSection(item.id);
+                  if (isPublications || isProjects || isCV) {
+                    toggle(item.id);
+                  } else {
+                    setOpenCategory(null);
+                  }
                 }
               }}
-              className="block hover:text-black transition"
+              className={hoverItem}
             >
               {labels[item.id]}
             </button>
 
-            {/* ===== Publications (by year) ===== */}
+            {/* ===== Publications ===== */}
             {isPublications && openCategory === "publications" && (
               <div className="mt-2 ml-3 space-y-2 text-xs text-gray-500">
                 {Object.keys(pubByYear)
                   .sort((a, b) => Number(b) - Number(a))
                   .map((year) => (
                     <div key={year}>
-                      <div className="font-medium text-gray-400">{year}</div>
+                      <div className="px-2 text-gray-400 font-medium">
+                        {year}
+                      </div>
                       <div className="ml-2 space-y-1">
                         {pubByYear[Number(year)].map((p) => (
                           <button
@@ -78,7 +93,7 @@ export default function SideNav() {
                                   block: "start",
                                 })
                             }
-                            className="block w-full text-left truncate hover:text-black transition"
+                            className={hoverItem}
                           >
                             {shorten(p.title[lang] ?? p.title.en ?? "")}
                           </button>
@@ -89,14 +104,16 @@ export default function SideNav() {
               </div>
             )}
 
-            {/* ===== Projects (by year) ===== */}
+            {/* ===== Projects ===== */}
             {isProjects && openCategory === "projects" && (
               <div className="mt-2 ml-3 space-y-2 text-xs text-gray-500">
                 {Object.keys(projByYear)
                   .sort((a, b) => Number(b) - Number(a))
                   .map((year) => (
                     <div key={year}>
-                      <div className="font-medium text-gray-400">{year}</div>
+                      <div className="px-2 text-gray-400 font-medium">
+                        {year}
+                      </div>
                       <div className="ml-2 space-y-1">
                         {projByYear[Number(year)].map((p) => (
                           <button
@@ -109,7 +126,7 @@ export default function SideNav() {
                                   block: "start",
                                 })
                             }
-                            className="block w-full text-left truncate hover:text-black transition"
+                            className={hoverItem}
                           >
                             {shorten(p.title[lang] ?? p.title.en ?? "")}
                           </button>
@@ -120,14 +137,14 @@ export default function SideNav() {
               </div>
             )}
 
-            {/* ===== CV sub sections ===== */}
+            {/* ===== CV ===== */}
             {isCV && openCategory === "cv" && (
               <div className="mt-2 ml-3 space-y-1 text-xs text-gray-500">
                 {item.subItems.map((sub) => (
                   <button
                     key={sub.id}
                     onClick={() => scrollToSection(sub.id)}
-                    className="block w-full text-left hover:text-black transition"
+                    className={hoverItem}
                   >
                     {shorten(cvSectionLabels[lang][sub.id])}
                   </button>
