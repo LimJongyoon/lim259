@@ -226,7 +226,7 @@ async function send() {
       : "text-neutral-400"
   }`}
 >
-  {message.length} / {DISPLAY_MESSAGE_LEN}
+  {message.length} / {MAX_MESSAGE_LEN}
 </div>
 
 
