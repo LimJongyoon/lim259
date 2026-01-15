@@ -232,6 +232,14 @@ export default function PublicationsContent() {
                       </div>
                     )}
 
+                    {p.media?.image && (
+                      <img
+                        src={p.media.image}
+                        alt={title}
+                        className="w-full h-auto rounded-md object-cover"
+                      />
+                    )}
+
                     {p.body && (
                       <div className="whitespace-pre-line leading-relaxed">
                         {p.body[contentLang] ?? p.body.en}

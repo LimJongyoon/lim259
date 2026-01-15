@@ -15,7 +15,10 @@ export type Publication = {
   venue: Partial<Record<Lang, string>>;
   authors: Author[];
   thumbnail?: string;
-  media?: { video?: string };
+  media?: {
+    video?: string;
+    image?: string;
+  };
   links?: { pdf?: string; doi?: string; video?: string };
   tags?: string[];
   body?: {

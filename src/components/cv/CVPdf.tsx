@@ -206,7 +206,7 @@ export function CVPdf({ lang }: { lang: Lang }) {
                     {a.title[lang]}
                   </Text>
                   <Text style={withFont(styles.italic, lang)}>
-                    , {a.project}
+                    , {a.project[lang]}
                   </Text>
                 </>
               }

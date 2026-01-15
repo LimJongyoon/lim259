@@ -202,7 +202,7 @@ export default function CVContent({
                     {a.title[lang]}
                     {", "}
                     <span className="text-neutral-600 text-[14px] font-normal italic">
-                      {a.project}
+                      {a.project[lang]}
                     </span>
                   </>
                 }

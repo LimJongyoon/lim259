@@ -240,9 +240,9 @@ export const cvContent = {
     },
     {
       title: {
-        en: "Project Mentor (Industry Collaboration)",
-        kr: "산학협력 프로젝트 기업 멘토링",
-        jp: "キャップストーンデザイン・産学連携プロジェクト メンター",
+        en: "Industry-side Mentor for Capstone Design Project",
+        kr: "캡스톤 디자인 프로젝트 · Industry-side 멘토",
+        jp: "キャップストーンデザインプロジェクト・Industry-side メンター",
       },
       place: {
         en: "Department of Computer Science, Sogang University, Seoul, South Korea",
@@ -367,7 +367,11 @@ export const cvContent = {
         kr: "산업통상자원부 장관상 수상",
         jp: "産業通商資源部 長官賞 受賞",
       },
-      project: "ALAM",
+      project: {
+        en: "Ministry of Trade, Industry and Energy",
+        kr: "산업통상자원부",
+        jp: "産業通商資源部",
+      },
       explain: {
         en: "Received the Ministerial Prize from the Ministry of Trade, Industry and Energy for outstanding performance in the 2024 Industry-Academia Project Challenge",
         kr: "2024 산학 프로젝트 챌린지에서 우수한 성과를 인정받아 산업통상자원부 장관상 수상",
@@ -381,7 +385,11 @@ export const cvContent = {
         kr: "한국콘텐츠진흥원 신기술 콘텐츠 지원사업 선정",
         jp: "韓国コンテンツ振興院 新技術コンテンツ支援事業 選定",
       },
-      project: "KOCCA",
+      project: {
+        en: "Korea Creative Content Agency",
+        kr: "한국콘텐츠진흥원",
+        jp: "韓国コンテンツ振興院",
+      },
       explain: {
         en: "Content creation and distribution utilizing Oculus Quest 3 passthrough",
         kr: "오큘러스 퀘스트 3 패스스루를 활용한 콘텐츠 BareHand 제작 및 배포",
@@ -395,7 +403,11 @@ export const cvContent = {
         kr: "예술경영지원센터 예술창업 지원사업 선정",
         jp: "芸術経営支援センター 芸術スタートアップ支援事業 選定",
       },
-      project: "ALAM",
+      project: {
+        en: "Ministry of Culture, Sports and Tourism / Arts Management Support Center",
+        kr: "문화체육관광부 / 예술경영지원센터",
+        jp: "文化体育観光部 / 芸術経営支援センター",
+      },
       explain: {
         en: "Startup support for the interactive pen-based system EverPen",
         kr: "인터랙티브 펜 기반 시스템 EverPen 창업 지원",
@@ -409,7 +421,11 @@ export const cvContent = {
         kr: "K-Startup 창업패키지 선정",
         jp: "K-Startup スタートアップパッケージ 選定",
       },
-      project: "ALAM",
+      project: {
+        en: "Korea Institute of Startup & Entrepreneurship Development",
+        kr: "창업진흥원",
+        jp: "創業振興院",
+      },
       explain: {
         en: "Government-backed startup package support for EverPen",
         kr: "EverPen을 위한 정부 창업 패키지 지원",
@@ -423,7 +439,11 @@ export const cvContent = {
         kr: "아기 모니터링 요람 디자인 특허",
         jp: "乳児モニタリング用ゆりかご デザイン特許",
       },
-      project: "Panopticon",
+      project: {
+        en: "Korean Intellectual Property Office",
+        kr: "특허청",
+        jp: "特許庁",
+      },
       explain: {
         en: "Design patent for an intelligent baby monitoring cradle",
         kr: "지능형 아기 모니터링 요람 디자인 특허",
@@ -437,7 +457,11 @@ export const cvContent = {
         kr: "KT SuperVR 공모전 Top 7",
         jp: "KT SuperVR コンテスト Top 7",
       },
-      project: "personal",
+      project: {
+        en: "KT Corporation × PiCO Creative",
+        kr: "KT × PiCO 크리에이티브",
+        jp: "KT × PiCO Creative",
+      },
       explain: {
         en: "Recognized among the top 7 projects in a nationwide VR contest",
         kr: "전국 단위 VR 공모전에서 상위 7개 프로젝트 선정",
@@ -451,7 +475,11 @@ export const cvContent = {
         kr: "AI 바우처 정부지원사업 선정",
         jp: "AI バウチャー政府支援事業 選定",
       },
-      project: "Panopticon",
+      project: {
+        en: "National IT Industry Promotion Agency",
+        kr: "정보통신산업진흥원",
+        jp: "情報通信産業振興院",
+      },
       explain: {
         en: "AI-based baby monitoring solution supported through the AI Voucher Program",
         kr: "AI 바우처 사업을 통한 아기 모니터링 솔루션 지원",
@@ -465,7 +493,11 @@ export const cvContent = {
         kr: "광학 장비 설치 라이선스 취득",
         jp: "光学装置 設置ライセンス 取得",
       },
-      project: "Canon",
+      project: {
+        en: "Canon Inc.",
+        kr: "캐논",
+        jp: "キヤノン",
+      },
       explain: {
         en: "First Korean engineer to obtain a global photolithography equipment installation license",
         kr: "세계 최초로 광학 노광 장비 설치 라이선스를 취득한 한국인 엔지니어",
@@ -479,7 +511,11 @@ export const cvContent = {
         kr: "대한민국 교육부 장관상",
         jp: "大韓民国 教育部長官賞",
       },
-      project: "E²Festa",
+      project: {
+        en: "E²Festa",
+        kr: "E²Festa",
+        jp: "E²Festa",
+      },
       explain: {
         en: "Image-recognition-based AR projection table presented ",
         kr: "이미지 인식 기반 AR 프로젝션 테이블 ",
@@ -493,7 +529,11 @@ export const cvContent = {
         kr: "백마 성적우수 장학금",
         jp: "ホワイトホース 成績優秀 奨学金",
       },
-      project: "Soongsil University",
+      project: {
+        en: "Soongsil University",
+        kr: "숭실대학교",
+        jp: "崇実大学校",
+      },
       explain: {
         en: "Academic excellence scholarship awarded every semester",
         kr: "전 학기 성적우수로 수여된 장학금",
