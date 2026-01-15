@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
+const MAX_MESSAGE_LEN = 1500;
+const DISPLAY_MESSAGE_LEN = 1501;
+
 const books = [
   { title: "Sapiens", img: "/contact/sapiens.jpg" },
   { title: "Becoming Supernatural", img: "/contact/supernatural.jpg" },
@@ -24,6 +27,7 @@ export default function ContactContent() {
 
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  
   const canTrySend =
     name.trim().length > 0 ||
     reply.trim().length > 0 ||
@@ -81,38 +85,44 @@ export default function ContactContent() {
     },
   };
 
-  async function send() {
-    const hasName = name.trim().length > 0;
-    const hasReply = reply.trim().length > 0;
-    const hasMessage = message.trim().length > 0;
+async function send() {
+  const hasName = name.trim().length > 0;
+  const hasReply = reply.trim().length > 0;
+  const hasMessage = message.trim().length > 0;
 
-    setNameError(!hasName);
-    setReplyError(!hasReply);
-    setMessageError(!hasMessage);
+  setNameError(!hasName);
+  setReplyError(!hasReply);
+  setMessageError(!hasMessage);
 
-    if (!hasName || !hasReply || !hasMessage || sending) {
-      return;
-    }
-
-    setSending(true);
-
-    try {
-      await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, reply, message }),
-      });
-
-      setName("");
-      setReply("");
-      setMessage("");
-      setSent(true);
-    } catch {
-      alert("Failed to send");
-    } finally {
-      setSending(false);
-    }
+  if (!hasName || !hasReply || !hasMessage || sending) {
+    return;
   }
+
+  setSending(true);
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, reply, message }),
+    });
+
+    if (!res.ok) {
+      if (res.status === 413) throw new Error("Message is too long.");
+  throw new Error(`Send failed (${res.status})`);
+    }
+
+    setName("");
+    setReply("");
+    setMessage("");
+    setSent(true);
+  } catch {
+    alert("Failed to send");
+  } finally {
+    setSending(false);
+  }
+}
+
 
   return (
     <>
@@ -194,25 +204,32 @@ export default function ContactContent() {
                     }
                   `}
                 />
+<textarea
+  value={message}
+  maxLength={MAX_MESSAGE_LEN}
+  onChange={(e) => {
+    setMessage(e.target.value);
+    setMessageError(false);
+  }}
+  placeholder={t.message[lang]}
+  className={`
+    w-full text-sm px-3 py-2 border rounded-md resize-none
+    h-[120px] md:h-[200px]
+    placeholder:text-neutral-400
+    ${messageError ? "border-red-500 placeholder:text-red-400" : ""}
+  `}
+/>
+<div
+  className={`text-xs text-right ${
+    message.length >= DISPLAY_MESSAGE_LEN
+      ? "text-red-500"
+      : "text-neutral-400"
+  }`}
+>
+  {message.length} / {DISPLAY_MESSAGE_LEN}
+</div>
 
-                <textarea
-                  value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                    setMessageError(false);
-                  }}
-                  placeholder={t.message[lang]}
-                  className={`
-                      w-full text-sm px-3 py-2 border rounded-md resize-none
-                      h-[120px] md:h-[200px]
-                      placeholder:text-neutral-400
-                      ${messageError
-                      ? "border-red-500 placeholder:text-red-400"
-                      : ""
-                    }
-                  `}
-                />
-                
+
                 <button
                   onClick={send}
                   disabled={!canTrySend || sending}

@@ -101,9 +101,9 @@ export const cvContent = {
         jp: "創業",
       },
       org: {
-        en: "ALAM",
-        kr: "ALAM",
-        jp: "ALAM",
+        en: "ALAM (A Layer Above Me)",
+        kr: "ALAM (A Layer Above Me)",
+        jp: "ALAM (A Layer Above Me)",
       },
       city: {
         en: ["Seoul"],
