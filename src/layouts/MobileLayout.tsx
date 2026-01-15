@@ -7,7 +7,7 @@ import Home from "../pages/mobile/Home";
 import Publications from "../pages/mobile/Publications";
 import Projects from "../pages/mobile/Projects";
 import CV from "../pages/mobile/CV";
-import Others from "../pages/mobile/Others";
+import Contact from "../pages/mobile/Contact";
 
 export default function MobileLayout() {
   const [tab, setTab] = useState<MobileTab>("home");
@@ -22,8 +22,8 @@ export default function MobileLayout() {
         return <Projects />;
       case "cv":
         return <CV />;
-      case "others":
-        return <Others />;
+      case "contact":
+        return <Contact />;
     }
   };
 

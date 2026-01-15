@@ -9,21 +9,21 @@ export const navLabels: Record<
     publications: "논문",
     projects: "프로젝트",
     cv: "이력",
-    others: "기타",
+    contact: "연락",
   },
   en: {
     home: "About",
     publications: "Publications",
     projects: "Projects",
     cv: "CV",
-    others: "Others",
+    contact: "Contact",
   },
   jp: {
     home: "概要",
     publications: "論文",
     projects: "プロジェクト",
     cv: "履歴",
-    others: "その他",
+    contact: "連絡",
   },
 };
 

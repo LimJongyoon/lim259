@@ -24,5 +24,5 @@ export const NAV_ITEMS: NavItem[] = [
       { id: "cv-languages" },
     ],
   },
-  { id: "others" },
+  { id: "contact" },
 ];

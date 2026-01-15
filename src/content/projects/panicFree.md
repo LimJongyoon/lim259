@@ -11,8 +11,7 @@ scope:
   en: Freelance
   kr: 개인 외주 작업
 
-thumbnail: "/projects/panicfree.png"
-
+thumbnail: "/images/image.png"
 title:
   en: "panicFree"
   kr: "panicFree"
@@ -22,7 +21,7 @@ affiliation:
     kr: "정신건강 상태 추적을 위한 하이브리드 모바일 애플리케이션"
 
 media:
-  image: "/images/panicfree.png"
+  video: "https://www.youtube.com/embed/p63xojS7kk0?si=3TVTv5VRnY4UM2-q"
 
 tags:
   - Flutter

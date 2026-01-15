@@ -6,6 +6,7 @@ import DesktopLayout from "./layouts/DesktopLayout";
 import PublicationsContent from "./components/publications/PublicationsContent";
 import ProjectsContent from "./components/projects/ProjectsContent";
 import CVContent from "./components/cv/CVContent";
+import ContactContent from "./components/contact/ContactContent";
 
 import type { Lang } from "./content/cv";
 
@@ -26,9 +27,8 @@ function App() {
         <CVContent lang={lang} onChangeLang={setLang} />
       </section>
 
-
-      <section id="others" className="h-[60vh] flex items-center justify-center">
-        <span className="text-sm text-neutral-400">Others (coming soon)</span>
+      <section id="contact">
+        <ContactContent />
       </section>
     </section>
   );

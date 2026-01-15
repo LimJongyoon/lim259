@@ -3,4 +3,4 @@ export type MobileTab =
   | "publications"
   | "projects"
   | "cv"
-  | "others";
+  | "contact";

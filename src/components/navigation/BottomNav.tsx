@@ -3,7 +3,7 @@ import {
   DocumentTextIcon,
   CubeIcon,
   IdentificationIcon,
-  EllipsisHorizontalIcon,
+  EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 
 import type { MobileTab } from "../../types/MobileTab";
@@ -23,7 +23,7 @@ const items: {
   { id: "publications", icon: DocumentTextIcon },
   { id: "projects", icon: CubeIcon },
   { id: "cv", icon: IdentificationIcon },
-  { id: "others", icon: EllipsisHorizontalIcon },
+  { id: "contact", icon: EnvelopeIcon },
 ];
 
 export default function BottomNav({ activeTab, onChange }: Props) {

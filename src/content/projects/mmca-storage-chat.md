@@ -14,8 +14,8 @@ scope:
 thumbnail: "/projects/MMCA.png"
 
 title:
-  en: "MMCA Storage Chat Mobile: AI Docent Application"
-  kr: "청주관 수장고 AI 도슨트 모바일 애플리케이션"
+  en: "MMCA Storage Chat Mobile: AI Docent Application with Meta Ray-ban"
+  kr: "청주관 수장고 AI 도슨트 모바일 애플리케이션 with Meta Ray-ban"
 
 affiliation:
   - en: "AI-powered mobile docent application for museum storage exhibitions"
