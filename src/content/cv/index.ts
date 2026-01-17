@@ -280,19 +280,6 @@ export const cvContent = {
     },
     {
       title: {
-        en: "Student Worker",
-        kr: "근로학생",
-        jp: "学生ワーカー",
-      },
-      place: {
-        en: "Sogang University, Seoul, South Korea",
-        kr: "서강대학교, 서울",
-        jp: "西江大学校 ソウル",
-      },
-      year: "2022–2024",
-    },
-    {
-      title: {
         en: "Participation in the Korea Electronics Show 2022 Exhibition",
         kr: "Korea Electronics Show 2022 전시 참가",
         jp: "Korea Electronics Show 2022 展示参加",
@@ -499,16 +486,16 @@ export const cvContent = {
         jp: "キヤノン",
       },
       explain: {
-        en: "First Korean engineer to obtain a global photolithography equipment installation license",
-        kr: "세계 최초로 광학 노광 장비 설치 라이선스를 취득한 한국인 엔지니어",
-        jp: "世界で初めて光学露光装置の設置ライセンスを取得した韓国人技術者",
-      },
+        en: "First Korean engineer to obtain a photolithography equipment installation license",
+        kr: "한국인 최초로 광학 노광 장비 설치 라이선스를 취득",
+        jp: "韓国人として初めて光学露光装置の設置ライセンスを取得した技術者",
+    }, 
       year: "2018",
     },
     {
       title: {
         en: "Korea Minister of Engineering and Education Award",
-        kr: "대한민국 교육부 장관상",
+        kr: "대한민국 공학교육 장관상",
         jp: "大韓民国 教育部長官賞",
       },
       project: {

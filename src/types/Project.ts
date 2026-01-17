@@ -28,11 +28,12 @@ export type Project = {
 
   thumbnail?: string;
 
-  media?: {
-    video?: string;
-    images?: string[];  
-    image?: string;
-  };
+media?: {
+  video?: string;
+  videos?: string[];
+  image?: string;
+  images?: string[];
+};
 
   tags: SkillKey[];
 

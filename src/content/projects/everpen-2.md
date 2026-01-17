@@ -1,6 +1,6 @@
 ---
 id: everpen-2
-year: 2023
+year: 2024
 order: 1
 
 type:
@@ -26,7 +26,9 @@ affiliation:
     kr: "대한민국 정부 장관상 수상"
 
 media:
-  video: "https://www.youtube.com/embed/ln1e_Zr97C8?si=r1UTsVQ9H4LrEufT" 
+  videos:
+    - "https://www.youtube.com/embed/ln1e_Zr97C8"
+    - "https://www.youtube.com/embed/iJ6vnRgE8OM"
   image: "/projects/everpen22.png"
 
 tags:

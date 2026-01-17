@@ -199,6 +199,29 @@ export default function ProjectsContent() {
                             </div>
                           ))}
 
+                        {p.media?.videos && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                            {p.media.videos.map((src, i) => (
+                              <div key={i} className="aspect-video">
+                                {src.endsWith(".mp4") ? (
+                                  <video
+                                    src={src}
+                                    controls
+                                    playsInline
+                                    className="w-full h-full rounded-md"
+                                  />
+                                ) : (
+                                  <iframe
+                                    src={src}
+                                    className="w-full h-full rounded-md"
+                                    allowFullScreen
+                                  />
+                                )}
+                              </div>
+                            ))}
+                          </div>
+                        )}
+
                         {p.media?.image && (
                           <img
                             src={p.media.image}
