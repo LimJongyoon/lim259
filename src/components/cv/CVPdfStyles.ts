@@ -95,4 +95,8 @@ export const styles = StyleSheet.create({
   bold: {
     fontWeight: 600,
   },
+
+  bold2: {
+    fontWeight: 300,
+  },
 });

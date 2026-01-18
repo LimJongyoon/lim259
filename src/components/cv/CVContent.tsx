@@ -143,7 +143,17 @@ export default function CVContent({
                   title={p.title[lang] ?? p.title.en}
                   right={String(p.year)}
                 >
-                  <p className="mt- 0.5text-neutral-600 text-[14px]">{p.authors?.map((a) => a.name).join(", ")}</p>
+                  <p className="mt-0.5 text-neutral-600 text-[14px]">
+                  {p.authors?.map((a, i) => (
+                    <span
+                      key={i}
+                      className={a.role === "first" ? "font-semibold" : ""}
+                    >
+                      {a.name}
+                      {i !== p.authors.length - 1 && ", "}
+                    </span>
+                  ))}
+                </p>
                   <p className="mt-0.5 italic text-neutral-600 text-[14px]">{p.venue[lang] ?? p.venue.en}</p>
                 </Entry>
               ))}

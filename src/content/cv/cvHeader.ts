@@ -7,7 +7,7 @@ export const cvHeader = {
   contact: {
     phone: "+82-10-2954-0906",
     email: "limjy.kor@email.com",
-    website: "https://",
+    website: "https://limjy.com",
   },
   location: {
     en: "Seoul, South Korea",

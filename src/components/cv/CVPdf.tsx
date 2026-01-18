@@ -135,9 +135,20 @@ export function CVPdf({ lang }: { lang: Lang }) {
               right={String(p.year)}
               lang={lang}
             >
-              <Text style={withFont(styles.entryBody, lang)}>
-                {p.authors?.map((a) => a.name).join(", ")}
-              </Text>
+            <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+              {p.authors?.map((a, i) => (
+                <Text
+                  key={i}
+                  style={[
+                    ...withFont(styles.entryBody, lang),
+                    a.role === "first" && { fontWeight: 700 },
+                  ]}
+                >
+                  {a.name}
+                  {i < p.authors.length - 1 && ", "}
+                </Text>
+              ))}
+            </View>
               <Text style={withFont(styles.italic, lang)}>
                 {p.venue[lang] ?? p.venue.en}
               </Text>

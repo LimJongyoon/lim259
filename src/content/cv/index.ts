@@ -42,7 +42,7 @@ export const cvContent = {
 
       degree: {
         en: "B.S., Electronic Engineering (ABEEK)",
-        kr: "학사, 전자공학 (ABEEK)",
+        kr: "학사, 전기공학부 (공학교육인증 ABEEK)",
         jp: "学士, 電子工学 (ABEEK)",
       },
       gpa: "4.12 / 4.50",
