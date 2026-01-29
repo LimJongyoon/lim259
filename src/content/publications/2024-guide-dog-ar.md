@@ -17,8 +17,8 @@ authors:
   - name: Yongsoon Choi
 
 venue:
-  en: "International Journal of Human–Computer Interaction"
-  kr: "International Journal of Human–Computer Interaction"
+  en: "IJHCI, 41(11), 6729–6742"
+  kr: "IJHCI, 41(11), 6729–6742"
 
 media:
   video: "https://www.youtube.com/embed/qpx9gIWPTao"

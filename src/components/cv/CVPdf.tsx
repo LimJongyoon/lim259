@@ -102,14 +102,14 @@ export function CVPdf({ lang }: { lang: Lang }) {
               key={i}
               title={
                 <Text style={withFont(styles.entryTitle, lang)}>
-                  {p.role[lang]}
+                  {p.org[lang]}
                 </Text>
               }
               right={p.year}
               lang={lang}
             >
               <Text style={withFont(styles.entryBody, lang)}>
-                {p.org[lang]},{" "}
+                {p.role[lang]},{" "}
                 <Text style={withFont(styles.italic, lang)}>
                   {p.city[lang].join("/")}
                 </Text>

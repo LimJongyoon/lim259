@@ -20,8 +20,8 @@ authors:
   - name: Jean Ho Chu
 
 venue:
-  en: "HCI Korea 2022, Interactive Art Gallery"
-  kr: "HCI Korea 2022, Interactive Art Gallery"
+  en: "HCIK 2022, Interactive Art Gallery"
+  kr: "HCIK 2022, Interactive Art Gallery"
 
 media:
   video: "https://www.youtube.com/embed/PN5j6Vpz4kw"

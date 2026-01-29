@@ -112,11 +112,11 @@ export default function CVContent({
               {cvContent.professional.map((p, i) => (
                 <Entry
                   key={i}
-                  title={<>{p.role[lang]}</>}
+                  title={<>{p.org[lang]}</>}
                   right={p.year}
                 >
                   <span className="text-neutral-600 text-[14px]">
-                    {p.org[lang]}
+                    {p.role[lang]}
                   </span>
                   {", "}
                   <span className="text-neutral-600 text-[13px] italic">

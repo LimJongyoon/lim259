@@ -58,14 +58,14 @@ export const cvContent = {
   professional: [
     {
       role: {
-        en: "PM / Research Engineer / Software Architect",
-        kr: "PM / 연구 엔지니어 / 소프트웨어 아키텍트",
-        jp: "PM / 研究エンジニア / ソフトウェアアーキテクト",
+        en: "PM / Research Engineer",
+        kr: "PM / 연구 엔지니어",
+        jp: "PM / 研究エンジニア",
       },
       org: {
-        en: "Department of Art & Technology, Sogang University",
-        kr: "서강대학교 아트앤테크놀로지학과",
-        jp: "西江大学校 アート＆テクノロジー学科",
+        en: "Sogang University",
+        kr: "서강대학교",
+        jp: "西江大学校",
       },
       city: {
         en: ["Seoul"],
