@@ -58,9 +58,9 @@ export const cvContent = {
   professional: [
     {
       role: {
-        en: "PM / Research Engineer",
-        kr: "PM / 연구 엔지니어",
-        jp: "PM / 研究エンジニア",
+        en: "Research Engineer",
+        kr: "리서치 엔지니어",
+        jp: "研究エンジニア",
       },
       org: {
         en: "Sogang University",
@@ -75,22 +75,24 @@ export const cvContent = {
       year: "2021–2025",
       details: {
         en: [
-          "Led immersive content research projects in collaboration with national museums and research institutes",
-          "Project Manager for multisensory interaction and accessibility technology projects with ETRI",
-          "Developed user scenarios and form factors for visual-to-auditory translation technologies for blind poeple",
-          "Project Manager for kiosk UI/UX improvement projects for public-facing services",
+          "Designed and implemented immersive content systems in collaboration with national museums and research institutes",
+          "Led technical development of multisensory interaction and accessibility systems in joint projects with ETRI",
+          "Developed user scenarios and hardware form factors for visual-to-auditory translation systems for visually impaired users",
+          "Engineered UI/UX interaction pipelines and usability improvements for public-facing kiosk systems",
         ],
+
         kr: [
-          "국립현대미술관 수장고 실감형 콘텐츠 연구 프로젝트 수행",
-          "ETRI 협력 다중감각 인터랙션 및 접근성 기술 프로젝트 PM",
-          "시각장애인을 위한 시각-청각 변환 기술 사용자 시나리오 및 형상 개발",
-          "공공 서비스용 키오스크 UI/UX 개선 프로젝트 PM",
+          "국립현대미술관 및 연구기관 협력 실감형 콘텐츠 시스템 설계 및 구현",
+          "ETRI 공동 연구 프로젝트에서 다중감각 인터랙션 및 접근성 시스템 기술 개발 주도",
+          "시각장애인 대상 시각-청각 변환 시스템 사용자 시나리오 및 하드웨어 폼팩터 설계",
+          "공공 서비스 키오스크 UI/UX 인터랙션 파이프라인 설계 및 사용성 개선 구현",
         ],
+
         jp: [
-          "国立美術館および研究機関と連携した没入型コンテンツ研究プロジェクトを担当",
-          "ETRI と協力した多感覚インタラクションおよびアクセシビリティ技術プロジェクトのプロジェクトマネジメントを担当",
-          "視覚障害者向け視覚―聴覚変換技術におけるユーザーシナリオおよびフォームファクター設計",
-          "公共サービス向けキオスクUI/UX改善プロジェクトのプロジェクトマネジメントを担当",
+          "国立美術館および研究機関との共同研究における没入型コンテンツシステムの設計および実装",
+          "ETRIとの共同プロジェクトにおける多感覚インタラクションおよびアクセシビリティシステムの技術開発を主導",
+          "視覚障害者向け視覚―聴覚変換システムにおけるユーザーシナリオおよびハードウェアフォームファクター設計",
+          "公共サービス向けキオスクUI/UXインタラクションパイプラインの設計およびユーザビリティ改善の実装",
         ],
       },
     },
@@ -197,7 +199,7 @@ export const cvContent = {
         jp: "研究インターン",
       },
       org: {
-        en: "Soongsil University Multimedia Signal Processing Lab",
+        en: "Multimedia Signal Processing Lab, Soongsil University",
         kr: "숭실대학교 전기공학부 멀티미디어 신호처리 연구실",
         jp: "崇実大学校のマルチメディア信号処理研究室",
       },

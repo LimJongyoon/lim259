@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import MobileLayout from "./layouts/MobileLayout";
 import DesktopLayout from "./layouts/DesktopLayout";
@@ -12,6 +12,19 @@ import type { Lang } from "./content/cv";
 
 function App() {
   const [lang, setLang] = useState<Lang>("en");
+
+  useEffect(() => {
+    const device = window.innerWidth < 768 ? "mobile" : "desktop";
+
+    fetch("/api/log", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        device,
+        path: window.location.pathname,
+      }),
+    });
+  }, []);
 
   const desktopContent = (
     <section id="main-content" className="space-y-8">

@@ -12,20 +12,22 @@
   "dependencies": {
     "@heroicons/react": "^2.2.0",
     "@react-pdf/renderer": "^4.3.2",
+    "@supabase/supabase-js": "^2.94.0",
     "@tailwindcss/typography": "^0.5.19",
     "front-matter": "^4.0.2",
     "gray-matter": "^4.0.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",
-    "react-responsive": "^10.0.1"
+    "react-responsive": "^10.0.1",
+    "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.5",
     "@types/react-dom": "^19.2.3",
-    "@vercel/node": "^5.5.20",
+    "@vercel/node": "^5.5.28",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.23",
     "eslint": "^9.39.1",
