@@ -6,7 +6,9 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
-  if (req.headers.authorization !== process.env.ADMIN_KEY) {
+  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  if (token !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "unauthorized" });
   }
 
@@ -21,5 +23,5 @@ export default async function handler(req: any, res: any) {
     return res.status(500).json(error);
   }
 
-  res.status(200).json(data);
+  return res.status(200).json(data);
 }
