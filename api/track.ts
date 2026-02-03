@@ -6,14 +6,15 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
+
   if (req.method !== "POST") {
     return res.status(405).end();
   }
 
   const { device, path } = req.body;
 
-  const country = req.headers["x-vercel-ip-country"] || null;
-  const city = req.headers["x-vercel-ip-city"] || null;
+  const country = req.headers["x-vercel-ip-country"] || "Unknown";
+  const city = req.headers["x-vercel-ip-city"] || "Unknown";
 
   const { error } = await supabase.from("visits").insert([
     { device, country, city, path }
@@ -24,5 +25,5 @@ export default async function handler(req: any, res: any) {
     return res.status(500).json({ ok: false });
   }
 
-  res.status(200).json({ ok: true });
+  return res.status(200).json({ ok: true });
 }

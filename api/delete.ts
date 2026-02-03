@@ -7,21 +7,31 @@ const supabase = createClient(
 
 export default async function handler(req: any, res: any) {
 
+  if (req.method !== "POST") {
+    return res.status(405).end();
+  }
+
   const adminKey = req.headers["x-admin-key"];
 
   if (adminKey !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "unauthorized" });
   }
 
-  const { data, error } = await supabase
-    .from("visits")
-    .select("*")
-    .order("created_at", { ascending: false })
-    .limit(1000);
+  const { ids } = req.body;
 
-  if (error) {
-    return res.status(500).json(error);
+  if (!Array.isArray(ids) || ids.length === 0) {
+    return res.status(400).json({ error: "invalid ids" });
   }
 
-  res.status(200).json(data);
+  const { error } = await supabase
+    .from("visits")
+    .delete()
+    .in("id", ids);
+
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ error: "delete failed" });
+  }
+
+  res.status(200).json({ ok: true });
 }

@@ -13,18 +13,20 @@ import type { Lang } from "./content/cv";
 function App() {
   const [lang, setLang] = useState<Lang>("en");
 
-  useEffect(() => {
-    const device = window.innerWidth < 768 ? "mobile" : "desktop";
+useEffect(() => {
 
-    fetch("/api/log", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        device,
-        path: window.location.pathname,
-      }),
-    });
-  }, []);
+  if (import.meta.env.DEV) return;
+
+  fetch("/api/track", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      device: window.innerWidth < 768 ? "mobile" : "desktop",
+      path: location.pathname
+    })
+  });
+
+}, []);
 
   const desktopContent = (
     <section id="main-content" className="space-y-8">
