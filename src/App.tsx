@@ -13,20 +13,25 @@ import type { Lang } from "./content/cv";
 function App() {
   const [lang, setLang] = useState<Lang>("en");
 
-useEffect(() => {
+  useEffect(() => {
+    if (import.meta.env.DEV) return;
 
-  if (import.meta.env.DEV) return;
+    let visitorId = localStorage.getItem("visitor_id");
 
-  fetch("/api/track", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      device: window.innerWidth < 768 ? "mobile" : "desktop",
-      path: location.pathname
-    })
-  });
+    if (!visitorId) {
+      visitorId = crypto.randomUUID();
+      localStorage.setItem("visitor_id", visitorId);
+    }
 
-}, []);
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        visitorId,
+        device: window.innerWidth < 768 ? "mobile" : "desktop"
+      })
+    });
+  }, []);
 
   const desktopContent = (
     <section id="main-content" className="space-y-8">

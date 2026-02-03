@@ -80,7 +80,7 @@ export default function DesktopLayout({ children }: Props) {
       </div>
 
       {toast && (
-        <div className="fixed bottom-6 right-6 bg-black/90 text-white px-4 py-2 rounded-lg shadow-lg text-sm">
+        <div className="fixed bottom-12 left-1/2 -translate-x-1/2 bg-black/70 text-white px-4 py-2 rounded-lg shadow-lg text-sm">
           {toast}
         </div>
       )}

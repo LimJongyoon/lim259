@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 type Log = {
   id: string;
+  visitor_id: string;
   device: string;
   country: string;
   city: string;
-  path: string;
   created_at: string;
 };
 
@@ -164,10 +164,10 @@ export default function LogPage() {
               <tr>
                 <th className="p-2"></th>
                 <th className="p-2 text-left">Time</th>
+                <th className="p-2 text-left">Visitor ID</th>
                 <th className="p-2 text-left">Device</th>
                 <th className="p-2 text-left">Country</th>
                 <th className="p-2 text-left">City</th>
-                <th className="p-2 text-left">Path</th>
               </tr>
             </thead>
 
@@ -192,10 +192,13 @@ export default function LogPage() {
                     {new Date(l.created_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}
                   </td>
 
+                  <td className="p-2 font-mono text-xs truncate max-w-[160px]">
+                    {l.visitor_id}
+                  </td>
+
                   <td className="p-2">{l.device}</td>
                   <td className="p-2">{l.country}</td>
                   <td className="p-2">{l.city}</td>
-                  <td className="p-2 truncate max-w-[220px]">{l.path}</td>
 
                 </tr>
 
@@ -237,8 +240,12 @@ export default function LogPage() {
                 {new Date(l.created_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}
               </div>
 
+              <div className="text-xs font-mono truncate">
+                {l.visitor_id}
+              </div>
+
               <div className="text-sm">
-                {l.device} · {l.path}
+                {l.device}
               </div>
 
             </div>

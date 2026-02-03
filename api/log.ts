@@ -7,6 +7,10 @@ const supabase = createClient(
 
 export default async function handler(req: any, res: any) {
 
+  if (req.method !== "GET") {
+    return res.status(405).end();
+  }
+
   const adminKey = req.headers["x-admin-key"];
 
   if (adminKey !== process.env.ADMIN_KEY) {
