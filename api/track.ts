@@ -5,19 +5,24 @@ const supabase = createClient(
   process.env.SUPABASE_ANON_KEY!
 );
 
-export default async function handler(req:any,res:any){
+export default async function handler(req: any, res: any) {
+  if (req.method !== "POST") {
+    return res.status(405).end();
+  }
 
   const { device, path } = req.body;
 
-  const country = req.headers["x-vercel-ip-country"];
-  const city = req.headers["x-vercel-ip-city"];
+  const country = req.headers["x-vercel-ip-country"] || null;
+  const city = req.headers["x-vercel-ip-city"] || null;
 
-  await supabase.from("visits").insert([{
-    device,
-    path,
-    country,
-    city
-  }]);
+  const { error } = await supabase.from("visits").insert([
+    { device, country, city, path }
+  ]);
 
-  res.json({ ok:true });
+  if (error) {
+    console.error(error);
+    return res.status(500).json({ ok: false });
+  }
+
+  res.status(200).json({ ok: true });
 }

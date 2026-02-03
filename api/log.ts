@@ -7,12 +7,9 @@ const supabase = createClient(
 
 export default async function handler(req: any, res: any) {
 
-  const token = req.headers["x-admin-key"];
+  const adminKey = req.headers["x-admin-key"];
 
-  console.log("X-ADMIN-KEY =", token);
-  console.log("ENV ADMIN_KEY =", process.env.ADMIN_KEY);
-
-  if (token !== process.env.ADMIN_KEY) {
+  if (adminKey !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "unauthorized" });
   }
 
@@ -23,9 +20,8 @@ export default async function handler(req: any, res: any) {
     .limit(500);
 
   if (error) {
-    console.error(error);
     return res.status(500).json(error);
   }
 
-  return res.status(200).json(data);
+  res.status(200).json(data);
 }
