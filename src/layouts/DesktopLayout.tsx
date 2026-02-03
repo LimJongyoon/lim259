@@ -30,26 +30,32 @@ export default function DesktopLayout({ children }: Props) {
     }, 3000);
   };
 
-  const handleSecretClick = () => {
+const handleSecretClick = (e: React.MouseEvent | React.TouchEvent) => {
 
+  if ("touches" in e) {
     tapRef.current += 1;
+  } else {
+    if (!e.shiftKey) return;
+    tapRef.current += 1;
+  }
 
-    resetTimer();
+  resetTimer();
 
-    if (tapRef.current >= 5) {
+  if (tapRef.current >= 5) {
 
-      setToast("Admin unlocked");
+    setToast("Admin unlocked");
 
-      setTimeout(() => {
-        navigate("/log");
-      }, 600);
+    setTimeout(() => {
+      navigate("/log");
+    }, 600);
 
-      tapRef.current = 0;
-      return;
-    }
+    tapRef.current = 0;
+    return;
+  }
 
-    setToast(`Admin mode ${tapRef.current} / 5`);
-  };
+  setToast(`Admin mode ${tapRef.current} / 5`);
+};
+
 
   return (
     <div className="min-h-screen bg-gray-50 relative">

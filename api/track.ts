@@ -18,6 +18,12 @@ export default async function handler(req: any, res: any) {
     return res.status(200).json({ ignored: true });
   }
 
+  const ipHeader = req.headers["x-forwarded-for"];
+
+if (!ipHeader) {
+  return res.status(200).json({ ignored: true });
+}
+
   const { device, visitorId } = req.body;
 
   if (!visitorId) {
