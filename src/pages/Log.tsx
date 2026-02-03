@@ -9,7 +9,7 @@ type Log = {
   created_at: string;
 };
 
-type Range = "today" | "7d" | "30d";
+type Range = "today" | "7d" | "30d" | "90d" | "all";
 
 export default function LogPage() {
 
@@ -40,7 +40,9 @@ export default function LogPage() {
 
     if (range === "today") return t > now - 86400000;
     if (range === "7d") return t > now - 604800000;
-    return t > now - 2592000000;
+    if (range === "30d") return t > now - 2592000000;
+    if (range === "90d") return t > now - 7776000000;
+    return true; 
   });
 
   const sorted = [...filtered].sort((a, b) => {
@@ -131,6 +133,8 @@ export default function LogPage() {
         {filterBtn("today", "Today")}
         {filterBtn("7d", "7 Days")}
         {filterBtn("30d", "30 Days")}
+        {filterBtn("90d", "90 Days")}
+        {filterBtn("all", "All")}
       </div>
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-6">
@@ -151,7 +155,7 @@ export default function LogPage() {
 
         <div className="bg-white border rounded overflow-hidden">
 
-          <div className="bg-gray-200 flex gap-3 p-3 border-b bg-gray-50">
+          <div className="bg-gray-100 flex gap-5 p-3 border-b">
             {sortBtn("created_at", "Time")}
             {sortBtn("country", "Country")}
             {sortBtn("city", "City")}
