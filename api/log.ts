@@ -7,11 +7,9 @@ const supabase = createClient(
 
 export default async function handler(req: any, res: any) {
 
-  const rawAuth = req.headers.authorization;
-  const token = rawAuth?.replace("Bearer ", "");
+  const token = req.headers["x-admin-key"];
 
-  console.log("RAW AUTH HEADER =", rawAuth);
-  console.log("PARSED TOKEN =", token);
+  console.log("X-ADMIN-KEY =", token);
   console.log("ENV ADMIN_KEY =", process.env.ADMIN_KEY);
 
   if (token !== process.env.ADMIN_KEY) {
