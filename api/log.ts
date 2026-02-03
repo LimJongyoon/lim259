@@ -6,7 +6,13 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
-  const token = req.headers.authorization?.replace("Bearer ", "");
+
+  const rawAuth = req.headers.authorization;
+  const token = rawAuth?.replace("Bearer ", "");
+
+  console.log("RAW AUTH HEADER =", rawAuth);
+  console.log("PARSED TOKEN =", token);
+  console.log("ENV ADMIN_KEY =", process.env.ADMIN_KEY);
 
   if (token !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "unauthorized" });
