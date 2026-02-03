@@ -6,7 +6,6 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
-  // 관리자 인증
   if (req.headers.authorization !== process.env.ADMIN_KEY) {
     return res.status(401).json({ error: "unauthorized" });
   }

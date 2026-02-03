@@ -14,7 +14,7 @@ export default function LogPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    fetch("/api/logs", {
+    fetch("/api/log", {
       headers: {
         Authorization: import.meta.env.VITE_ADMIN_KEY,
       },
