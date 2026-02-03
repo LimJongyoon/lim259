@@ -7,8 +7,15 @@ const supabase = createClient(
 );
 
 export default async function handler(req: any, res: any) {
+
   if (req.method !== "POST") {
     return res.status(405).end();
+  }
+
+  const ua = req.headers["user-agent"] || "";
+
+  if (ua.includes("Vercel") || ua.includes("vercel")) {
+    return res.status(200).json({ ignored: true });
   }
 
   const { device, visitorId } = req.body;
