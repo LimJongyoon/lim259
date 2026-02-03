@@ -14,7 +14,7 @@ type Range = "today" | "7d" | "30d";
 export default function LogPage() {
 
   const [logs, setLogs] = useState<Log[]>([]);
-  const [sortKey, setSortKey] = useState("created_at");
+  const [sortKey, setSortKey] = useState<keyof Log>("created_at");
   const [selected, setSelected] = useState<string[]>([]);
   const [range, setRange] = useState<Range>("7d");
 
@@ -31,10 +31,6 @@ export default function LogPage() {
   };
 
   useEffect(load, []);
-
-  // ------------------------
-  // 날짜 필터
-  // ------------------------
 
   const now = Date.now();
 
@@ -53,11 +49,7 @@ export default function LogPage() {
     return t > now - 1000 * 60 * 60 * 24 * 30;
   });
 
-  // ------------------------
-  // 정렬
-  // ------------------------
-
-  const sorted = [...filtered].sort((a: any, b: any) => {
+  const sorted = [...filtered].sort((a, b) => {
 
     if (sortKey === "created_at") {
       return new Date(b.created_at).getTime()
@@ -67,23 +59,14 @@ export default function LogPage() {
     return String(a[sortKey]).localeCompare(String(b[sortKey]));
   });
 
-  // ------------------------
-  // 국가별 집계
-  // ------------------------
-
-  const countryStats = filtered.reduce((acc: any, cur) => {
+  const countryStats = filtered.reduce<Record<string, number>>((acc, cur) => {
 
     acc[cur.country] = (acc[cur.country] || 0) + 1;
     return acc;
 
   }, {});
 
-  const countrySorted = Object.entries(countryStats)
-    .sort((a: any, b: any) => b[1] - a[1]);
-
-  // ------------------------
-  // 선택 삭제
-  // ------------------------
+  const countrySorted = Object.entries(countryStats) as [string, number][];
 
   const toggle = (id: string) => {
 
@@ -111,18 +94,12 @@ export default function LogPage() {
     load();
   };
 
-  // =================================================
-  // UI
-  // =================================================
-
   return (
     <div className="p-4 max-w-6xl mx-auto">
 
       <h1 className="text-xl font-bold mb-3">
         Visitor Logs
       </h1>
-
-      {/* 날짜 필터 */}
 
       <div className="flex gap-2 mb-3">
 
@@ -139,8 +116,6 @@ export default function LogPage() {
         </button>
 
       </div>
-
-      {/* 국가별 집계 */}
 
       <div className="bg-gray-50 p-3 rounded mb-4 text-sm">
 
@@ -159,8 +134,6 @@ export default function LogPage() {
         </div>
 
       </div>
-
-      {/* PC 테이블 */}
 
       {!isMobile && (
 
@@ -201,7 +174,7 @@ export default function LogPage() {
                     />
                   </td>
 
-                  <td>{new Date(l.created_at).toLocaleString()}</td>
+                  <td>{new Date(l.created_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}</td>
                   <td>{l.device}</td>
                   <td>{l.country}</td>
                   <td>{l.city}</td>
@@ -217,8 +190,6 @@ export default function LogPage() {
 
         </>
       )}
-
-      {/* 모바일 카드 UI */}
 
       {isMobile && (
 
@@ -246,7 +217,7 @@ export default function LogPage() {
               </div>
 
               <div className="text-xs text-gray-500">
-                {new Date(l.created_at).toLocaleString()}
+                {new Date(l.created_at).toLocaleString("ko-KR", { timeZone: "Asia/Seoul" })}
               </div>
 
               <div className="mt-1 text-sm">
