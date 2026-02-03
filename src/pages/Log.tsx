@@ -13,10 +13,23 @@ export default function LogPage() {
   const [logs, setLogs] = useState<Log[]>([]);
   const [error, setError] = useState("");
 
+  // 방문 트래킹 (페이지 접속시 자동 저장)
+  useEffect(() => {
+    fetch("/api/track", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        device: window.innerWidth < 768 ? "mobile" : "desktop",
+        path: location.pathname,
+      }),
+    });
+  }, []);
+
+  // 관리자 로그 불러오기
   useEffect(() => {
     fetch("/api/log", {
       headers: {
-        Authorization: import.meta.env.VITE_ADMIN_KEY,
+        "x-admin-key": import.meta.env.VITE_ADMIN_KEY,
       },
     })
       .then((res) => {
@@ -33,9 +46,9 @@ export default function LogPage() {
 
       {error && <div className="text-red-500 mb-3">{error}</div>}
 
-      <table className="border border-collapse">
+      <table className="border border-collapse w-full">
         <thead>
-          <tr>
+          <tr className="bg-gray-100">
             <th className="border p-2">Time</th>
             <th className="border p-2">Device</th>
             <th className="border p-2">Country</th>
