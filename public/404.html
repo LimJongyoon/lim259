@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>404</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <style>
+    :root {
+      --bg: #f7f7f7;
+      --fg: #111111;
+      --muted: #6d6d6d;
+      --grid: rgba(0,0,0,0.12);
+      --panel-bg: rgba(255,255,255,0.7);
+      --border: rgba(0,0,0,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: -apple-system, BlinkMacSystemFont,
+        "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #ffffff, #f2f2f2);
+      overflow: hidden;
+      color: var(--fg);
+    }
+
+    /* Spatial grid */
+    .grid {
+      position: absolute;
+      bottom: -35%;
+      left: 50%;
+      transform: translateX(-50%) perspective(900px) rotateX(65deg);
+      width: 200%;
+      height: 200%;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 48px 48px;
+      animation: gridMove 14s linear infinite;
+    }
+
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to { background-position: 0 480px; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 5;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .panel {
+      max-width: 460px;
+      padding: 46px 42px;
+      background: var(--panel-bg);
+      backdrop-filter: blur(18px);
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      text-align: center;
+      transition: transform 0.05s linear;
+    }
+
+    .code {
+      font-size: 40px;
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+
+    .msg {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 10px;
+      border: 1px solid var(--fg);
+      text-decoration: none;
+      color: var(--fg);
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.15s ease;
+    }
+
+    .btn:hover {
+      background: var(--fg);
+      color: #fff;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="grid"></div>
+
+  <div class="container">
+    <div class="panel" id="panel">
+
+      <div class="code">Lim, Jongyoon</div>
+
+      <div class="msg">
+        Thank you for visiting my page.<br>
+        However, this is not a valid access path.<br>
+        Please return to the homepage.
+      </div>
+
+      <a href="/" class="btn">
+        Home
+      </a>
+
+    </div>
+  </div>
+
+  <script>
+    const panel = document.getElementById("panel");
+
+    document.addEventListener("mousemove", e => {
+      const x = (window.innerWidth / 2 - e.clientX) / 45;
+      const y = (window.innerHeight / 2 - e.clientY) / 45;
+
+      panel.style.transform =
+        `rotateY(${x}deg) rotateX(${y}deg)`;
+    });
+  </script>
+
+</body>
+</html>
