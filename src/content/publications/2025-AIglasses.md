@@ -25,8 +25,8 @@ media:
   video: "https://www.youtube.com/embed/uqBGr7pi2UI?si=qNnpOl5HOW0YqD2g"
 
 links:
-  pdf: "/publications/AIglasses.pdf"
-  doi: ""
+  pdf: "https://ieeexplore.ieee.org/abstract/document/11236356"
+  doi: "10.1109/ISMAR-Adjunct68609.2025.00274"
 
 tags:
   - Mixed Reality
