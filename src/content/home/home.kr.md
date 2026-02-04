@@ -7,4 +7,4 @@
 
 이전에는 **서강대학교 아트 & 테크놀로지 전공에서 석사** 학위를, **숭실대학교 공과대학 전자공학 전공에서 학사** 학위를 취득하였습니다.또한 **CANON** 광학기기 사업부에서 **반도체 광학 엔지니어로** 근무한 경험이 있습니다.
 
-##### **관심 분야** : XR/AR, Haptics, Multimodality, Robotics
+##### **관심 분야** : XR/MR, Haptics, Multimodality, Robotics

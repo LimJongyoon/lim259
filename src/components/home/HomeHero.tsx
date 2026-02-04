@@ -49,7 +49,7 @@ function generateGradient() {
 
 const BUBBLE_TEXT: BubbleMap = {
   publications: {
-    en: "You can click papers to view detailed information.",
+    en: "You can click publications to view detailed information.",
     kr: "논문을 클릭하면 상세 내용을 확인할 수 있습니다.",
     jp: "論文やプロジェクトをクリックすると詳細を見ることができます。",
   },
@@ -162,23 +162,23 @@ export default function HomeHero() {
           alt="Lim Jongyoon"
           className="h-[300px] object-contain drop-shadow-2xl"
         />
-
-        {showBubble && activeSection && (
-          <div
-            className="
-              absolute left-[115%] bottom-[24%]
-              bg-white/95 backdrop-blur
-              border border-gray-400
-              shadow-xl
-              rounded-2xl
-              px-4 py-4
-              text-xl
-              leading-relaxed
-              text-gray-800
-              min-w-[200px]
-              animate-fadeIn
-            "
-          >
+            {showBubble && activeSection && (
+              <div
+                key={activeSection}
+                className="
+                  absolute left-[115%] bottom-[24%]
+                  bg-white/95 backdrop-blur
+                  border border-gray-400
+                  shadow-xl
+                  rounded-2xl
+                  px-4 py-4
+                  text-xl
+                  leading-relaxed
+                  text-gray-800
+                  min-w-[200px]
+                  animate-bubble
+                "
+              >
             {BUBBLE_TEXT[activeSection][safeLang]}
 
             <div
