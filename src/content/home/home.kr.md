@@ -1,5 +1,5 @@
 # 임, 종윤
-###### [lɪm dʒɔŋ jun] · he/him/his
+###### [im dʑoŋ jun] · he/him/his
 
 ## 연구원
 

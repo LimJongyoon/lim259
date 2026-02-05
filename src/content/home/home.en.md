@@ -1,5 +1,5 @@
 # Lim, Jongyoon
-###### [lɪm dʒɔŋ jun] · he/him/his
+###### [im dʑoŋ jun] · he/him/his
 
 ## Researcher
 
