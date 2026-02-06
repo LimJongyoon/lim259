@@ -91,6 +91,16 @@ export function CVPdf({ lang }: { lang: Lang }) {
               <Text style={withFont(styles.entryBody, lang)}>
                 {e.degree[lang]}, GPA: {e.gpa}
               </Text>
+              {e.coursework?.[lang] && (
+                <Text
+                  style={[
+                    ...withFont(styles.italic, lang),
+                    { fontSize: 10, marginTop: 2 },
+                  ]}
+                >
+                  {e.coursework[lang]}
+                </Text>
+              )}
             </Entry>
           ))}
         </Section>
@@ -163,7 +173,7 @@ export function CVPdf({ lang }: { lang: Lang }) {
               key={p.id}
               title={
                 <>
-                  <Text style={withFont(styles.bold, lang)}>
+                  <Text style={withFont(styles.entryTitle, lang)}>
                     {p.title[lang] ?? p.title.en}
                   </Text>
                   {p.type?.[lang] && (

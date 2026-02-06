@@ -102,6 +102,12 @@ export default function CVContent({
                   <span className="text-neutral-600 text-[14px]">
                     {e.degree[lang]}, GPA: {e.gpa}
                   </span>
+
+                  {e.coursework?.[lang] && (
+                    <div className="text-neutral-600 text-[13px] mt-1 italic">
+                      {e.coursework[lang]}
+                    </div>
+                  )}
                 </Entry>
 
               ))}
@@ -166,7 +172,7 @@ export default function CVContent({
                   key={p.id}
                   title={
                     <span>
-                      <strong>{p.title[lang] ?? p.title.en}</strong>
+                      {p.title[lang] ?? p.title.en}
                       <span className="text-neutral-600 text-[14px] font-normal italic">
                         , {p.type?.[lang] ?? ""}
                       </span>
