@@ -4,7 +4,7 @@ year: 2024
 order: 1
 
 type:
-  en: Tangible Interface
+  en: Tangible Interface, Unity XR
   kr: 물리적 인터페이스
 
 scope:
