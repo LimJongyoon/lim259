@@ -18,6 +18,8 @@ export type Publication = {
   media?: {
     video?: string;
     image?: string;
+    images?: string[];
+    videos?: string[];
   };
   links?: { pdf?: string; doi?: string; video?: string };
   tags?: string[];

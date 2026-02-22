@@ -21,7 +21,9 @@ venue:
   kr: "IJHCI, 41(11), 6729–6742"
 
 media:
-  video: "https://www.youtube.com/embed/qpx9gIWPTao"
+  videos:
+    - "https://www.youtube.com/embed/qpx9gIWPTao"
+    - "https://www.youtube.com/embed/c0fpRr33v1s"
   image: "/publications/guide0.png"
 
 links:

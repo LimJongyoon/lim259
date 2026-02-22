@@ -222,13 +222,46 @@ export default function PublicationsContent() {
                 {/* Expanded */}
                 {isOpen && (
                   <div className="mt-3 space-y-3 text-sm text-neutral-700">
+
                     {p.media?.video && (
                       <div className="aspect-video">
-                        <iframe
-                          src={p.media.video}
-                          className="w-full h-full rounded-md"
-                          allowFullScreen
-                        />
+                        {p.media.video.endsWith(".mp4") ? (
+                          <video
+                            src={p.media.video}
+                            controls
+                            playsInline
+                            className="w-full h-full rounded-md"
+                          />
+                        ) : (
+                          <iframe
+                            src={p.media.video}
+                            className="w-full h-full rounded-md"
+                            allowFullScreen
+                          />
+                        )}
+                      </div>
+                    )}
+
+                    {p.media?.videos && p.media.videos.length > 0 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {p.media.videos.map((src: string, i: number) => (
+                          <div key={i} className="aspect-video">
+                            {src.endsWith(".mp4") ? (
+                              <video
+                                src={src}
+                                controls
+                                playsInline
+                                className="w-full h-full rounded-md"
+                              />
+                            ) : (
+                              <iframe
+                                src={src}
+                                className="w-full h-full rounded-md"
+                                allowFullScreen
+                              />
+                            )}
+                          </div>
+                        ))}
                       </div>
                     )}
 
@@ -240,24 +273,36 @@ export default function PublicationsContent() {
                       />
                     )}
 
+                    {p.media?.images && p.media.images.length > 0 && (
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                        {p.media.images.map((src: string, i: number) => (
+                          <div
+                            key={i}
+                            className="w-full h-[220px] md:h-[260px] overflow-hidden rounded-md bg-neutral-100"
+                          >
+                            <img
+                              src={src}
+                              alt={`${title} image ${i + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
                     {p.body && (
                       <div className="whitespace-pre-line leading-relaxed">
                         {p.body[contentLang] ?? p.body.en}
                       </div>
                     )}
+
+                    {/* ================= TAGS ================= */}
                     {p.tags && p.tags.length > 0 && (
                       <div className="pt-2 flex flex-wrap gap-1.5">
                         {p.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="
-                              text-[10px]
-                              px-2 py-0.5
-                              rounded-full
-                              bg-neutral-100
-                              text-neutral-500
-                              leading-tight
-                            "
+                            className="text-[10px] px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-500 leading-tight"
                           >
                             #{tag}
                           </span>
