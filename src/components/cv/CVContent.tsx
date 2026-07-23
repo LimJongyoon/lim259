@@ -113,9 +113,33 @@ export default function CVContent({
               ))}
             </Section>
 
-            {/* PROFESSIONAL */}
-            <Section id="cv-professional" title={t(lang, "Professional Experience")}>
-              {cvContent.professional.map((p, i) => (
+            {/* PUBLICATIONS */}
+            <Section id="cv-publications" title={t(lang, "Publications")}>
+              {publications.map((p) => (
+                <Entry
+                  key={p.id}
+                  title={p.title[lang] ?? p.title.en}
+                  right={String(p.year)}
+                >
+                  <p className="mt-0.5 text-neutral-600 text-[14px]">
+                  {p.authors?.map((a, i) => (
+                    <span
+                      key={i}
+                      className={a.role === "first" ? "font-semibold" : ""}
+                    >
+                      {a.name}
+                      {i !== p.authors.length - 1 && ", "}
+                    </span>
+                  ))}
+                </p>
+                  <p className="mt-0.5 italic text-neutral-600 text-[14px]">{p.venue[lang] ?? p.venue.en}</p>
+                </Entry>
+              ))}
+            </Section>
+
+            {/* RESEARCH */}
+            <Section id="cv-research" title={t(lang, "Research Experience")}>
+              {cvContent.research.map((p, i) => (
                 <Entry
                   key={i}
                   title={<>{p.org[lang]}</>}
@@ -141,26 +165,30 @@ export default function CVContent({
               ))}
             </Section>
 
-            {/* PUBLICATIONS */}
-            <Section id="cv-publications" title={t(lang, "Publications")}>
-              {publications.map((p) => (
+            {/* PROFESSIONAL */}
+            <Section id="cv-professional" title={t(lang, "Professional Experience")}>
+              {cvContent.professional.map((p, i) => (
                 <Entry
-                  key={p.id}
-                  title={p.title[lang] ?? p.title.en}
-                  right={String(p.year)}
+                  key={i}
+                  title={<>{p.org[lang]}</>}
+                  right={p.year}
                 >
-                  <p className="mt-0.5 text-neutral-600 text-[14px]">
-                  {p.authors?.map((a, i) => (
-                    <span
-                      key={i}
-                      className={a.role === "first" ? "font-semibold" : ""}
-                    >
-                      {a.name}
-                      {i !== p.authors.length - 1 && ", "}
-                    </span>
-                  ))}
-                </p>
-                  <p className="mt-0.5 italic text-neutral-600 text-[14px]">{p.venue[lang] ?? p.venue.en}</p>
+                  <span className="text-neutral-600 text-[14px]">
+                    {p.role[lang]}
+                  </span>
+                  {", "}
+                  <span className="text-neutral-600 text-[13px] italic">
+                    {p.city[lang].join("/")}
+                  </span>
+
+                  {/* details (optional) */}
+                  {p.details?.[lang] && (
+                    <ul className="mt-1 ml-4 list-disc text-[12px] text-neutral-600 leading-relaxed">
+                      {p.details[lang].map((d, idx) => (
+                        <li key={idx}>{d}</li>
+                      ))}
+                    </ul>
+                  )}
                 </Entry>
               ))}
             </Section>
@@ -190,26 +218,6 @@ export default function CVContent({
               ))}
             </Section>
 
-            {/* ACTIVITIES */}
-            <Section id="cv-activities" title={t(lang, "Additional Experience & Activities")}>
-              {cvContent.activities.map((a, i) => (
-                <Entry
-                  key={i}
-                  title={
-                    <>
-                      {a.title[lang]}
-                      {", "}
-                      <span className="text-neutral-600 text-[14px] font-normal italic">
-                        {a.place[lang]}
-                      </span>
-                    </>
-                  }
-                  right={a.year}
-                />
-              ))}
-            </Section>
-
-
             {/* AWARDS */}
             <Section id="cv-awards" title={t(lang, "Awards")}>
               {cvContent.awards.map((a, i) => (
@@ -227,6 +235,70 @@ export default function CVContent({
                     {a.explain[lang]}
                   </span>
                 </Entry>
+              ))}
+            </Section>
+
+            {/* GRANTS */}
+            <Section id="cv-grants" title={t(lang, "Grants & Funding")}>
+              {cvContent.grants.map((a, i) => (
+                <Entry key={i} title={
+                  <>
+                    {a.title[lang]}
+                    {", "}
+                    <span className="text-neutral-600 text-[14px] font-normal italic">
+                      {a.project[lang]}
+                    </span>
+                  </>
+                }
+                  right={a.year}>
+                  <span className="text-neutral-600 text-[14px] font-normal">
+                    {a.explain[lang]}
+                  </span>
+                </Entry>
+              ))}
+            </Section>
+
+            {/* TEACHING */}
+            <Section id="cv-teaching" title={t(lang, "Teaching Experience")}>
+              {cvContent.teaching.map((tk, i) => (
+                <Entry
+                  key={i}
+                  title={
+                    <>
+                      {tk.title[lang]}
+                      {", "}
+                      <span className="text-neutral-600 text-[14px] font-normal italic">
+                        {tk.place[lang]}
+                      </span>
+                    </>
+                  }
+                  right={tk.year}
+                >
+                  {tk.explain?.[lang] && (
+                    <span className="text-neutral-600 text-[14px] font-normal">
+                      {tk.explain[lang]}
+                    </span>
+                  )}
+                </Entry>
+              ))}
+            </Section>
+
+            {/* ACTIVITIES */}
+            <Section id="cv-activities" title={t(lang, "Additional Experience & Activities")}>
+              {cvContent.activities.map((a, i) => (
+                <Entry
+                  key={i}
+                  title={
+                    <>
+                      {a.title[lang]}
+                      {", "}
+                      <span className="text-neutral-600 text-[14px] font-normal italic">
+                        {a.place[lang]}
+                      </span>
+                    </>
+                  }
+                  right={a.year}
+                />
               ))}
             </Section>
 
@@ -315,15 +387,22 @@ export default function CVContent({
   function t(lang: Lang, key: string) {
     const map: Record<string, Record<Lang, string>> = {
       Education: { en: "Education", kr: "학력", jp: "学歴" },
+      "Research Experience": { en: "Research Experience", kr: "연구 경력", jp: "研究経歴" },
       "Professional Experience": { en: "Professional Experience", kr: "경력", jp: "職務経歴" },
       Publications: { en: "Publications", kr: "논문", jp: "論文" },
       Projects: { en: "Projects", kr: "프로젝트", jp: "プロジェクト" },
+      "Teaching Experience": {
+        en: "Teaching Experience",
+        kr: "강의 및 교육",
+        jp: "教育経歴",
+      },
       "Additional Experience & Activities": {
         en: "Additional Experience & Activities",
         kr: "기타 경험 및 활동",
         jp: "その他の活動",
       },
       Awards: { en: "Awards & Honors", kr: "수상 및 선정", jp: "受賞・表彰" },
+      "Grants & Funding": { en: "Grants & Funding", kr: "지원사업 및 펀딩", jp: "助成・支援事業" },
       Skills: { en: "Skills", kr: "기술", jp: "スキル" },
       "Language Skills": { en: "Language Skills", kr: "언어 능력", jp: "語学力" },
     };

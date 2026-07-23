@@ -105,33 +105,6 @@ export function CVPdf({ lang }: { lang: Lang }) {
           ))}
         </Section>
 
-        {/* ===== PROFESSIONAL ===== */}
-        <Section title={t(lang, "Professional Experience")} lang={lang}>
-          {cvContent.professional.map((p, i) => (
-            <Entry
-              key={i}
-              title={
-                <Text style={withFont(styles.entryTitle, lang)}>
-                  {p.org[lang]}
-                </Text>
-              }
-              right={p.year}
-              lang={lang}
-            >
-              <Text style={withFont(styles.entryBody, lang)}>
-                {p.role[lang]},{" "}
-                <Text style={withFont(styles.italic, lang)}>
-                  {p.city[lang].join("/")}
-                </Text>
-              </Text>
-
-              {p.details?.[lang] && (
-                <BulletList items={p.details[lang]} lang={lang} />
-              )}
-            </Entry>
-          ))}
-        </Section>
-
         {/* ===== PUBLICATIONS ===== */}
         <Section title={t(lang, "Publications")} lang={lang}>
           {publications.map((p) => (
@@ -166,6 +139,60 @@ export function CVPdf({ lang }: { lang: Lang }) {
           ))}
         </Section>
 
+        {/* ===== RESEARCH ===== */}
+        <Section title={t(lang, "Research Experience")} lang={lang}>
+          {cvContent.research.map((p, i) => (
+            <Entry
+              key={i}
+              title={
+                <Text style={withFont(styles.entryTitle, lang)}>
+                  {p.org[lang]}
+                </Text>
+              }
+              right={p.year}
+              lang={lang}
+            >
+              <Text style={withFont(styles.entryBody, lang)}>
+                {p.role[lang]},{" "}
+                <Text style={withFont(styles.italic, lang)}>
+                  {p.city[lang].join("/")}
+                </Text>
+              </Text>
+
+              {p.details?.[lang] && (
+                <BulletList items={p.details[lang]} lang={lang} />
+              )}
+            </Entry>
+          ))}
+        </Section>
+
+        {/* ===== PROFESSIONAL ===== */}
+        <Section title={t(lang, "Professional Experience")} lang={lang}>
+          {cvContent.professional.map((p, i) => (
+            <Entry
+              key={i}
+              title={
+                <Text style={withFont(styles.entryTitle, lang)}>
+                  {p.org[lang]}
+                </Text>
+              }
+              right={p.year}
+              lang={lang}
+            >
+              <Text style={withFont(styles.entryBody, lang)}>
+                {p.role[lang]},{" "}
+                <Text style={withFont(styles.italic, lang)}>
+                  {p.city[lang].join("/")}
+                </Text>
+              </Text>
+
+              {p.details?.[lang] && (
+                <BulletList items={p.details[lang]} lang={lang} />
+              )}
+            </Entry>
+          ))}
+        </Section>
+
         {/* ===== PROJECTS ===== */}
         <Section title={t(lang, "Projects")} lang={lang}>
           {projects.map((p) => (
@@ -195,27 +222,6 @@ export function CVPdf({ lang }: { lang: Lang }) {
           ))}
         </Section>
 
-        {/* ===== ACTIVITIES ===== */}
-        <Section title={t(lang, "Additional Experience & Activities")} lang={lang}>
-          {cvContent.activities.map((a, i) => (
-            <Entry
-              key={i}
-              title={
-                <>
-                  <Text style={withFont(styles.entryTitle, lang)}>
-                    {a.title[lang]}
-                  </Text>
-                  <Text style={withFont(styles.italic, lang)}>
-                    , {a.place[lang]}
-                  </Text>
-                </>
-              }
-              right={a.year}
-              lang={lang}
-            />
-          ))}
-        </Section>
-
         {/* ===== AWARDS ===== */}
         <Section title={t(lang, "Awards")} lang={lang}>
           {cvContent.awards.map((a, i) => (
@@ -238,6 +244,79 @@ export function CVPdf({ lang }: { lang: Lang }) {
                 {a.explain[lang]}
               </Text>
             </Entry>
+          ))}
+        </Section>
+
+        {/* ===== GRANTS ===== */}
+        <Section title={t(lang, "Grants & Funding")} lang={lang}>
+          {cvContent.grants.map((a, i) => (
+            <Entry
+              key={i}
+              title={
+                <>
+                  <Text style={withFont(styles.entryTitle, lang)}>
+                    {a.title[lang]}
+                  </Text>
+                  <Text style={withFont(styles.italic, lang)}>
+                    , {a.project[lang]}
+                  </Text>
+                </>
+              }
+              right={a.year}
+              lang={lang}
+            >
+              <Text style={withFont(styles.entryBody, lang)}>
+                {a.explain[lang]}
+              </Text>
+            </Entry>
+          ))}
+        </Section>
+
+        {/* ===== TEACHING ===== */}
+        <Section title={t(lang, "Teaching Experience")} lang={lang}>
+          {cvContent.teaching.map((tk, i) => (
+            <Entry
+              key={i}
+              title={
+                <>
+                  <Text style={withFont(styles.entryTitle, lang)}>
+                    {tk.title[lang]}
+                  </Text>
+                  <Text style={withFont(styles.italic, lang)}>
+                    , {tk.place[lang]}
+                  </Text>
+                </>
+              }
+              right={tk.year}
+              lang={lang}
+            >
+              {tk.explain?.[lang] && (
+                <Text style={withFont(styles.entryBody, lang)}>
+                  {tk.explain[lang]}
+                </Text>
+              )}
+            </Entry>
+          ))}
+        </Section>
+
+        {/* ===== ACTIVITIES ===== */}
+        <Section title={t(lang, "Additional Experience & Activities")} lang={lang}>
+          {cvContent.activities.map((a, i) => (
+            <Entry
+              key={i}
+              title={
+                <>
+                  <Text style={withFont(styles.entryTitle, lang)}>
+                    {a.title[lang]}
+                  </Text>
+                  <Text style={withFont(styles.italic, lang)}>
+                    , {a.place[lang]}
+                  </Text>
+                </>
+              }
+              right={a.year}
+              lang={lang}
+            />
           ))}
         </Section>
 
@@ -353,15 +432,22 @@ function SkillGrid({
 function t(lang: Lang, key: string) {
   const map: Record<string, Record<Lang, string>> = {
     Education: { en: "Education", kr: "학력", jp: "学歴" },
+    "Research Experience": { en: "Research Experience", kr: "연구 경력", jp: "研究経歴" },
     "Professional Experience": { en: "Professional Experience", kr: "경력", jp: "職務経歴" },
     Publications: { en: "Publications", kr: "논문", jp: "論文" },
     Projects: { en: "Projects", kr: "프로젝트", jp: "プロジェクト" },
+    "Teaching Experience": {
+      en: "Teaching Experience",
+      kr: "강의 및 교육",
+      jp: "教育経歴",
+    },
     "Additional Experience & Activities": {
       en: "Additional Experience & Activities",
       kr: "기타 경험 및 활동",
       jp: "その他の活動",
     },
     Awards: { en: "Awards & Honors", kr: "수상", jp: "受賞" },
+    "Grants & Funding": { en: "Grants & Funding", kr: "지원사업 및 펀딩", jp: "助成・支援事業" },
     Skills: { en: "Skills", kr: "기술", jp: "スキル" },
     "Language Skills": { en: "Language Skills", kr: "언어 능력", jp: "語学力" },
   };

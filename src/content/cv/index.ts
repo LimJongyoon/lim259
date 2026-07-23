@@ -55,7 +55,7 @@ export const cvContent = {
     },
   ],
 
-  professional: [
+  research: [
     {
       role: {
         en: "Research Engineer",
@@ -96,6 +96,41 @@ export const cvContent = {
         ],
       },
     },
+    {
+      role: {
+        en: "Research Intern",
+        kr: "연구 인턴",
+        jp: "研究インターン",
+      },
+      org: {
+        en: "Multimedia Signal Processing Lab, Soongsil University",
+        kr: "숭실대학교 전기공학부 멀티미디어 신호처리 연구실",
+        jp: "崇実大学校のマルチメディア信号処理研究室",
+      },
+      city: {
+        en: ["Seoul"],
+        kr: ["서울"],
+        jp: ["ソウル"],
+      },
+      year: "2016-2017",
+      details: {
+        en: [
+          "Conducted OpenCV-based image stitching experiments and analyzed classical computer vision algorithms using Python",
+          "Implemented image recognition pipelines and supported computer vision research activities",
+        ],
+        kr: [
+          "파이썬 및 OpenCV 기반 이미지 스티칭 실험 수행 및 전통적 컴퓨터 비전 알고리즘 분석",
+          "이미지 인식 파이프라인 구현을 통한 컴퓨터 비전 연구 보조 수행",
+        ],
+        jp: [
+          "PythonおよびOpenCVを用いた画像スティッチング実験の実施および古典的コンピュータビジョンアルゴリズムの分析",
+          "画像認識パイプラインの実装を通じたコンピュータビジョン研究支援",
+        ],
+      },
+    },
+  ],
+
+  professional: [
     {
       role: {
         en: "Co-founder",
@@ -192,37 +227,44 @@ export const cvContent = {
         ],
       },
     },
+  ],
+
+  teaching: [
     {
-      role: {
-        en: "Research Intern",
-        kr: "연구 인턴",
-        jp: "研究インターン",
+      title: {
+        en: "Vibe to Web — Vacation Special Lecture",
+        kr: "Vibe to Web — 방학특강",
+        jp: "Vibe to Web — 休暇特別講義",
       },
-      org: {
-        en: "Multimedia Signal Processing Lab, Soongsil University",
-        kr: "숭실대학교 전기공학부 멀티미디어 신호처리 연구실",
-        jp: "崇実大学校のマルチメディア信号処理研究室",
+      place: {
+        en: "Sogang University, Seoul, South Korea",
+        kr: "서강대학교, 서울",
+        jp: "西江大学校 ソウル",
       },
-      city: {
-        en: ["Seoul"],
-        kr: ["서울"],
-        jp: ["ソウル"],
+      explain: {
+        en: "Special lecture on turning vibe-coding workflows into deployed web applications",
+        kr: "바이브 코딩 워크플로를 실제 배포되는 웹 애플리케이션으로 만드는 방학 특강",
+        jp: "バイブコーディングのワークフローを実際にデプロイされるWebアプリにする特別講義",
       },
-      year: "2016-2017",
-      details: {
-        en: [
-          "Conducted OpenCV-based image stitching experiments and analyzed classical computer vision algorithms using Python",
-          "Implemented image recognition pipelines and supported computer vision research activities",
-        ],
-        kr: [
-          "파이썬 및 OpenCV 기반 이미지 스티칭 실험 수행 및 전통적 컴퓨터 비전 알고리즘 분석",
-          "이미지 인식 파이프라인 구현을 통한 컴퓨터 비전 연구 보조 수행",
-        ],
-        jp: [
-          "PythonおよびOpenCVを用いた画像スティッチング実験の実施および古典的コンピュータビジョンアルゴリズムの分析",
-          "画像認識パイプラインの実装を通じたコンピュータビジョン研究支援",
-        ],
+      year: "2026",
+    },
+    {
+      title: {
+        en: "Industry-side Mentor for Capstone Design Project",
+        kr: "캡스톤 디자인 프로젝트 · Industry-side 멘토",
+        jp: "キャップストーンデザインプロジェクト・Industry-side メンター",
       },
+      place: {
+        en: "Department of Computer Science, Sogang University, Seoul, South Korea",
+        kr: "서강대학교 컴퓨터공학과, 서울",
+        jp: "西江大学校 コンピュータ工学科 ソウル",
+      },
+      explain: {
+        en: "Mentored student teams in the Capstone Design course",
+        kr: "캡스톤 디자인 수업 학생 팀 멘토링",
+        jp: "キャップストーンデザイン授業の学生チームをメンタリング",
+      },
+      year: "2024",
     },
   ],
 
@@ -240,20 +282,6 @@ export const cvContent = {
       },
       year: "2025",
     },
-    {
-      title: {
-        en: "Industry-side Mentor for Capstone Design Project",
-        kr: "캡스톤 디자인 프로젝트 · Industry-side 멘토",
-        jp: "キャップストーンデザインプロジェクト・Industry-side メンター",
-      },
-      place: {
-        en: "Department of Computer Science, Sogang University, Seoul, South Korea",
-        kr: "서강대학교 컴퓨터공학과, 서울",
-        jp: "西江大学校 コンピュータ工学科 ソウル",
-      },
-      year: "2024",
-    },
-
     {
       title: {
         en: "Participated in the CES 2024 exhibition booth",
@@ -370,60 +398,6 @@ export const cvContent = {
     },
     {
       title: {
-        en: "Selected for the New Content Support Program KOCCA",
-        kr: "한국콘텐츠진흥원 신기술 콘텐츠 지원사업 선정",
-        jp: "韓国コンテンツ振興院 新技術コンテンツ支援事業 選定",
-      },
-      project: {
-        en: "Korea Creative Content Agency",
-        kr: "한국콘텐츠진흥원",
-        jp: "韓国コンテンツ振興院",
-      },
-      explain: {
-        en: "Content creation and distribution utilizing Oculus Quest 3 passthrough",
-        kr: "오큘러스 퀘스트 3 패스스루를 활용한 콘텐츠 BareHand 제작 및 배포",
-        jp: "Oculus Quest 3のパススルー機能を活用したコンテンツ制作および配信",
-      },
-      year: "2024",
-    },
-    {
-      title: {
-        en: "Selected for the Arts Startup Program by the Arts Management Center",
-        kr: "예술경영지원센터 예술창업 지원사업 선정",
-        jp: "芸術経営支援センター 芸術スタートアップ支援事業 選定",
-      },
-      project: {
-        en: "Ministry of Culture, Sports and Tourism / Arts Management Support Center",
-        kr: "문화체육관광부 / 예술경영지원센터",
-        jp: "文化体育観光部 / 芸術経営支援センター",
-      },
-      explain: {
-        en: "Startup support for the interactive pen-based system EverPen",
-        kr: "인터랙티브 펜 기반 시스템 EverPen 창업 지원",
-        jp: "インタラクティブペン基盤システム EverPen の創業支援",
-      },
-      year: "2023",
-    },
-    {
-      title: {
-        en: "Selected for the K-Startup Startup Package Program",
-        kr: "K-Startup 창업패키지 선정",
-        jp: "K-Startup スタートアップパッケージ 選定",
-      },
-      project: {
-        en: "Korea Institute of Startup & Entrepreneurship Development",
-        kr: "창업진흥원",
-        jp: "創業振興院",
-      },
-      explain: {
-        en: "Government-backed startup package support for EverPen",
-        kr: "EverPen을 위한 정부 창업 패키지 지원",
-        jp: "EverPen 向け政府スタートアップパッケージ支援",
-      },
-      year: "2023",
-    },
-    {
-      title: {
         en: "Cradle for Baby Monitoring Design Patent",
         kr: "아기 모니터링 요람 디자인 특허",
         jp: "乳児モニタリング用ゆりかご デザイン特許",
@@ -455,24 +429,6 @@ export const cvContent = {
         en: "Recognized among the top 7 projects in a nationwide VR contest",
         kr: "전국 단위 VR 공모전에서 상위 7개 프로젝트 선정",
         jp: "全国規模VRコンテストにて上位7プロジェクトに選定",
-      },
-      year: "2020",
-    },
-    {
-      title: {
-        en: "Selected for the AI Voucher Government Support Program",
-        kr: "AI 바우처 정부지원사업 선정",
-        jp: "AI バウチャー政府支援事業 選定",
-      },
-      project: {
-        en: "National IT Industry Promotion Agency",
-        kr: "정보통신산업진흥원",
-        jp: "情報通信産業振興院",
-      },
-      explain: {
-        en: "AI-based baby monitoring solution supported through the AI Voucher Program",
-        kr: "AI 바우처 사업을 통한 아기 모니터링 솔루션 지원",
-        jp: "AIバウチャー事業による乳児モニタリングソリューション支援",
       },
       year: "2020",
     },
@@ -529,6 +485,81 @@ export const cvContent = {
         jp: "全学期にわたり成績優秀として授与された奨学金",
       },
       year: "2014–2018",
+    },
+  ],
+
+  grants: [
+    {
+      title: {
+        en: "Selected for the New Content Support Program KOCCA",
+        kr: "한국콘텐츠진흥원 신기술 콘텐츠 지원사업 선정",
+        jp: "韓国コンテンツ振興院 新技術コンテンツ支援事業 選定",
+      },
+      project: {
+        en: "Korea Creative Content Agency",
+        kr: "한국콘텐츠진흥원",
+        jp: "韓国コンテンツ振興院",
+      },
+      explain: {
+        en: "Content creation and distribution utilizing Oculus Quest 3 passthrough",
+        kr: "오큘러스 퀘스트 3 패스스루를 활용한 콘텐츠 BareHand 제작 및 배포",
+        jp: "Oculus Quest 3のパススルー機能を活用したコンテンツ制作および配信",
+      },
+      year: "2024",
+    },
+    {
+      title: {
+        en: "Selected for the Arts Startup Program by the Arts Management Center",
+        kr: "예술경영지원센터 예술창업 지원사업 선정",
+        jp: "芸術経営支援センター 芸術スタートアップ支援事業 選定",
+      },
+      project: {
+        en: "Ministry of Culture, Sports and Tourism / Arts Management Support Center",
+        kr: "문화체육관광부 / 예술경영지원센터",
+        jp: "文化体育観光部 / 芸術経営支援センター",
+      },
+      explain: {
+        en: "Startup support for the interactive pen-based system EverPen",
+        kr: "인터랙티브 펜 기반 시스템 EverPen 창업 지원",
+        jp: "インタラクティブペン基盤システム EverPen の創業支援",
+      },
+      year: "2023",
+    },
+    {
+      title: {
+        en: "Selected for the K-Startup Startup Package Program",
+        kr: "K-Startup 창업패키지 선정",
+        jp: "K-Startup スタートアップパッケージ 選定",
+      },
+      project: {
+        en: "Korea Institute of Startup & Entrepreneurship Development",
+        kr: "창업진흥원",
+        jp: "創業振興院",
+      },
+      explain: {
+        en: "Government-backed startup package support for EverPen",
+        kr: "EverPen을 위한 정부 창업 패키지 지원",
+        jp: "EverPen 向け政府スタートアップパッケージ支援",
+      },
+      year: "2023",
+    },
+    {
+      title: {
+        en: "Selected for the AI Voucher Government Support Program",
+        kr: "AI 바우처 정부지원사업 선정",
+        jp: "AI バウチャー政府支援事業 選定",
+      },
+      project: {
+        en: "National IT Industry Promotion Agency",
+        kr: "정보통신산업진흥원",
+        jp: "情報通信産業振興院",
+      },
+      explain: {
+        en: "AI-based baby monitoring solution supported through the AI Voucher Program",
+        kr: "AI 바우처 사업을 통한 아기 모니터링 솔루션 지원",
+        jp: "AIバウチャー事業による乳児モニタリングソリューション支援",
+      },
+      year: "2020",
     },
   ],
 
