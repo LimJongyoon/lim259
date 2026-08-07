@@ -1,7 +1,7 @@
-import type { MobileTab } from "../../types/MobileTab";
+import type { SectionId } from "../../types/SectionId";
 
 export type NavItem =
-  | { id: Exclude<MobileTab, "cv"> }
+  | { id: Exclude<SectionId, "cv"> }
   | {
       id: "cv";
       subItems: { id: string }[];
@@ -9,6 +9,7 @@ export type NavItem =
 
 export const NAV_ITEMS: NavItem[] = [
   { id: "home" },
+  { id: "news" },
   { id: "publications" },
   { id: "projects" },
   {

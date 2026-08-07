@@ -8,6 +8,7 @@ type LangKey = "en" | "kr" | "jp";
 type BubbleMessage = Record<LangKey, string>;
 
 type BubbleMap = {
+  news: BubbleMessage;
   publications: BubbleMessage;
   projects: BubbleMessage;
   cv: BubbleMessage;
@@ -48,6 +49,11 @@ function generateGradient() {
 }
 
 const BUBBLE_TEXT: BubbleMap = {
+  news: {
+    en: "Here you can find my most recent updates.",
+    kr: "최근 소식을 여기에서 확인할 수 있습니다.",
+    jp: "最近のお知らせはこちらで確認できます。",
+  },
   publications: {
     en: "You can click publications to view detailed information.",
     kr: "논문을 클릭하면 상세 내용을 확인할 수 있습니다.",
@@ -93,11 +99,14 @@ export default function HomeHero() {
   useEffect(() => {
     const onScroll = () => {
 
+      /* 문서 역순(아래 → 위)으로 순회하며 첫 매치를 잡으므로
+         최상단 섹션인 news 가 마지막에 와야 한다. */
       const targets: (keyof BubbleMap)[] = [
         "contact",
         "cv",
         "projects",
         "publications",
+        "news",
       ];
 
       for (let id of targets) {
@@ -239,7 +248,14 @@ export default function HomeHero() {
 
       </section>
 
-      <div style={{ height: "100svh" }} />
+      {/*
+        히어로가 차지하는 스크롤 길이. 뒤따르는 본문이 여기서부터 올라온다.
+        히어로는 progress 0.83(= scrollY 0.58vh)에서 이미 완전히 사라지므로
+        100svh 로 두면 그 뒤로 빈 화면만 한참 이어진다.
+        progress 가 1이 되는 0.7vh 에 맞춰 본문을 바로 붙인다.
+        (0.7vh 이전에는 히어로 섹션이 pointerEvents:auto 라 클릭을 막는다)
+      */}
+      <div style={{ height: "70svh" }} />
     </>
   );
 }

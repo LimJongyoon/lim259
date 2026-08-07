@@ -1,11 +1,12 @@
-import type { MobileTab } from "../../types/MobileTab";
+import type { SectionId } from "../../types/SectionId";
 
 export const navLabels: Record<
   "kr" | "en" | "jp",
-  Record<MobileTab, string>
+  Record<SectionId, string>
 > = {
   kr: {
     home: "소개",
+    news: "소식",
     publications: "논문",
     projects: "프로젝트",
     cv: "이력",
@@ -13,6 +14,7 @@ export const navLabels: Record<
   },
   en: {
     home: "About",
+    news: "News",
     publications: "Publications",
     projects: "Projects",
     cv: "CV",
@@ -20,6 +22,7 @@ export const navLabels: Record<
   },
   jp: {
     home: "概要",
+    news: "お知らせ",
     publications: "論文",
     projects: "プロジェクト",
     cv: "履歴",

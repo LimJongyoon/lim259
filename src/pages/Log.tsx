@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import NewsAdmin from "./log/NewsAdmin";
+
 type Log = {
   id: string;
   visitor_id: string;
@@ -11,8 +13,11 @@ type Log = {
 
 type Range = "today" | "7d" | "30d" | "90d" | "all";
 
+type View = "visits" | "news";
+
 export default function LogPage() {
 
+  const [view, setView] = useState<View>("visits");
   const [logs, setLogs] = useState<Log[]>([]);
   const [sortKey, setSortKey] = useState<keyof Log>("created_at");
   const [selected, setSelected] = useState<string[]>([]);
@@ -111,12 +116,32 @@ export default function LogPage() {
     </button>
   );
 
+  const tabBtn = (v: View, label: string) => (
+    <button
+      onClick={() => setView(v)}
+      className={`px-1 pb-2 -mb-px text-sm font-semibold border-b-2 transition
+      ${view === v
+          ? "border-black text-black"
+          : "border-transparent text-gray-400 hover:text-gray-700"}`}
+    >
+      {label}
+    </button>
+  );
+
   return (
     <div className="p-4 max-w-5xl mx-auto">
 
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-xl font-bold">Visitor Logs</h1>
+      <div className="flex gap-5 mb-5 border-b">
+        {tabBtn("visits", "Visitor Logs")}
+        {tabBtn("news", "News")}
+      </div>
 
+      {view === "news" && <NewsAdmin />}
+
+      {view === "visits" && (
+      <>
+
+      <div className="flex items-center justify-end mb-4">
         <button
           onClick={deleteSelected}
           disabled={!selected.length}
@@ -258,6 +283,9 @@ export default function LogPage() {
 
         </div>
 
+      )}
+
+      </>
       )}
 
     </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import MobileLayout from "./layouts/MobileLayout";
 import DesktopLayout from "./layouts/DesktopLayout";
 
+import NewsContent from "./components/news/NewsContent";
 import PublicationsContent from "./components/publications/PublicationsContent";
 import ProjectsContent from "./components/projects/ProjectsContent";
 import CVContent from "./components/cv/CVContent";
@@ -35,6 +36,10 @@ function App() {
 
   const desktopContent = (
     <section id="main-content" className="space-y-8">
+      <section id="news">
+        <NewsContent />
+      </section>
+
       <section id="publications">
         <PublicationsContent />
       </section>
