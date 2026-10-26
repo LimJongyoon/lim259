@@ -5,20 +5,24 @@ year: 2022
 type:
   en: Exhibition
   kr: 전시
+  jp: "展示"
 
 scope:
   en: MCST, ARKO
   kr: 문화체육관광부, 한국문화예술위원회
+  jp: "文化体育観光部、韓国文化芸術委員会"
 
 thumbnail: "/projects/hotelmeta.png"
 
 title:
   en: "Hotel Meta"
   kr: "호텔 메타"
+  jp: "ホテル・メタ"
 
 affiliation:
   - en: "Development of mechanical systems synchronized with human movement and VR content"
     kr: "사람의 움직임과 VR 콘텐츠에 동기화되는 기계 장치 시스템 개발"
+    jp: "人の動きとVRコンテンツに同期する機械装置システムの開発"
 
 media:
   video: "https://www.youtube.com/embed/TlIjFA2zFRo?si=t2F_FTC6kQl71bnQ" 
@@ -37,4 +41,10 @@ body:
     Hotel Meta는 물리적 공간과 가상 공간이 동시에 존재하는 디지털 트윈 개념의 전시 프로젝트이다. VR을 통해 가상 공간은 실제 전시 공간과 실시간으로 동기화되며, 관람객은 두 영역을 병렬적으로 경험할 수 있다.
 
     NFT 기반 접근 권한을 획득한 관람객은 물리적 전시를 넘어선 추가적인 인터랙티브 콘텐츠를 경험할 수 있으며, 본 프로젝트는 디지털 트윈과 몰입형 미디어가 작가와 관람객 간의 공감과 서사를 어떻게 매개할 수 있는지를 탐구한다.
+
+  jp: |
+    Hotel Metaは、物理空間と仮想空間が同時に存在するデジタルツインの概念に基づく展示プロジェクトである。VRを通じて仮想空間は実際の展示空間とリアルタイムに同期し、来場者は二つの領域を並行して体験できる。
+
+    NFTによるアクセス権を得た来場者は、物理的な展示を超えた追加のインタラクティブコンテンツを体験できる。本プロジェクトは、デジタルツインと没入型メディアが作家と来場者のあいだの共感や物語をどのように媒介できるかを探求している。
+
 ---

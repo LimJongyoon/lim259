@@ -3,6 +3,7 @@ import { useLanguage } from "../../context/LanguageContext";
 
 import homeKr from "../../content/home/home.kr.md?raw";
 import homeEn from "../../content/home/home.en.md?raw";
+import homeJp from "../../content/home/home.jp.md?raw";
 
 type Props = {
   align?: "center" | "left";
@@ -10,7 +11,7 @@ type Props = {
 
 export default function HomeContent({ align = "center" }: Props) {
   const { lang } = useLanguage();
-  const content = lang === "kr" ? homeKr : homeEn;
+  const content = lang === "kr" ? homeKr : lang === "jp" ? homeJp : homeEn;
 
   const alignClass =
     align === "center" ? "text-center" : "text-left";

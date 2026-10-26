@@ -48,6 +48,20 @@ function generateGradient() {
   return `linear-gradient(135deg, ${hsl(a)}, ${hsl(b)})`;
 }
 
+/* 언어와 상관없이 영문 이름 하나로 표시한다 */
+const WELCOME = "Lim, Jongyoon";
+
+/*
+ * 스크롤 타임라인 (단위: 화면 높이 vh 대비 scrollY)
+ *   0    ~ 0.58 : 히어로(About)가 걷힌다
+ *   0.35 ~ 0.85 : 이름(Welcome)이 화면 가운데에서 페이드인한다
+ *   0.85 ~ 1.0  : Welcome 이 잠시 머문다
+ *   1.0  ~      : Welcome 이 스크롤과 1:1 로 올라가고 본문(News)이 뒤따른다
+ */
+const WELCOME_IN_START = 0.35;
+const WELCOME_IN_END = 0.85;
+const WELCOME_HOLD_END = 1.0;
+
 const BUBBLE_TEXT: BubbleMap = {
   news: {
     en: "Here you can find my most recent updates.",
@@ -57,12 +71,12 @@ const BUBBLE_TEXT: BubbleMap = {
   publications: {
     en: "You can click publications to view detailed information.",
     kr: "논문을 클릭하면 상세 내용을 확인할 수 있습니다.",
-    jp: "論文やプロジェクトをクリックすると詳細を見ることができます。",
+    jp: "論文をクリックすると詳細を見ることができます。",
   },
   projects: {
     en: "You can click projects to view detailed information.",
     kr: "프로젝트를 클릭하면 상세 내용을 확인할 수 있습니다.",
-    jp: "論文やプロジェクトをクリックすると詳細を見ることができます。",
+    jp: "プロジェクトをクリックすると詳細を見ることができます。",
   },
   cv: {
     en: "You can select your preferred language and download the CV.",
@@ -83,6 +97,7 @@ export default function HomeHero() {
 
   const background = useMemo(() => generateGradient(), []);
   const [progress, setProgress] = useState(0);
+  const [scrollRatio, setScrollRatio] = useState(0);
   const [activeSection, setActiveSection] = useState<keyof BubbleMap | null>(null);
 
   useEffect(() => {
@@ -90,6 +105,7 @@ export default function HomeHero() {
       const max = window.innerHeight * 0.7;
       const value = Math.min(window.scrollY / max, 1);
       setProgress(value);
+      setScrollRatio(window.scrollY / window.innerHeight);
     };
 
     window.addEventListener("scroll", onScroll);
@@ -150,6 +166,15 @@ export default function HomeHero() {
 
   const showBubble = progress > 0.85 && activeSection !== null;
 
+  const welcomeT = Math.min(
+    Math.max(
+      (scrollRatio - WELCOME_IN_START) / (WELCOME_IN_END - WELCOME_IN_START),
+      0
+    ),
+    1
+  );
+  const welcomeShift = Math.max(scrollRatio - WELCOME_HOLD_END, 0) * vh;
+
   return (
     <>
       {/* ===== PROFILE IMAGE + SPEECH BUBBLE ===== */}
@@ -204,6 +229,25 @@ export default function HomeHero() {
 
       </div>
 
+      {/* ===== WELCOME ===== */}
+      {/* 히어로(z-20) 뒤에 깔려 있다가 히어로가 걷히면서 드러난다 */}
+      <div
+        className="fixed inset-x-0 top-1/2 z-10 flex justify-center pointer-events-none"
+        style={{
+          opacity: welcomeT,
+          transform: `translateY(calc(-50% - ${welcomeShift}px))`,
+          visibility: welcomeShift > vh ? "hidden" : "visible",
+        }}
+      >
+        {/* 속은 비우고 테두리만 그리는 외곽선 글씨 */}
+        <p
+          className="text-7xl font-bold tracking-tight text-transparent"
+          style={{ WebkitTextStroke: "2px rgb(6 78 59)" }}
+        >
+          {WELCOME}
+        </p>
+      </div>
+
       {/* ===== HERO STAGE ===== */}
       <section
         className="fixed top-0 left-0 w-full flex items-center justify-center text-gray-800 z-20"
@@ -211,7 +255,8 @@ export default function HomeHero() {
           height: "100svh",
           background,
           opacity: heroOpacity,
-          pointerEvents: progress > 0.95 ? "none" : "auto",
+          /* 눈에 안 보이는데 클릭을 막지 않도록, 사라지는 시점에 바로 통과시킨다 */
+          pointerEvents: heroOpacity < 0.05 ? "none" : "auto",
         }}
       >
         <div className="relative z-10 mx-auto max-w-5xl px-10 grid grid-cols-2 items-center gap-2">
@@ -249,13 +294,12 @@ export default function HomeHero() {
       </section>
 
       {/*
-        히어로가 차지하는 스크롤 길이. 뒤따르는 본문이 여기서부터 올라온다.
-        히어로는 progress 0.83(= scrollY 0.58vh)에서 이미 완전히 사라지므로
-        100svh 로 두면 그 뒤로 빈 화면만 한참 이어진다.
-        progress 가 1이 되는 0.7vh 에 맞춰 본문을 바로 붙인다.
-        (0.7vh 이전에는 히어로 섹션이 pointerEvents:auto 라 클릭을 막는다)
+        히어로와 Welcome 이 차지하는 스크롤 길이. 뒤따르는 본문이 여기서부터 올라온다.
+        Welcome 이 머무는 동안(scrollY 1.0vh 까지) 본문은 화면 아래 1/4 에 머물고,
+        그 뒤로 Welcome 과 함께 올라온다.
+        (히어로가 투명해지기 전까지는 pointerEvents:auto 라 클릭을 막는다)
       */}
-      <div style={{ height: "70svh" }} />
+      <div style={{ height: "175svh" }} />
     </>
   );
 }

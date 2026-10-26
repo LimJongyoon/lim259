@@ -33,6 +33,8 @@ media?: {
   videos?: string[];
   image?: string;
   images?: string[];
+  /* 세로로 긴 앱 화면 캡처. 자르지 않고 한 줄에 나란히 보여준다. */
+  screens?: string[];
 };
 
   tags: SkillKey[];

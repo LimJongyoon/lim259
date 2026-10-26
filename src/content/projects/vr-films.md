@@ -5,20 +5,24 @@ year: 2020
 type:
   en: Unity XR 
   kr: 유니티 XR 
+  jp: "Unity XR"
 
 scope:
   en: KT Super VR Contest
   kr: KT 슈퍼 VR 공모전
+  jp: "KT Super VR コンテスト"
 
 thumbnail: "/projects/vrfilm.png"
 
 title:
   en: "The Glasses: Interactive VR Film"
   kr: "더 글래스: 인터랙티브 VR 필름"
+  jp: "The Glasses：インタラクティブVR映画"
 
 affiliation:
   - en: Selected as Top 7 project at KT Super VR Contest 2020
     kr: KT Super VR Contest 2020 Top 7 선정 작품
+    jp: "KT Super VR Contest 2020 Top 7 選出作品"
 
 media:
   video: "https://www.youtube.com/embed/gpXEN9NHAZU?si=oWGX7IRh_uibLT83"
@@ -39,4 +43,10 @@ body:
     더 글래스는 현실 세계에서의 신체 동작을 활용해 관객의 참여를 유도하는 인터랙티브 VR 영화이다. 가상의 선글라스를 착용하거나 벗는 동작을 통해 과거와 현재 장면을 전환하며 서사가 전개된다.
 
     이러한 인터랙션 구조는 관객을 단순한 감상자가 아닌 능동적인 참여자로 전환시키며, 감정적 몰입과 이야기 전달력을 강화한다. 본 프로젝트는 체화된 상호작용이 VR 영화의 스토리텔링을 어떻게 확장할 수 있는지를 탐구한다.
+
+  jp: |
+    The Glassesは、現実世界での身体の動きを使って観客の参加を促すインタラクティブVR映画である。仮想のサングラスをかけたり外したりする動作によって過去と現在のシーンが切り替わり、物語が展開していく。
+
+    このインタラクションの構造は、観客を単なる鑑賞者ではなく能動的な参加者へと変え、感情的な没入と物語の伝達力を高める。本プロジェクトは、身体化されたインタラクションがVR映画のストーリーテリングをどのように広げられるかを探求している。
+
 ---

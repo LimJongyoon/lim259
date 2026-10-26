@@ -9,6 +9,7 @@ thumbnail: "/publications/blind.png"
 title:
   en: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"
   kr: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"
+  jp: "Guide Dog AR: A Tactile and Auditory Assisting Device Design with the Motif of a Guide Dog for the Visually Impaired"
 
 authors:
   - name: Soo Min Shin
@@ -19,6 +20,7 @@ authors:
 venue:
   en: "IJHCI, 41(11), 6729–6742"
   kr: "IJHCI, 41(11), 6729–6742"
+  jp: "IJHCI, 41(11), 6729–6742"
 
 media:
   videos:
@@ -54,4 +56,14 @@ body:
     몰입감에 대한 심층적인 분석을 위해 Guide Dog AR 디바이스를 사용해 가상 경로를 체험한 시각장애인을 대상으로 심층 인터뷰를 진행하였다. 인터뷰는 현존감에 대한 인식, 촉각 및 청각 피드백과의 상호작용 정도, 그리고 실제 안내견과 함께 이동하는 경험과의 유사성에 초점을 맞추어 이루어졌다.
 
     그 결과, 참가자들은 디바이스가 가상 경로 탐색에 효과적일 뿐만 아니라 현실감 있는 경험을 제공함으로써 과제 수행 과정에서의 자신감과 즐거움을 향상시킨다고 평가하였다. 본 연구는 Guide Dog AR이 시각장애인을 위한 보조 기술이자 몰입형 엔터테인먼트 플랫폼으로 활용될 가능성이 있음을 보여준다.
+
+  jp: |
+    本研究は、盲導犬のハーネスの持ち手から着想を得たARデバイス「Guide Dog AR」を提案する。本デバイスとそれに連動するコンテンツは、視覚障害者に盲導犬と一緒に歩く体験を提供することを目的としており、実用的な補助ツールであると同時にエンターテインメントプラットフォームの基盤として設計した。
+
+    Guide Dog ARは触覚と聴覚のフィードバックによって拡張された歩行体験を提供する。デバイスの評価は「効果性（effectiveness）」と「没入感（immersiveness）」を基準に行い、効果性の評価は仮想のシミュレーション経路を構築して実施した。没入感はユーザーがデバイスの提供する拡張コンテンツにどれだけ深く入り込んだかを基準に評価し、成功率はデバイスのフィードバックを使って仮想経路をどれだけ正確にたどれたかによって算出した。
+
+    没入感をより深く分析するため、Guide Dog ARデバイスを使って仮想経路を体験した視覚障害者を対象にデプスインタビューを行った。インタビューは、存在感の認識、触覚・聴覚フィードバックとのインタラクションの度合い、そして実際の盲導犬と一緒に移動する体験との類似性に焦点を当てて実施した。
+
+    その結果、参加者はデバイスが仮想経路の探索に効果的であるだけでなく、リアリティのある体験を提供することで、課題に取り組む際の自信と楽しさを高めると評価した。本研究は、Guide Dog ARが視覚障害者のための補助技術であり、没入型のエンターテインメントプラットフォームとしても活用できる可能性を示している。
+
 ---

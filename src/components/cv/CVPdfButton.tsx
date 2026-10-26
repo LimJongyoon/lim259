@@ -9,6 +9,9 @@ export default function CVPdfButton({ lang }: { lang: Lang }) {
       ? "PDF出力"
       : "Download PDF";
 
+  const preparing =
+    lang === "kr" ? "PDF 준비 중..." : lang === "jp" ? "PDFを準備中..." : "Preparing PDF...";
+
   return (
     <CVPdfLink lang={lang}>
       {({ loading }: { loading: boolean }) => (
@@ -23,7 +26,7 @@ export default function CVPdfButton({ lang }: { lang: Lang }) {
             transition
           "
         >
-          {loading ? "Preparing PDF..." : label}
+          {loading ? preparing : label}
         </button>
       )}
     </CVPdfLink>

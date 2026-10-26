@@ -36,7 +36,7 @@ function formatDate(date: string) {
 }
 
 export default function NewsContent({
-  limit = 5,
+  limit = 15,
   className = "px-4 pt-4 pb-12 md:pb-24",
 }: Props) {
   const { lang } = useLanguage();

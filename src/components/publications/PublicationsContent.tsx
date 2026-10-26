@@ -21,8 +21,8 @@ export default function PublicationsContent() {
     },
   };
   const label = {
-    open: lang === "kr" ? "전체 펼치기" : "Expand all",
-    close: lang === "kr" ? "전체 접기" : "Collapse all",
+    open: lang === "kr" ? "전체 펼치기" : lang === "jp" ? "すべて開く" : "Expand all",
+    close: lang === "kr" ? "전체 접기" : lang === "jp" ? "すべて閉じる" : "Collapse all",
   };
   const {
     openIds,
@@ -30,7 +30,7 @@ export default function PublicationsContent() {
     openAll,
     closeAll,
     sectionRef,
-    hasEntered,
+    inView,
   } = useExpandController(publications.map(p => p.id));
 
   const isAllOpen = openIds.size === publications.length;
@@ -61,15 +61,16 @@ export default function PublicationsContent() {
       </div>
 
       {/* ===================== PC TOGGLE ===================== */}
-      {hasEntered && (
-        <div className="hidden md:block fixed bottom-48 right-6 z-30">
+      {/* 보고 있는 섹션의 버튼만 뜬다. Projects 와 같은 자리, 항상 떠 있는 CV 버튼 바로 위 */}
+      {inView && (
+        <div className="hidden md:block fixed bottom-32 right-6 z-30 w-36">
           <div className="mb-1 text-[11px] text-neutral-500">
             {sectionLabel.publications[lang] ?? sectionLabel.publications.en}
           </div>
           <button
             onClick={isAllOpen ? closeAll : openAll}
             className="
-              px-4 py-2 rounded-md
+              w-full px-4 py-2 rounded-md
               bg-white/80 backdrop-blur
               border border-neutral-300
               text-sm text-neutral-700
@@ -323,7 +324,7 @@ export default function PublicationsContent() {
                     >
                       <span className="text-base leading-none">↑</span>
                       <span className="mt-1">
-                        {lang === "kr" ? "접기" : "Collapse"}
+                        {lang === "kr" ? "접기" : lang === "jp" ? "閉じる" : "Collapse"}
                       </span>
                       <div className="mt-4 w-full h-px bg-neutral-200" />
                     </button>

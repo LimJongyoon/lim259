@@ -23,14 +23,14 @@ export default function ProjectsContent() {
     openAll,
     closeAll,
     sectionRef,
-    hasEntered,
+    inView,
   } = useExpandController(projects.map((p) => p.id));
 
   const isAllOpen = openIds.size === projects.length;
 
   const label = {
-    open: lang === "kr" ? "전체 펼치기" : "Expand all",
-    close: lang === "kr" ? "전체 접기" : "Collapse all",
+    open: lang === "kr" ? "전체 펼치기" : lang === "jp" ? "すべて開く" : "Expand all",
+    close: lang === "kr" ? "전체 접기" : lang === "jp" ? "すべて閉じる" : "Collapse all",
   };
 
   return (
@@ -48,14 +48,14 @@ export default function ProjectsContent() {
       </div>
 
       {/* PC toggle */}
-      {hasEntered && (
-        <div className="hidden md:block fixed bottom-32 right-6 z-30">
+      {inView && (
+        <div className="hidden md:block fixed bottom-32 right-6 z-30 w-36">
           <div className="mb-1 text-[11px] text-neutral-500">
             {sectionLabel.projects[lang] ?? sectionLabel.projects.en}
           </div>
           <button
             onClick={isAllOpen ? closeAll : openAll}
-            className="px-4 py-2 rounded-md bg-white/80 border text-sm shadow-md"
+            className="w-full px-4 py-2 rounded-md bg-white/80 border text-sm shadow-md"
           >
             {isAllOpen ? label.close : label.open}
           </button>
@@ -230,6 +230,19 @@ export default function ProjectsContent() {
                           />
                         )}
 
+                        {p.media?.screens && (
+                          <div className="grid grid-cols-3 gap-2 md:gap-4 md:px-8">
+                            {p.media.screens.map((src, i) => (
+                              <img
+                                key={i}
+                                src={src}
+                                alt={`${title} screen ${i + 1}`}
+                                className="w-full h-auto rounded-md border border-neutral-200"
+                              />
+                            ))}
+                          </div>
+                        )}
+
                         {p.media?.images && (
                           <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                             {p.media.images.map((src, i) => (
@@ -256,6 +269,8 @@ export default function ProjectsContent() {
                           >
                             {lang === "kr"
                               ? "웹사이트 방문"
+                              : lang === "jp"
+                              ? "ウェブサイトを見る"
                               : "Visit Website"}
                           </a>
                         )}
@@ -287,7 +302,7 @@ export default function ProjectsContent() {
                     >
                       <span className="text-base leading-none">↑</span>
                       <span className="mt-1">
-                        {lang === "kr" ? "접기" : "Collapse"}
+                        {lang === "kr" ? "접기" : lang === "jp" ? "閉じる" : "Collapse"}
                       </span>
                       <div className="mt-4 w-full h-px bg-neutral-200" />
                     </button>

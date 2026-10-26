@@ -5,20 +5,24 @@ year: 2021
 type:
   en: Unity XR
   kr: 유니티 XR
+  jp: "Unity XR"
 
 scope:
   en: National Museum of Korea, d'strict
   kr: 국립중앙박물관, 디스트릭트
+  jp: "国立中央博物館、d'strict"
 
 thumbnail: "/projects/BLE2.png"
 
 title:
   en: "BLE-based Indoor Positioning and AR Wayfinding System"
   kr: "BLE 실내 위치 기반 웨이파인딩 AR 시스템"
+  jp: "BLE屋内測位に基づくARウェイファインディングシステム"
 
 affiliation:
   - en: "Indoor AR wayfinding system visualizing visitor movement using BLE beacons"
     kr: "BLE 및 비콘을 활용하여 관람객의 이동 경로를 시각화하는 실내 AR 웨이파인딩 시스템"
+    jp: "BLEビーコンを活用して来館者の移動経路を可視化する屋内ARウェイファインディングシステム"
 
 media:
   video: "https://www.youtube.com/embed/EeVNgkGrr6k?si=P4xgQjaymQvyCp57"
@@ -41,4 +45,10 @@ body:
     본 프로젝트는 BLE(Bluetooth Low Energy) 기반 실내 위치 인식 기술을 활용하여 박물관 및 전시 공간을 위한 AR 웨이파인딩 시스템을 구현한 연구·개발 사례이다. 비콘 신호를 통해 관람객의 위치를 추정하고, 이동 맥락에 따라 AR 콘텐츠가 동적으로 변화하도록 설계되었다.
 
     단순한 길 안내를 넘어, 관람객의 이동 경로를 누적하여 AR 아트워크로 시각화함으로써 공간 자체를 살아있는 인터랙티브 설치물로 확장한다. 이미지 인식 기술과 소셜 데이터 요소를 결합하여, 본 시스템은 웨이파인딩 도구이자 디지털 방명록의 역할을 동시에 수행하며 전시 경험을 데이터 기반으로 풍부하게 만든다.
+
+  jp: |
+    本プロジェクトは、BLE（Bluetooth Low Energy）による屋内測位技術を活用し、博物館や展示空間のためのARウェイファインディングシステムを実装した研究開発事例である。ビーコン信号から来館者の位置を推定し、移動の文脈に応じてARコンテンツが動的に変化するよう設計した。
+
+    単なる道案内にとどまらず、来館者の移動経路を蓄積してARアートワークとして可視化することで、空間そのものを生きたインタラクティブ・インスタレーションへと拡張する。画像認識技術とソーシャルデータの要素を組み合わせ、本システムはウェイファインディングツールであると同時にデジタル芳名録の役割も果たし、データに基づいて展示体験をより豊かにする。
+
 ---

@@ -41,9 +41,9 @@ export const cvContent = {
       },
 
       degree: {
-        en: "B.S., Electronic Engineering",
+        en: "B.S., Electrical Engineering",
         kr: "학사, 전기공학부",
-        jp: "学士, 電子工学",
+        jp: "学士, 電気工学",
       },
       gpa: "4.12 / 4.50",
       coursework: {
@@ -131,6 +131,41 @@ export const cvContent = {
   ],
 
   professional: [
+    {
+      role: {
+        en: "Freelance iOS / XR Developer",
+        kr: "프리랜서 iOS / XR 개발자",
+        jp: "フリーランス iOS / XR 開発者",
+      },
+      org: {
+        en: "National Museum of Modern and Contemporary Art, Korea (MMCA)",
+        kr: "국립현대미술관",
+        jp: "国立現代美術館",
+      },
+      city: {
+        en: ["Cheongju"],
+        kr: ["청주"],
+        jp: ["清州"],
+      },
+      year: "2026",
+      details: {
+        en: [
+          "Developed an AI docent iOS app on Meta Ray-Ban Display glasses for the New Media Collection exhibition Nostalgia for Technology",
+          "Implemented artwork identification combining BLE beacon proximity and camera-based recognition via the Meta Wearables Device Access Toolkit",
+          "Built real-time spoken dialogue for artwork explanations and visitor Q&A using OpenAI Realtime and Gemini Live",
+        ],
+        kr: [
+          "뉴미디어 소장품 특별전 「기술의 노스탤지어」용 Meta Ray-Ban Display 기반 AI 도슨트 iOS 앱 개발",
+          "BLE 비콘 근접 정보와 Meta Wearables DAT 카메라 인식을 결합한 작품 자동 식별 구현",
+          "OpenAI Realtime·Gemini Live 기반 실시간 음성 작품 해설 및 관람객 질의응답 구현",
+        ],
+        jp: [
+          "ニューメディア所蔵品特別展「技術のノスタルジア」向け Meta Ray-Ban Display 対応AIドーセント iOSアプリの開発",
+          "BLEビーコンの近接情報と Meta Wearables DAT のカメラ認識を組み合わせた作品自動識別の実装",
+          "OpenAI Realtime・Gemini Live によるリアルタイム音声での作品解説および来館者の質疑応答の実装",
+        ],
+      },
+    },
     {
       role: {
         en: "Co-founder",

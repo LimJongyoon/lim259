@@ -76,7 +76,7 @@ export default function Header() {
             >
               {item("kr", "한국어", "🇰🇷")}
               {item("en", "English", "🇺🇸")}
-              {item("jp", "日本語 🚧", "🇯🇵", true)}
+              {item("jp", "日本語", "🇯🇵")}
             </div>
           )}
         </div>

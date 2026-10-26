@@ -5,20 +5,24 @@ year: 2022
 type:
   en: Research
   kr: 연구
+  jp: "研究"
 
 scope:
   en: Electronics and Telecommunications Research Institute (ETRI)
   kr: 한국전자통신연구원(ETRI)
+  jp: "韓国電子通信研究院（ETRI）"
 
 thumbnail: "/projects/Idealavor.png"
 
 title:
   en: "Idealavor: Multi-Modality Eating Texture Haptic Device"
   kr: "Idealavor: 다중 감각 기반 식감 햅틱 디바이스"
+  jp: "Idealavor：多感覚に基づく食感ハプティックデバイス"
 
 affiliation:
   - en: "Research prototype exploring multimodal haptic feedback for eating texture perception"
     kr: "식감 지각을 위한 다중 감각 햅틱 피드백을 탐구하는 연구용 프로토타입"
+    jp: "食感の知覚のための多感覚ハプティックフィードバックを探る研究用プロトタイプ"
 
 tags:
   - Multimodal Interaction
@@ -38,4 +42,12 @@ body:
     본 디바이스는 사용자의 저작 패턴에 적응하여 개인화된 식감 경험을 제공하며, 시각적 색상 증강, 씹는 소리의 청각적 강화, 턱 근육에 적용되는 전기 근육 자극(EMS)을 결합해 씹는 감각을 직접적으로 시뮬레이션한다.
 
     Idealavor는 개념 설계와 산업 디자인을 중심으로 한 연구용 프로토타입으로, 다중 감각 인터랙션이 인간의 감각 지각을 어떻게 확장할 수 있는지를 제시한다.
+
+  jp: |
+    Idealavorは、食感が満腹感や味覚の認識に与える影響を探るため、多感覚フィードバックによって食べ物の質感を再現する研究プロジェクトである。視覚・聴覚・触覚の刺激を組み合わせることで、食材の実際の品質や食感の違いを感覚的に補えるかを実験する。
+
+    本デバイスはユーザーの咀嚼パターンに適応して個人に合わせた食感体験を提供し、色の視覚的な強調、咀嚼音の聴覚的な強調、顎の筋肉への電気的筋肉刺激（EMS）を組み合わせて、噛む感覚を直接シミュレーションする。
+
+    Idealavorはコンセプト設計とインダストリアルデザインを中心とした研究用プロトタイプであり、多感覚インタラクションが人間の感覚知覚をどのように拡張しうるかを示している。
+
 ---

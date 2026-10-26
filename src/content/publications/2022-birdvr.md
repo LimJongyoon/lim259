@@ -10,6 +10,7 @@ thumbnail: "/publications/birdVR.png"
 title:
   en: "BirdVR: UX Design Enhancing the Connection Between VR Controller Form and Interaction"
   kr: "BirdVR: VR 컨트롤러의 형태와 상호작용의 연결성을 강화하는 UX 디자인"
+  jp: "BirdVR：VRコントローラーの形状とインタラクションのつながりを強めるUXデザイン"
 
 authors:
   - name: Kyoungmin Bang
@@ -22,6 +23,7 @@ authors:
 venue:
   en: "HCIK 2022, Interactive Art Gallery"
   kr: "HCIK 2022, Interactive Art Gallery"
+  jp: "HCIK 2022, Interactive Art Gallery"
 
 media:
   video: "https://www.youtube.com/embed/PN5j6Vpz4kw"
@@ -54,4 +56,14 @@ body:
     사용자 피드백을 바탕으로 초기 디자인에 포함되었던 모터 구동 날개는 경험의 단순성과 편안함을 유지하기 위해 제거되었다. 현재 BirdVR 컨트롤러는 서울 고강동에 위치한 복지관에서 고령자를 위한 심리 치유 VR 콘텐츠에 활용되고 있다.
 
     본 프로젝트는 HCI Korea 2022에서 Creative Award 부문의 Interactive Art Gallery 전시 작품으로 선정되어 그 가치를 인정받았다.
+
+  jp: |
+    BirdVRプロジェクトは、65歳以上の高齢者を対象とした鳥の形をしたVRコントローラーを開発するためのUI/UXデザインプロジェクトである。本プロジェクトは、高齢者が従来のVRコントローラーを使う際の操作の難しさと、複雑なインタラクション機能によって没入が妨げられるという二つの課題の解決を目指している。
+
+    BirdVRコントローラーは鳥に似た形状を採用することで新しい解決策を示す。VR環境と自然につながることで学習の負担を減らすと同時に、鳥をなでる行為を通じて心理的な安心感をもたらすという二つの効果を持つ。コントローラーには導電糸（conductive thread）を用いたタッチ操作領域を設け、VR環境の中で直感的かつシンプルにインタラクションできるよう設計した。
+
+    ユーザーからのフィードバックをもとに、初期デザインに含まれていたモーター駆動の翼は、体験のシンプルさと快適さを保つために取り除いた。現在、BirdVRコントローラーはソウル・コガン洞の福祉館で、高齢者のための心理的な癒やしを目的としたVRコンテンツに活用されている。
+
+    本プロジェクトはHCI Korea 2022において、Creative Award部門のInteractive Art Gallery展示作品に選ばれ、その価値が認められた。
+
 ---

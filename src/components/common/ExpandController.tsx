@@ -1,25 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
+import { useInViewCenter } from "./useInViewCenter";
 
 export function useExpandController(ids: string[]) {
   const [openIds, setOpenIds] = useState<Set<string>>(new Set());
   const sectionRef = useRef<HTMLElement | null>(null);
-  const [hasEntered, setHasEntered] = useState(false);
-
-  useEffect(() => {
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setHasEntered(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    observer.observe(sectionRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const inView = useInViewCenter(sectionRef);
 
   const toggleOne = (id: string) => {
     setOpenIds((prev) => {
@@ -47,6 +32,6 @@ export function useExpandController(ids: string[]) {
     openAll,
     closeAll,
     sectionRef,
-    hasEntered, 
+    inView,
   };
 }
