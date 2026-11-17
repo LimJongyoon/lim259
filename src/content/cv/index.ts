@@ -63,6 +63,24 @@ export const cvContent = {
         jp: "研究エンジニア",
       },
       org: {
+        en: "Immersive Reality Lab, Dept. of Electrical and Computer Engineering, College of Design and Engineering, National University of Singapore",
+        kr: "싱가포르국립대학교 디자인공학대학 전기·컴퓨터공학과 Immersive Reality Lab",
+        jp: "シンガポール国立大学 設計工学部 電気・コンピュータ工学科 Immersive Reality Lab",
+      },
+      city: {
+        en: ["Singapore"],
+        kr: ["싱가포르"],
+        jp: ["シンガポール"],
+      },
+      year: "2027–Present",
+    },
+    {
+      role: {
+        en: "Research Engineer",
+        kr: "리서치 엔지니어",
+        jp: "研究エンジニア",
+      },
+      org: {
         en: "Sogang University",
         kr: "서강대학교",
         jp: "西江大学校",

@@ -34,7 +34,7 @@ create policy "news api access"
   with check (true);
 
 
--- ===== 초기 데이터 (마크다운 48건) =====
+-- ===== 초기 데이터 (마크다운 49건) =====
 -- 같은 id 가 있으면 덮어쓴다. 즉 이 파일을 다시 실행하면 마크다운 내용으로 동기화된다.
 -- 주의: /log 에서 직접 고친 내용도 같은 id 면 같이 덮어써진다.
 
@@ -89,7 +89,8 @@ insert into public.news (id, date, category, text_kr, text_en, text_jp, link) va
   ($q$ismar-2025-demo$q$, '2025-10-01', $q$publication$q$, $q$**IEEE ISMAR 2025**에서 스마트글래스 AI 도슨트 데모를 발표하고 왔어요!$q$, $q$Presented our smart-glasses AI docent demo at **IEEE ISMAR 2025**!$q$, $q$**IEEE ISMAR 2025** でスマートグラスAIドーセントのデモを発表してきました！$q$, null),
   ($q$panicfree-testflight-2026$q$, '2026-03-01', $q$project$q$, $q$정신건강 트래킹 앱 **PanicFree**, 드디어 TestFlight에 올렸어요!$q$, $q$My mental health tracking app **PanicFree** is finally on TestFlight!$q$, $q$メンタルヘルス記録アプリ **PanicFree**、ついに TestFlight に公開しました！$q$, null),
   ($q$vibe-to-web-2026$q$, '2026-07-01', $q$teaching$q$, $q$서강대 Art & Technology에서 **Vibe to Web** 워크숍을 열었어요! 3일 동안 14시간, AI로 웹 만들기.$q$, $q$Ran the **Vibe to Web** workshop at Sogang Art & Technology: 3 days, 14 hours of building websites with AI!$q$, $q$西江大 Art & Technology で **Vibe to Web** ワークショップを開催しました！3日間で14時間、AIでウェブづくり。$q$, $q$https://limjongyoon.github.io/vibe-to-web-recap/$q$),
-  ($q$mmca-media-docent-2026$q$, '2026-11-06', $q$project$q$, $q$국립현대미술관과 두 번째 작업, 이번엔 뉴미디어 소장품 특별전 「**기술의 노스탤지어**」예요! Meta Ray-Ban Display 안경을 쓰고 작품을 보면서 평소 말투로 AI 도슨트와 실시간으로 대화할 수 있어요.$q$, $q$Back at MMCA for round two, this time for the New Media Collection exhibition **Nostalgia for Technology**! The new AI docent runs on Meta Ray-Ban Display glasses, so you can talk to it in your own words, live, while you look at the art.$q$, $q$国立現代美術館との2回目のプロジェクト、今回はニューメディア所蔵品特別展「**技術のノスタルジア**」です！Meta Ray-Ban Display グラスをかけて作品を見ながら、いつもの話し方でAIドーセントとリアルタイムに会話できます。$q$, $q$https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=2$q$)
+  ($q$mmca-media-docent-2026$q$, '2026-11-06', $q$project$q$, $q$국립현대미술관과 두 번째 작업, 이번엔 뉴미디어 소장품 특별전 「**기술의 노스탤지어**」예요! Meta Ray-Ban Display 안경을 쓰고 작품을 보면서 평소 말투로 AI 도슨트와 실시간으로 대화할 수 있어요.$q$, $q$Back at MMCA for round two, this time for the New Media Collection exhibition **Nostalgia for Technology**! The new AI docent runs on Meta Ray-Ban Display glasses, so you can talk to it in your own words, live, while you look at the art.$q$, $q$国立現代美術館との2回目のプロジェクト、今回はニューメディア所蔵品特別展「**技術のノスタルジア**」です！Meta Ray-Ban Display グラスをかけて作品を見ながら、いつもの話し方でAIドーセントとリアルタイムに会話できます。$q$, $q$https://www.mmca.go.kr/exhibitions/exhibitionsDetail.do?exhFlag=2$q$),
+  ($q$nus-research-engineer-2026$q$, '2026-11-17', $q$career$q$, $q$2027년 1월, **싱가포르국립대(NUS) Immersive Reality Lab**에 **Research Engineer**로 합류해요!$q$, $q$I'll be joining the **Immersive Reality Lab** at the **National University of Singapore (NUS)** as a **Research Engineer** in January 2027!$q$, $q$2027年1月、**シンガポール国立大学（NUS）Immersive Reality Lab** に **リサーチエンジニア** として合流します！$q$, null)
 on conflict (id) do update set
   date     = excluded.date,
   category = excluded.category,
