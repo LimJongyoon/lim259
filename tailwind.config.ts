@@ -11,8 +11,19 @@ const config: Config = {
 
       animation: {
         bubble: "bubbleEnterShake 0.45s cubic-bezier(.22,1,.36,1) forwards",
+        /* 카드 펼침: 살짝 내려오며 나타난다 */
+        "expand-in": "expandIn 0.25s ease-out both",
+        "fade-in": "fadeIn 0.15s ease-out both",
       },
       keyframes: {
+          expandIn: {
+            "0%": { opacity: "0", transform: "translateY(-6px)" },
+            "100%": { opacity: "1", transform: "translateY(0)" },
+          },
+          fadeIn: {
+            "0%": { opacity: "0" },
+            "100%": { opacity: "1" },
+          },
           bubbleEnterShake: {
             "0%": {
               opacity: "0",

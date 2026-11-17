@@ -64,13 +64,23 @@ const handleSecretClick = (e: React.MouseEvent | React.TouchEvent) => {
       <HomeHero />
 
       <div className="flex">
-        <aside className="w-15 border-r">
+        <aside>
           <SideNav />
         </aside>
 
-        <main className="flex-1">
+        <main className="flex-1 min-w-0">
 
-          <div className="mx-auto max-w-[900px] px-4 py-6">
+          {/*
+            넓은 화면에서는 가운데 정렬(50% - 450px)과 같고,
+            창이 좁아지면 왼쪽 고정 내비(244px)와 오른쪽 고정 버튼(168px)을 피해 본문이 줄어든다.
+          */}
+          <div
+            className="
+              max-w-[900px] px-4 py-6
+              ml-[max(260px,calc(50%-450px))]
+              mr-[max(184px,calc(50%-450px))]
+            "
+          >
             {children}
           </div>
 

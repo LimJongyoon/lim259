@@ -1,5 +1,11 @@
 import { useState, useRef, useEffect } from "react";
-import { useLanguage } from "../../context/LanguageContext";
+import { useLanguage, type Lang } from "../../context/LanguageContext";
+
+const LANG_NAME: Record<Lang, string> = {
+  kr: "한국어",
+  en: "English",
+  jp: "日本語",
+};
 
 export default function Header() {
   const { lang, setLang } = useLanguage();
@@ -17,8 +23,7 @@ export default function Header() {
   }, []);
 
   const item = (
-    code: "kr" | "en" | "jp",
-    label: string,
+    code: Lang,
     flag: string,
     disabled = false
   ) => (
@@ -26,7 +31,7 @@ export default function Header() {
       disabled={disabled}
       onClick={() => {
         if (!disabled) {
-          setLang(code as any);
+          setLang(code);
           setOpen(false);
         }
       }}
@@ -41,7 +46,7 @@ export default function Header() {
       `}
     >
       <span>{flag}</span>
-      <span>{label}</span>
+      <span>{LANG_NAME[code]}</span>
     </button>
   );
 
@@ -56,13 +61,15 @@ export default function Header() {
         <div ref={ref} className="relative">
           <button
             onClick={() => setOpen((v) => !v)}
+            aria-haspopup="true"
+            aria-expanded={open}
             className="
               text-gray-700 hover:text-black
               px-2 py-1
               text-sm
             "
           >
-            Language ▾
+            {LANG_NAME[lang]} ▾
           </button>
 
           {open && (
@@ -74,9 +81,9 @@ export default function Header() {
                 p-1
               "
             >
-              {item("kr", "한국어", "🇰🇷")}
-              {item("en", "English", "🇺🇸")}
-              {item("jp", "日本語", "🇯🇵")}
+              {item("kr", "🇰🇷")}
+              {item("en", "🇺🇸")}
+              {item("jp", "🇯🇵")}
             </div>
           )}
         </div>

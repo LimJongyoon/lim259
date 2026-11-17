@@ -4,7 +4,34 @@ import ReactMarkdown from "react-markdown";
 import { getYear } from "../../content/news";
 import { useNews } from "../../content/news/useNews";
 import { useLanguage } from "../../context/LanguageContext";
-import type { News } from "../../types/News";
+import type { News, NewsCategory } from "../../types/News";
+import { navLabels } from "../navigation/navLabels";
+import { outlineButton, choiceButton } from "../common/buttonStyles";
+
+/* 필터 칩에 나오는 순서 */
+const CATEGORY_ORDER: NewsCategory[] = [
+  "publication",
+  "award",
+  "grant",
+  "exhibition",
+  "project",
+  "career",
+  "teaching",
+];
+
+const CATEGORY_LABEL: Record<
+  NewsCategory | "all",
+  Record<"en" | "kr" | "jp", string>
+> = {
+  all: { en: "All", kr: "전체", jp: "すべて" },
+  publication: { en: "Publications", kr: "논문", jp: "論文" },
+  award: { en: "Awards", kr: "수상", jp: "受賞" },
+  grant: { en: "Grants", kr: "지원사업", jp: "助成" },
+  exhibition: { en: "Exhibitions", kr: "전시", jp: "展示" },
+  project: { en: "Projects", kr: "프로젝트", jp: "プロジェクト" },
+  career: { en: "Career", kr: "경력", jp: "経歴" },
+  teaching: { en: "Teaching", kr: "교육", jp: "教育" },
+};
 
 type Props = {
   /*
@@ -40,8 +67,18 @@ export default function NewsContent({
   className = "px-4 pt-4 pb-12 md:pb-24",
 }: Props) {
   const { lang } = useLanguage();
-  const news = useNews();
+  const allNews = useNews();
   const [showAll, setShowAll] = useState(false);
+  const [category, setCategory] = useState<NewsCategory | null>(null);
+
+  /* 실제로 항목이 있는 카테고리만 칩으로 보여준다 */
+  const categories = CATEGORY_ORDER.filter((c) =>
+    allNews.some((n) => n.category === c)
+  );
+
+  const news = category
+    ? allNews.filter((n) => n.category === category)
+    : allNews;
   const sectionRef = useRef<HTMLElement>(null);
 
   const toggle = () => {
@@ -90,7 +127,30 @@ export default function NewsContent({
     >
       {/* 접힌 채로 목록이 없으면(limit 0) 제목 없이 버튼 하나만 남긴다 */}
       {(showAll || limit > 0) && (
-        <h2 className="text-lg font-semibold mb-3">News</h2>
+        <>
+          <h2 className="text-lg font-semibold mb-3">
+            {navLabels[lang].news}
+          </h2>
+
+          {categories.length > 1 && (
+            <div className="mb-3 flex flex-wrap gap-1.5">
+              {([null, ...categories] as (NewsCategory | null)[]).map((c) => {
+                const selected = category === c;
+
+                return (
+                  <button
+                    key={c ?? "all"}
+                    onClick={() => setCategory(c)}
+                    aria-pressed={selected}
+                    className={`px-2 py-1 text-xs ${choiceButton(selected)}`}
+                  >
+                    {CATEGORY_LABEL[c ?? "all"][lang]}
+                  </button>
+                );
+              })}
+            </div>
+          )}
+        </>
       )}
 
       <div>
@@ -122,6 +182,12 @@ export default function NewsContent({
                 "
               >
                 <ReactMarkdown components={inlineMarkdown}>{text}</ReactMarkdown>
+                {/* 바깥 링크가 걸린 항목 */}
+                {n.link && (
+                  <span aria-hidden className="ml-1 text-[11px] text-neutral-400">
+                    ↗
+                  </span>
+                )}
               </span>
             </div>
           );
@@ -167,14 +233,7 @@ export default function NewsContent({
         >
           <button
             onClick={toggle}
-            className="
-              px-4 py-1.5 rounded-full
-              border border-emerald-800/30
-              text-xs font-medium text-emerald-800
-              hover:bg-emerald-800 hover:text-white hover:border-emerald-800
-              active:scale-95
-              transition-all
-            "
+            className={`px-4 py-1.5 text-xs ${outlineButton}`}
           >
             {showAll ? label.close : label.open}
           </button>

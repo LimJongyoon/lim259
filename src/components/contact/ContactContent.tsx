@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useLanguage } from "../../context/LanguageContext";
 
+import { navLabels } from "../navigation/navLabels";
+
 const MAX_MESSAGE_LEN = 1500;
-const DISPLAY_MESSAGE_LEN = 1501;
 
 const books = [
   { title: "Sapiens", img: "/contact/sapiens.jpg" },
@@ -27,6 +28,7 @@ export default function ContactContent() {
 
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sendError, setSendError] = useState<"failed" | "tooLong" | null>(null);
 
   const canTrySend =
     name.trim().length > 0 ||
@@ -62,6 +64,21 @@ export default function ContactContent() {
       en: "Send",
       kr: "보내기",
       jp: "送信",
+    },
+    sending: {
+      en: "Sending...",
+      kr: "보내는 중...",
+      jp: "送信中...",
+    },
+    failed: {
+      en: "Couldn't send the message. Please try again, or email me directly.",
+      kr: "메시지를 보내지 못했습니다. 다시 시도하거나 이메일로 연락해 주세요.",
+      jp: "送信できませんでした。もう一度お試しいただくか、メールでご連絡ください。",
+    },
+    tooLong: {
+      en: "The message is too long. Please shorten it and try again.",
+      kr: "메시지가 너무 깁니다. 줄여서 다시 보내 주세요.",
+      jp: "メッセージが長すぎます。短くしてもう一度お試しください。",
     },
     sentTitle: {
       en: "Message Sent",
@@ -99,6 +116,7 @@ export default function ContactContent() {
     }
 
     setSending(true);
+    setSendError(null);
 
     try {
       const res = await fetch("/api/contact", {
@@ -108,8 +126,8 @@ export default function ContactContent() {
       });
 
       if (!res.ok) {
-        if (res.status === 413) throw new Error("Message is too long.");
-        throw new Error(`Send failed (${res.status})`);
+        setSendError(res.status === 413 ? "tooLong" : "failed");
+        return;
       }
 
       setName("");
@@ -117,7 +135,7 @@ export default function ContactContent() {
       setMessage("");
       setSent(true);
     } catch {
-      alert("Failed to send");
+      setSendError("failed");
     } finally {
       setSending(false);
     }
@@ -131,7 +149,7 @@ export default function ContactContent() {
 
           {/* Header */}
           <section className="mb-6">
-            <h2 className="text-lg font-semibold">Contact</h2>
+            <h2 className="text-lg font-semibold">{navLabels[lang].contact}</h2>
             <p className="text-xs text-neutral-500">{t.subtitle[lang]}</p>
           </section>
 
@@ -142,7 +160,7 @@ export default function ContactContent() {
                 href="mailto:limjy.kor@gmail.com"
                 className="flex items-center gap-1 hover:text-black"
               >
-                <img src="/icons/gmail.png" className="w-3.5 h-3.5" />
+                <img src="/icons/gmail.png" alt="Email" className="w-3.5 h-3.5" />
                 <span className="text-[#009874] hover:underline">
                   limjy.kor@gmail.com
                 </span>
@@ -154,7 +172,7 @@ export default function ContactContent() {
                 rel="noopener noreferrer"
                 className="flex items-center gap-1 hover:text-black"
               >
-                <img src="/icons/Instagram.jpg" className="w-3.5 h-3.5" />
+                <img src="/icons/Instagram.jpg" alt="Instagram" className="w-3.5 h-3.5" />
                 <span className="text-[#009874] hover:underline">
                   @limjongyoon3
                 </span>
@@ -166,11 +184,11 @@ export default function ContactContent() {
           <section className="mb-10">
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-sm font-medium text-neutral-700">
-                <img src="/icons/discord.png" className="w-4 h-4" />
+                <img src="/icons/discord.png" alt="" className="w-4 h-4" />
                 <span>{t.discord[lang]}</span>
               </div>
 
-              <div className="rounded-xl border bg-white p-3 space-y-3">
+              <div className="rounded-md border bg-white p-3 space-y-3">
                 <input
                   value={name}
                   onChange={(e) => {
@@ -220,7 +238,7 @@ export default function ContactContent() {
                   `}
                 />
                 <div
-                  className={`text-xs text-right ${message.length >= DISPLAY_MESSAGE_LEN
+                  className={`text-xs text-right ${message.length >= MAX_MESSAGE_LEN
                       ? "text-red-500"
                       : "text-neutral-400"
                     }`}
@@ -240,8 +258,14 @@ export default function ContactContent() {
                     }
                   `}
                 >
-                  {sending ? "Sending..." : t.send[lang]}
+                  {sending ? t.sending[lang] : t.send[lang]}
                 </button>
+
+                {sendError && (
+                  <p role="alert" className="text-xs text-red-600">
+                    {t[sendError][lang]}
+                  </p>
+                )}
               </div>
             </div>
           </section>
@@ -252,12 +276,12 @@ export default function ContactContent() {
               {t.books[lang]}
             </div>
 
-            <div className="rounded-xl border bg-white p-3">
+            <div className="rounded-md border bg-white p-3">
               <div className="flex gap-3 overflow-x-auto pb-1 [-webkit-overflow-scrolling:touch]">
                 {books.map((b) => (
                   <div key={b.title} className="flex-shrink-0 w-[84px] md:w-[110px]">
                     <div className="aspect-[3/4] rounded bg-neutral-100 overflow-hidden">
-                      <img src={b.img} alt={b.title} className="w-full h-full object-cover" />
+                      <img src={b.img} alt={b.title} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     </div>
                     <div className="mt-1 text-[12px] text-neutral-600 truncate">
                       {b.title}
@@ -273,7 +297,7 @@ export default function ContactContent() {
       {/* Sent popup */}
       {sent && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
-          <div className="w-[280px] rounded-xl bg-white p-5 text-center space-y-3">
+          <div className="w-[280px] rounded-md bg-white p-5 text-center space-y-3">
             <div className="text-sm font-semibold">{t.sentTitle[lang]}</div>
             <div className="text-xs text-neutral-500">{t.sentDesc[lang]}</div>
             <button

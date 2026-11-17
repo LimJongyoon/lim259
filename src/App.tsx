@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useMediaQuery } from "react-responsive";
 
 import MobileLayout from "./layouts/MobileLayout";
 import DesktopLayout from "./layouts/DesktopLayout";
@@ -12,7 +13,11 @@ import ContactContent from "./components/contact/ContactContent";
 import type { Lang } from "./content/cv";
 
 function App() {
+  /* CV 언어는 사이트 언어와 별개로 둔다(의도된 동작). 항상 영어로 시작한다. */
   const [lang, setLang] = useState<Lang>("en");
+
+  /* md(768px) 이상이 데스크탑. 두 레이아웃을 동시에 마운트하지 않는다. */
+  const isDesktop = useMediaQuery({ minWidth: 768 });
 
   useEffect(() => {
     if (import.meta.env.DEV) return;
@@ -33,6 +38,8 @@ function App() {
       })
     });
   }, []);
+
+  if (!isDesktop) return <MobileLayout />;
 
   const desktopContent = (
     <section id="main-content" className="space-y-8">
@@ -59,15 +66,7 @@ function App() {
   );
 
   return (
-    <>
-      <div className="block md:hidden">
-        <MobileLayout />
-      </div>
-
-      <div className="hidden md:block">
-        <DesktopLayout>{desktopContent}</DesktopLayout>
-      </div>
-    </>
+    <DesktopLayout>{desktopContent}</DesktopLayout>
   );
 }
 

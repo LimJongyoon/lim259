@@ -2,24 +2,17 @@ import { publications } from "../../content/publications";
 import { useLanguage } from "../../context/LanguageContext";
 import type { Publication } from "../../types/Publication";
 import { useExpandController } from "../common/ExpandController";
+import MediaBlock from "../common/MediaBlock";
+import { navLabels } from "../navigation/navLabels";
+import { outlineButton } from "../common/buttonStyles";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
 export default function PublicationsContent() {
   const { lang } = useLanguage();
   const contentLang: "en" | "kr" | "jp" =
     lang === "en" || lang === "kr" || lang === "jp" ? lang : "en";
 
-  const sectionLabel = {
-    projects: {
-      en: "Projects",
-      kr: "프로젝트",
-      jp: "プロジェクト",
-    },
-    publications: {
-      en: "Publications",
-      kr: "논문",
-      jp: "論文",
-    },
-  };
+  const sectionTitle = navLabels[lang].publications;
   const label = {
     open: lang === "kr" ? "전체 펼치기" : lang === "jp" ? "すべて開く" : "Expand all",
     close: lang === "kr" ? "전체 접기" : lang === "jp" ? "すべて閉じる" : "Collapse all",
@@ -40,21 +33,13 @@ export default function PublicationsContent() {
       ref={sectionRef}
       className="relative px-4 pt-8 pb-24 mx-auto"
     >
-      <h2 className="text-lg font-semibold mb-6">Publications</h2>
+      {/* 모바일은 전체 펼치기를 제목 줄에 둔다(본문 위에 떠 있지 않게) */}
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-lg font-semibold">{sectionTitle}</h2>
 
-      {/* ===================== MOBILE TOGGLE ===================== */}
-      <div className="md:hidden fixed bottom-[72px] left-1/2 -translate-x-1/2 z-30">
         <button
           onClick={isAllOpen ? closeAll : openAll}
-          className="
-            px-5 py-2 rounded-full
-            bg-white/80 backdrop-blur
-            border border-neutral-300
-            text-sm text-neutral-800
-            shadow-lg
-            hover:bg-white
-            transition-colors
-          "
+          className={`md:hidden px-3 py-1 text-xs ${outlineButton}`}
         >
           {isAllOpen ? label.close : label.open}
         </button>
@@ -65,7 +50,7 @@ export default function PublicationsContent() {
       {inView && (
         <div className="hidden md:block fixed bottom-32 right-6 z-30 w-36">
           <div className="mb-1 text-[11px] text-neutral-500">
-            {sectionLabel.publications[lang] ?? sectionLabel.publications.en}
+            {sectionTitle}
           </div>
           <button
             onClick={isAllOpen ? closeAll : openAll}
@@ -128,6 +113,7 @@ export default function PublicationsContent() {
                   {/* ===== LEFT + MIDDLE : CLICK AREA ===== */}
                   <button
                     onClick={() => toggleOne(p.id)}
+                    aria-expanded={isOpen}
                     className="
                       relative
                       col-span-2
@@ -159,13 +145,25 @@ export default function PublicationsContent() {
                         <img
                           src={p.thumbnail}
                           alt={title}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-contain"
                         />
                       )}
                     </div>
 
                     {/* ===== Middle ===== */}
-                    <div className="relative z-0 min-w-0 space-y-0.5">
+                    <div className="relative z-0 min-w-0 space-y-0.5 pr-5">
+                      {/* 펼침 표시 */}
+                      <ChevronDownIcon
+                        className={`
+                          absolute top-0.5 right-0
+                          w-4 h-4 text-neutral-400
+                          transition-transform duration-200
+                          ${isOpen ? "rotate-180" : ""}
+                        `}
+                      />
+
                       <h3
                         className={`
                         text-sm font-semibold leading-snug break-words
@@ -222,74 +220,9 @@ export default function PublicationsContent() {
 
                 {/* Expanded */}
                 {isOpen && (
-                  <div className="mt-3 space-y-3 text-sm text-neutral-700">
+                  <div className="mt-3 space-y-3 text-sm text-neutral-700 animate-expand-in motion-reduce:animate-none">
 
-                    {p.media?.video && (
-                      <div className="aspect-video">
-                        {p.media.video.endsWith(".mp4") ? (
-                          <video
-                            src={p.media.video}
-                            controls
-                            playsInline
-                            className="w-full h-full rounded-md"
-                          />
-                        ) : (
-                          <iframe
-                            src={p.media.video}
-                            className="w-full h-full rounded-md"
-                            allowFullScreen
-                          />
-                        )}
-                      </div>
-                    )}
-
-                    {p.media?.videos && p.media.videos.length > 0 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {p.media.videos.map((src: string, i: number) => (
-                          <div key={i} className="aspect-video">
-                            {src.endsWith(".mp4") ? (
-                              <video
-                                src={src}
-                                controls
-                                playsInline
-                                className="w-full h-full rounded-md"
-                              />
-                            ) : (
-                              <iframe
-                                src={src}
-                                className="w-full h-full rounded-md"
-                                allowFullScreen
-                              />
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {p.media?.image && (
-                      <img
-                        src={p.media.image}
-                        alt={title}
-                        className="w-full h-auto rounded-md object-cover"
-                      />
-                    )}
-
-                    {p.media?.images && p.media.images.length > 0 && (
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {p.media.images.map((src: string, i: number) => (
-                          <div
-                            key={i}
-                            className="w-full h-[220px] md:h-[260px] overflow-hidden rounded-md bg-neutral-100"
-                          >
-                            <img
-                              src={src}
-                              alt={`${title} image ${i + 1}`}
-                              className="w-full h-full object-cover"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    )}
+                    {p.media && <MediaBlock media={p.media} title={title} />}
 
                     {p.body && (
                       <div className="whitespace-pre-line leading-relaxed">
@@ -303,7 +236,7 @@ export default function PublicationsContent() {
                         {p.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="text-[10px] px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-500 leading-tight"
+                            className="text-[10px] px-1.5 py-0.5 rounded bg-neutral-100 text-neutral-500 leading-tight"
                           >
                             #{tag}
                           </span>

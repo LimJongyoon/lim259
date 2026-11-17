@@ -35,7 +35,7 @@ media:
   videos:
     - "https://www.youtube.com/embed/ln1e_Zr97C8"
     - "https://www.youtube.com/embed/iJ6vnRgE8OM"
-  image: "/projects/everpen22.png"
+  image: "/projects/everpen22.webp"
 
 tags:
   - Embedded Systems

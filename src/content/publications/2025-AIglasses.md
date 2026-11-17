@@ -4,7 +4,7 @@ year: 2025
 type:
 scope: Demo
 
-thumbnail: "/publications/glasses.png"
+thumbnail: "/publications/glasses.webp"
 
 title:
   en: "Towards Mixed Reality AI Docents: Egocentric Smart Glasses with Vision and LLM Interaction"

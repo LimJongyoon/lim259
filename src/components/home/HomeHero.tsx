@@ -1,4 +1,6 @@
 import { useMemo, useEffect, useState } from "react";
+import { useScrollY } from "../common/useScrollY";
+import { scrollToSection } from "../navigation/scrollToSection";
 import HomeContent from "./HomeContent";
 import profileImg from "../../assets/profile.png";
 import { useLanguage } from "../../context/LanguageContext";
@@ -54,13 +56,24 @@ const WELCOME = "Lim, Jongyoon";
 /*
  * 스크롤 타임라인 (단위: 화면 높이 vh 대비 scrollY)
  *   0    ~ 0.58 : 히어로(About)가 걷힌다
- *   0.35 ~ 0.85 : 이름(Welcome)이 화면 가운데에서 페이드인한다
- *   0.85 ~ 1.0  : Welcome 이 잠시 머문다
- *   1.0  ~      : Welcome 이 스크롤과 1:1 로 올라가고 본문(News)이 뒤따른다
+ *   0.3  ~ 0.65 : 이름(Welcome)이 화면 가운데에서 페이드인한다
+ *   0.65 ~ 0.75 : Welcome 이 잠시 머문다
+ *   0.75 ~      : Welcome 이 스크롤과 1:1 로 올라가고 본문(News)이 뒤따른다
  */
-const WELCOME_IN_START = 0.35;
-const WELCOME_IN_END = 0.85;
-const WELCOME_HOLD_END = 1.0;
+const WELCOME_IN_START = 0.3;
+const WELCOME_IN_END = 0.65;
+const WELCOME_HOLD_END = 0.75;
+
+/* 히어로 + Welcome 이 차지하는 스크롤 길이(vh 배수). 머무는 동안 본문은 화면 아래 1/4 에 걸친다 */
+const HERO_SCROLL_LENGTH = WELCOME_HOLD_END + 0.75;
+
+const SECTION_ORDER: (keyof BubbleMap)[] = [
+  "contact",
+  "cv",
+  "projects",
+  "publications",
+  "news",
+];
 
 const BUBBLE_TEXT: BubbleMap = {
   news: {
@@ -96,54 +109,47 @@ export default function HomeHero() {
   const safeLang = lang as LangKey;
 
   const background = useMemo(() => generateGradient(), []);
-  const [progress, setProgress] = useState(0);
-  const [scrollRatio, setScrollRatio] = useState(0);
+  const { scrollY, vw, vh } = useScrollY();
+
+  /* 프레임당 한 번, resize 때도 다시 계산된다 */
+  const progress = Math.min(scrollY / (vh * 0.7), 1);
+  const scrollRatio = scrollY / vh;
+
+  /*
+   * 지금 보고 있는 섹션. 문서 역순(아래 → 위)으로 순회하며 첫 매치를 잡으므로
+   * 최상단 섹션인 news 가 마지막에 와야 한다.
+   */
   const [activeSection, setActiveSection] = useState<keyof BubbleMap | null>(null);
 
   useEffect(() => {
-    const onScroll = () => {
-      const max = window.innerHeight * 0.7;
-      const value = Math.min(window.scrollY / max, 1);
-      setProgress(value);
-      setScrollRatio(window.scrollY / window.innerHeight);
-    };
+    let frame = 0;
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    const update = () => {
+      frame = 0;
 
-  useEffect(() => {
-    const onScroll = () => {
-
-      /* 문서 역순(아래 → 위)으로 순회하며 첫 매치를 잡으므로
-         최상단 섹션인 news 가 마지막에 와야 한다. */
-      const targets: (keyof BubbleMap)[] = [
-        "contact",
-        "cv",
-        "projects",
-        "publications",
-        "news",
-      ];
-
-      for (let id of targets) {
+      const found = SECTION_ORDER.find((id) => {
         const el = document.getElementById(id);
-        if (!el) continue;
+        return el
+          ? el.getBoundingClientRect().top < window.innerHeight * 0.5
+          : false;
+      });
 
-        const rect = el.getBoundingClientRect();
-
-        if (rect.top < window.innerHeight * 0.5) {
-          setActiveSection(id);
-          return;
-        }
-      }
-
-      setActiveSection(null);
+      setActiveSection(found ?? null);
     };
 
-    window.addEventListener("scroll", onScroll);
-    onScroll();
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(update);
+    };
 
-    return () => window.removeEventListener("scroll", onScroll);
+    schedule();
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+
+    return () => {
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+      if (frame) cancelAnimationFrame(frame);
+    };
   }, []);
 
   const heroOpacity = Math.max(1 - progress * 1.2, 0);
@@ -151,9 +157,6 @@ export default function HomeHero() {
   const contentTranslate = progress * -40;
 
   const imageScale = 1 - progress * 0.45;
-
-  const vw = window.innerWidth;
-  const vh = window.innerHeight;
 
   const startX = -vw * 0.12;
   const startY = 0;
@@ -275,31 +278,34 @@ export default function HomeHero() {
         </div>
 
         {/* ===== Scroll Indicator ===== */}
-        <div
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        {/* 누르면 히어로 구간을 건너뛰고 News 로 바로 간다 */}
+        <button
+          onClick={() => scrollToSection("news")}
+          aria-label="Skip to news"
+          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group"
           style={{
-            opacity: 1 - progress * 2,
-            pointerEvents: "none",
+            opacity: Math.max(1 - progress * 2, 0),
+            pointerEvents: progress < 0.4 ? "auto" : "none",
           }}
         >
           <span className="text-[11px] tracking-widest opacity-70">
             SCROLL DOWN
           </span>
 
-          <div className="w-10 h-16 rounded-full border-2 border-gray-800/60 flex justify-center">
+          <div className="w-10 h-16 rounded-full border-2 border-gray-800/60 flex justify-center transition-colors group-hover:border-gray-800">
             <span className="w-1.5 h-3 bg-gray-800 rounded-full mt-3 animate-scroll-strong" />
           </div>
-        </div>
+        </button>
 
       </section>
 
       {/*
         히어로와 Welcome 이 차지하는 스크롤 길이. 뒤따르는 본문이 여기서부터 올라온다.
-        Welcome 이 머무는 동안(scrollY 1.0vh 까지) 본문은 화면 아래 1/4 에 머물고,
+        Welcome 이 머무는 동안(scrollY 가 WELCOME_HOLD_END 까지) 본문은 화면 아래 1/4 에 머물고,
         그 뒤로 Welcome 과 함께 올라온다.
         (히어로가 투명해지기 전까지는 pointerEvents:auto 라 클릭을 막는다)
       */}
-      <div style={{ height: "175svh" }} />
+      <div style={{ height: `${HERO_SCROLL_LENGTH * 100}svh` }} />
     </>
   );
 }

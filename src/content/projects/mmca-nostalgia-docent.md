@@ -13,7 +13,7 @@ scope:
   kr: 국립현대미술관
   jp: "国立現代美術館"
 
-thumbnail: "/projects/MMCA-nostalgia.png"
+thumbnail: "/projects/MMCA-nostalgia.webp"
 
 title:
   en: "MMCA Nostalgia for Technology: AI Docent Application with Meta Ray-Ban Display"

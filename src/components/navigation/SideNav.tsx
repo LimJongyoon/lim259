@@ -15,8 +15,10 @@ function groupByYear<T extends { year: number }>(items: T[]) {
   }, {});
 }
 
+const SHORTEN_LEN = 18;
+
 const shorten = (t: string) =>
-  t.length > 10 ? `${t.slice(0, 18)}…` : t;
+  t.length > SHORTEN_LEN ? `${t.slice(0, SHORTEN_LEN)}…` : t;
 
 /* ---------- scroll helper ---------- */
 
@@ -75,7 +77,7 @@ export default function SideNav() {
       }
     };
 
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
 
     return () => window.removeEventListener("scroll", onScroll);

@@ -13,7 +13,7 @@ scope:
   kr: 개인 외주 작업
   jp: "個人受託開発"
 
-thumbnail: "/images/image.png"
+thumbnail: "/images/image.webp"
 title:
   en: "PanicFree"
   kr: "PanicFree"

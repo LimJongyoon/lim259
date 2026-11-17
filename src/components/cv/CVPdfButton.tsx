@@ -14,8 +14,9 @@ export default function CVPdfButton({ lang }: { lang: Lang }) {
 
   return (
     <CVPdfLink lang={lang}>
-      {({ loading }: { loading: boolean }) => (
+      {({ loading }) => (
         <button
+          disabled={loading}
           className="
             px-3 py-1.5
             text-xs

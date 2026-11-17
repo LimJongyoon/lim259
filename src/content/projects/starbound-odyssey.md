@@ -12,7 +12,7 @@ scope:
   kr: XREAL 공모전
   jp: "XREAL コンテスト"
 
-thumbnail: "/projects/space2.png"
+thumbnail: "/projects/space2.webp"
 
 title:
   en: "Starbound Odyssey"
