@@ -72,7 +72,7 @@ export const cvContent = {
         kr: ["싱가포르"],
         jp: ["シンガポール"],
       },
-      year: "2027–Present",
+      year: "Incoming Research Engineer (starting January 2027)",
     },
     {
       role: {

@@ -19,9 +19,9 @@ authors:
   - name: Yongsoon Choi
 
 venue:
-  en: "IEEE ISMAR 2025 Demo"
-  kr: "IEEE ISMAR 2025 데모"
-  jp: "IEEE ISMAR 2025 デモ"
+  en: "IEEE ISMAR 2025 Adjunct (Demo), pp. 977–978"
+  kr: "IEEE ISMAR 2025 Adjunct (데모), pp. 977–978"
+  jp: "IEEE ISMAR 2025 Adjunct（デモ）, pp. 977–978"
 
 media:
   video: "https://www.youtube.com/embed/uqBGr7pi2UI?si=qNnpOl5HOW0YqD2g"

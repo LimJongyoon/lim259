@@ -1,6 +1,6 @@
 ---
 id: guide-dog-ar-2024
-year: 2024
+year: 2025
 type:
 scope: Full paper
 

@@ -8,9 +8,9 @@ scope: Full paper
 thumbnail: "/publications/haptug.png"
 
 title:
-  en: "HapTug: Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
-  kr: "HapTug: Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
-  jp: "HapTug: Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
+  en: "Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
+  kr: "Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
+  jp: "Force-Feedback Haptic Device for Representation of Tugs in Virtual Reality"
 
 authors:
   - name: Jongyoon Lim
