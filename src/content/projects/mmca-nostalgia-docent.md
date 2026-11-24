@@ -26,7 +26,10 @@ affiliation:
     jp: "ニューメディア展示のためのリアルタイム音声AIドーセントアプリケーション"
 
 media:
-  image: "/projects/mmca-nostalgia/architecture.jpg"
+  image: "/projects/mmca-nostalgia/hero_glasses_app.jpg"
+  images:
+    - "/projects/mmca-nostalgia/visitor_ho_tzu_nyen.jpg"
+    - "/projects/mmca-nostalgia/experience_desk.jpg"
   screens:
     - "/projects/mmca-nostalgia/app_1_home.jpg"
     - "/projects/mmca-nostalgia/app_2_answer.jpg"
